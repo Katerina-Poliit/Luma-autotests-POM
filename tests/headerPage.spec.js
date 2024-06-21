@@ -27,4 +27,11 @@ test.describe('headerPage.spec', () => {
 
 	});
 
+	test('ТС 01.1.3 Verify the the store logo has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.storeLogo).toBeVisible();
+		await expect(homePage.storeLogo).toHaveCSS('cursor', 'pointer');
+
+	});
+
 })
