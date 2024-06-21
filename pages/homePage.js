@@ -5,6 +5,7 @@ export class HomePage {
         this.page = page;
 
         this.headerSection = page.getByText('Toggle Nav My Cart My Cart');
+		  this.storeLogo = page.getByLabel('store logo');
 
     }
 
