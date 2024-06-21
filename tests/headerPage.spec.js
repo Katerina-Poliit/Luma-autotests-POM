@@ -3,6 +3,7 @@ import { BASE_URL, LINKS_LIST, NAVBAR_URLs_END_POINTS_FULL, LOGO_ALIGNMENT, SIGN
 import { HomePage } from "../pages/homePage";
 import { Logo } from "../components/logo";
 import { SignIn } from "../components/signIn";
+import { CreateAccount } from "../components/createAccount";
 
 
 test.describe('headerPage.spec', () => {
@@ -141,6 +142,20 @@ test.describe('headerPage.spec', () => {
 		await expect(page).toHaveURL(CREATE_NEW_CUSTOMER_ACCOUNT_PAGE_URL);
 		await expect(createNewCustomerAccountPage.pageHeader).toBeVisible();
 		await expect(createNewCustomerAccountPage.pageHeader).toHaveText(CREATE__NEW_CUSTOMER_ACCOUNT_PAGE_HEADER_TEXT);
+
+	});
+
+	test('ТС 01.1.14 Verify that the "Create an Account" link is located on every page of the website', async ({ page }) => {
+
+		const createAccount = new CreateAccount(page);
+		const allLinksWithCreateAccount = NAVBAR_URLs_END_POINTS_FULL;
+
+		for(let link of allLinksWithCreateAccount){
+		await page.goto(link);
+		const createAccountLink = await createAccount.createAccountLink;
+
+		await expect(createAccountLink).toBeVisible();
+		}
 
 	});
 
