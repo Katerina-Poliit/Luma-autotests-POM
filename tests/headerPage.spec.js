@@ -179,4 +179,10 @@ test.describe('headerPage.spec', () => {
 
 	});
 
+	test('ТС 01.1.18 Verify that the search button (magnifier) is inactive by default', async ({ page }) => {
+
+		await expect(homePage.searchBtn).toBeVisible();
+		await expect(homePage.searchBtn).toHaveAttribute('disabled');
+	});
+
 })
