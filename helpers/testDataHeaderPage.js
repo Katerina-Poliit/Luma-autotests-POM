@@ -25,3 +25,4 @@ export const LINKS_LIST = [
 //test data
 
 export const LOGO_ALIGNMENT = 'left';
+export const SIGN_IN_LINK_TEXT = 'Sign In';
