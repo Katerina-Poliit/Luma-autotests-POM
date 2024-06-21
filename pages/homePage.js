@@ -1,3 +1,5 @@
+import { CustomerLoginPage } from "./customerLoginPage";
+
 export class HomePage {
 
    constructor(page) {
@@ -23,6 +25,11 @@ export class HomePage {
 
 	async clickLogo() {
 		await this.storeLogo.click();
+	}
+
+	async clickSignInLink() {
+		await this.signInlink.click();
+		return new CustomerLoginPage(this.page)
 	}
 
 }
