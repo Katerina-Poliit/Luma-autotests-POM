@@ -185,4 +185,14 @@ test.describe('headerPage.spec', () => {
 		await expect(homePage.searchBtn).toHaveAttribute('disabled');
 	});
 
+	test('ТС 01.1.19 Verify that the search button (magnifier) is active only after entering one or more letters in the search field', async ({ page }) => {
+
+		await expect(homePage.searchBtn).toBeVisible();
+		await expect(homePage.searchBtn).toHaveAttribute('disabled');
+
+		await homePage.fillSearchField();
+
+		await expect(homePage.searchBtn).not.toHaveAttribute('disabled');
+	});
+
 })
