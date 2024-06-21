@@ -13,6 +13,7 @@ export class HomePage {
 		  this.signInlink = page.getByRole('link', { name: 'Sign In' });
 		  this.createAnAccountLink = page.getByRole('banner').getByRole('link', { name: 'Create an Account' });
 		  this.searchField = page.getByPlaceholder('Search entire store here...');
+		  this.searchBtn = page.locator("button[title='Search']");
 
 
 

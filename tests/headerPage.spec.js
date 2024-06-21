@@ -173,4 +173,10 @@ test.describe('headerPage.spec', () => {
 
 	});
 
+	test('ТС 01.1.17 Verify the search field contains the search button (magnifier)', async ({ page }) => {
+
+		await expect(homePage.searchBtn).toBeVisible();
+
+	});
+
 })
