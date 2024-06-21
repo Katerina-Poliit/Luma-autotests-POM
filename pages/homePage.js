@@ -41,4 +41,8 @@ export class HomePage {
 		return new CreateNewCustomerAccountPage(this.page)
 	}
 
+	async fillSearchField() {
+		await this.searchField.fill('a');
+	}
+
 }
