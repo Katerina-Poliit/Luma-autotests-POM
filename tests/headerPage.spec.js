@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-import { BASE_URL, LINKS_LIST, NAVBAR_URLs_END_POINTS_FULL, LOGO_ALIGNMENT, SIGN_IN_LINK_TEXT, CUSTOMER_LOGIN_PAGE_URL, CUSTOMER_LOGIN_PAGE_HEADER_TEXT, CREATE_AN_ACCOUNT_LINK_TEXT, CREATE_NEW_CUSTOMER_ACCOUNT_PAGE_URL, CREATE__NEW_CUSTOMER_ACCOUNT_PAGE_HEADER_TEXT } from "../helpers/testDataHeaderPage";
+import { BASE_URL, LINKS_LIST, NAVBAR_URLs_END_POINTS_FULL, LOGO_ALIGNMENT, SIGN_IN_LINK_TEXT, CUSTOMER_LOGIN_PAGE_URL, CUSTOMER_LOGIN_PAGE_HEADER_TEXT, CREATE_AN_ACCOUNT_LINK_TEXT, CREATE_NEW_CUSTOMER_ACCOUNT_PAGE_URL, CREATE__NEW_CUSTOMER_ACCOUNT_PAGE_HEADER_TEXT, SEARCH_FIELD_PLACEHOLDER_TEXT } from "../helpers/testDataHeaderPage";
 import { HomePage } from "../pages/homePage";
 import { Logo } from "../components/logo";
 import { SignIn } from "../components/signIn";
@@ -162,6 +162,14 @@ test.describe('headerPage.spec', () => {
 	test('ТС 01.1.15 Verify the the header of the site contains the search field', async ({ page }) => {
 
 		await expect(homePage.searchField).toBeVisible();
+
+	});
+
+	test('ТС 01.1.16 Verify the the search field contains the "Search entire store here..." placeholder', async ({ page }) => {
+		const homePage = new HomePage(page);
+
+		await expect(homePage.searchField).toBeVisible();
+		await expect(homePage.searchField).toHaveAttribute('placeholder', SEARCH_FIELD_PLACEHOLDER_TEXT)
 
 	});
 
