@@ -3,9 +3,17 @@ export class HomePage {
    constructor(page) {
 
         this.page = page;
+      //----------------------------- Header -----------------------------------------------------------
 
         this.headerSection = page.getByText('Toggle Nav My Cart My Cart');
 		  this.storeLogo = page.getByLabel('store logo');
+		  this.signInlink = page.getByRole('link', { name: 'Sign In' });
+
+
+
+		//----------------------------- Footer -----------------------------------------------------------
+
+
 
    }
 
