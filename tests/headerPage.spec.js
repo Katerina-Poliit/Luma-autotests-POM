@@ -2,6 +2,7 @@ const { test, expect } = require('@playwright/test');
 import { BASE_URL, LINKS_LIST, NAVBAR_URLs_END_POINTS_FULL, LOGO_ALIGNMENT, SIGN_IN_LINK_TEXT, CUSTOMER_LOGIN_PAGE_URL, CUSTOMER_LOGIN_PAGE_HEADER_TEXT } from "../helpers/testDataHeaderPage";
 import { HomePage } from "../pages/homePage";
 import { Logo } from "../components/logo";
+import { SignIn } from "../components/signIn";
 
 
 test.describe('headerPage.spec', () => {
@@ -100,6 +101,20 @@ test.describe('headerPage.spec', () => {
 		await expect(page).toHaveURL(CUSTOMER_LOGIN_PAGE_URL);
 		await expect(customerLoginPage.pageHeader).toBeVisible();
 		await expect(customerLoginPage.pageHeader).toHaveText(CUSTOMER_LOGIN_PAGE_HEADER_TEXT);
+
+	});
+
+	test('ТС 01.1.10 Verify that "Sign In" link is located on every page of the website', async ({ page }) => {
+
+		const signIn = new SignIn(page);
+		const allLinksWithSignIn = NAVBAR_URLs_END_POINTS_FULL;
+
+		for(let link of allLinksWithSignIn){
+		await page.goto(link);
+		const signInLink = await signIn.signInLink;
+
+		await expect(signInLink).toBeVisible();
+		}
 
 	});
 
