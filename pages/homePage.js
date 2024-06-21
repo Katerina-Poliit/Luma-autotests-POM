@@ -12,6 +12,7 @@ export class HomePage {
 		  this.storeLogo = page.getByLabel('store logo');
 		  this.signInlink = page.getByRole('link', { name: 'Sign In' });
 		  this.createAnAccountLink = page.getByRole('banner').getByRole('link', { name: 'Create an Account' });
+		  this.searchField = page.getByPlaceholder('Search entire store here...');
 
 
 
