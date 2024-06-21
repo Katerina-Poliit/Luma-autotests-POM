@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-import {  } from "../helpers/testDataHeaderPage";
+import { BASE_URL, LINKS_LIST } from "../helpers/testDataHeaderPage";
 import { HomePage } from "../pages/homePage";
 
 
@@ -47,6 +47,17 @@ test.describe('headerPage.spec', () => {
 		
 		// Проверка, что элемент img существует
 		await expect(img).toBeVisible();
+
+	});
+
+	test('ТС 01.1.5 Verify that the user is redirected to the homepage after clicking on the store logo from another page', async ({ page }) => {
+
+		for (let i = 0; i < LINKS_LIST.length; i++) {
+			let link = LINKS_LIST[i];
+			await page.goto(link);
+			await homePage.clickLogo();
+			await expect(page).toHaveURL(BASE_URL);
+		 }
 
 	});
 

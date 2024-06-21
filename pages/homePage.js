@@ -1,20 +1,20 @@
 export class HomePage {
 
-    constructor(page) {
+   constructor(page) {
 
         this.page = page;
 
         this.headerSection = page.getByText('Toggle Nav My Cart My Cart');
 		  this.storeLogo = page.getByLabel('store logo');
 
-    }
+   }
 
-	 async open() {
+	async open() {
 		await this.page.goto("/");
 	}
 
-   //  async clickOnLoginLink() {
-   //      await this.loginLink_cssLocator.click();
-   //  }
+	async clickLogo() {
+		await this.storeLogo.click();
+	}
 
 }
