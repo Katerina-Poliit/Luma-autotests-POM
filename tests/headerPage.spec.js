@@ -1,6 +1,7 @@
 const { test, expect } = require('@playwright/test');
-import { BASE_URL, LINKS_LIST } from "../helpers/testDataHeaderPage";
+import { BASE_URL, LINKS_LIST, NAVBAR_URLs_END_POINTS_FULL, LOGO_ALIGNMENT } from "../helpers/testDataHeaderPage";
 import { HomePage } from "../pages/homePage";
+import { Logo } from "../components/logo";
 
 
 test.describe('headerPage.spec', () => {
@@ -58,6 +59,21 @@ test.describe('headerPage.spec', () => {
 			await homePage.clickLogo();
 			await expect(page).toHaveURL(BASE_URL);
 		 }
+
+	});
+
+	test('ТС 01.1.6 Verify that the store logo is located from the left in all pages of site', async ({ page }) => {
+
+		const logo = new Logo(page);
+		const allLinksWithLogo = NAVBAR_URLs_END_POINTS_FULL;
+
+		for(let link of allLinksWithLogo){
+		await page.goto(link);
+		const storeLogo = await logo.storeLogo;
+
+		await expect(storeLogo).toBeVisible();
+		await expect(storeLogo).toHaveCSS('float', LOGO_ALIGNMENT);
+		}
 
 	});
 

@@ -12,6 +12,16 @@ export const LINKS_LIST = [
 	"https://magento.softwaretestingboard.com/customer/account/create/",
  ];
 
+ export const NAVBAR_URLs_END_POINTS_FULL = [
+	'/what-is-new.html',
+	'/women.html',
+	'/men.html',
+	'/gear.html',
+	'/training.html',
+	'/sale.html',
+	'/customer/account/create/'
+ ];
+
 //test data
 
-// export const LOGO_ALIGNMENT = 'left';
+export const LOGO_ALIGNMENT = 'left';
