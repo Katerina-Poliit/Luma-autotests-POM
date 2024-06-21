@@ -21,4 +21,10 @@ test.describe('headerPage.spec', () => {
 
 	});
 
+	test('ТС 01.1.2 Verify the the header of the site contains the store logo', async ({ page }) => {
+
+		await expect(homePage.storeLogo).toBeVisible();
+
+	});
+
 })
