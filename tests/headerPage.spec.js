@@ -84,4 +84,11 @@ test.describe('headerPage.spec', () => {
 
 	});
 
+	test('ТС 01.1.8 Verify the the "Sign In" link has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.signInlink).toBeVisible();
+		await expect(homePage.signInlink).toHaveCSS('cursor', 'pointer');
+
+	});
+
 })
