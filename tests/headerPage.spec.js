@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-import { BASE_URL, LINKS_LIST, NAVBAR_URLs_END_POINTS_FULL, LOGO_ALIGNMENT, SIGN_IN_LINK_TEXT, CUSTOMER_LOGIN_PAGE_URL, CUSTOMER_LOGIN_PAGE_HEADER_TEXT } from "../helpers/testDataHeaderPage";
+import { BASE_URL, LINKS_LIST, NAVBAR_URLs_END_POINTS_FULL, LOGO_ALIGNMENT, SIGN_IN_LINK_TEXT, CUSTOMER_LOGIN_PAGE_URL, CUSTOMER_LOGIN_PAGE_HEADER_TEXT, CREATE_AN_ACCOUNT_LINK_TEXT } from "../helpers/testDataHeaderPage";
 import { HomePage } from "../pages/homePage";
 import { Logo } from "../components/logo";
 import { SignIn } from "../components/signIn";
@@ -115,6 +115,14 @@ test.describe('headerPage.spec', () => {
 
 		await expect(signInLink).toBeVisible();
 		}
+
+	});
+
+	test('ТС 01.1.11 Verify the the header of the site contains the "Create an Account" link', async ({ page }) => {
+		const homePage = new HomePage(page);
+
+		await expect(homePage.createAnAccountLink).toBeVisible();
+		await expect(homePage.createAnAccountLink).toHaveText(CREATE_AN_ACCOUNT_LINK_TEXT);
 
 	});
 

@@ -10,6 +10,7 @@ export class HomePage {
         this.headerSection = page.getByText('Toggle Nav My Cart My Cart');
 		  this.storeLogo = page.getByLabel('store logo');
 		  this.signInlink = page.getByRole('link', { name: 'Sign In' });
+		  this.createAnAccountLink = page.getByRole('banner').getByRole('link', { name: 'Create an Account' });
 
 
 

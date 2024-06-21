@@ -28,3 +28,4 @@ export const LINKS_LIST = [
 export const LOGO_ALIGNMENT = 'left';
 export const SIGN_IN_LINK_TEXT = 'Sign In';
 export const CUSTOMER_LOGIN_PAGE_HEADER_TEXT = 'Customer Login';
+export const CREATE_AN_ACCOUNT_LINK_TEXT = 'Create an Account';
