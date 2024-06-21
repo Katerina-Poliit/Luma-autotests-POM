@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-import { BASE_URL, LINKS_LIST, NAVBAR_URLs_END_POINTS_FULL, LOGO_ALIGNMENT, SIGN_IN_LINK_TEXT } from "../helpers/testDataHeaderPage";
+import { BASE_URL, LINKS_LIST, NAVBAR_URLs_END_POINTS_FULL, LOGO_ALIGNMENT, SIGN_IN_LINK_TEXT, CUSTOMER_LOGIN_PAGE_URL, CUSTOMER_LOGIN_PAGE_HEADER_TEXT } from "../helpers/testDataHeaderPage";
 import { HomePage } from "../pages/homePage";
 import { Logo } from "../components/logo";
 
@@ -88,6 +88,18 @@ test.describe('headerPage.spec', () => {
 
 		await expect(homePage.signInlink).toBeVisible();
 		await expect(homePage.signInlink).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 01.1.9 Verify that the user is redirected to the "Customer Login" page after clicking on the "Sign In" link', async ({ page }) => {
+
+		await expect(page).toHaveURL(BASE_URL);
+
+		const customerLoginPage = await homePage.clickSignInLink();
+
+		await expect(page).toHaveURL(CUSTOMER_LOGIN_PAGE_URL);
+		await expect(customerLoginPage.pageHeader).toBeVisible();
+		await expect(customerLoginPage.pageHeader).toHaveText(CUSTOMER_LOGIN_PAGE_HEADER_TEXT);
 
 	});
 
