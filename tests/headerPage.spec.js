@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-import { BASE_URL, LINKS_LIST, NAVBAR_URLs_END_POINTS_FULL, LOGO_ALIGNMENT, SIGN_IN_LINK_TEXT, CUSTOMER_LOGIN_PAGE_URL, CUSTOMER_LOGIN_PAGE_HEADER_TEXT, CREATE_AN_ACCOUNT_LINK_TEXT } from "../helpers/testDataHeaderPage";
+import { BASE_URL, LINKS_LIST, NAVBAR_URLs_END_POINTS_FULL, LOGO_ALIGNMENT, SIGN_IN_LINK_TEXT, CUSTOMER_LOGIN_PAGE_URL, CUSTOMER_LOGIN_PAGE_HEADER_TEXT, CREATE_AN_ACCOUNT_LINK_TEXT, CREATE_NEW_CUSTOMER_ACCOUNT_PAGE_URL, CREATE__NEW_CUSTOMER_ACCOUNT_PAGE_HEADER_TEXT } from "../helpers/testDataHeaderPage";
 import { HomePage } from "../pages/homePage";
 import { Logo } from "../components/logo";
 import { SignIn } from "../components/signIn";
@@ -119,7 +119,6 @@ test.describe('headerPage.spec', () => {
 	});
 
 	test('ТС 01.1.11 Verify the the header of the site contains the "Create an Account" link', async ({ page }) => {
-		const homePage = new HomePage(page);
 
 		await expect(homePage.createAnAccountLink).toBeVisible();
 		await expect(homePage.createAnAccountLink).toHaveText(CREATE_AN_ACCOUNT_LINK_TEXT);
@@ -127,10 +126,21 @@ test.describe('headerPage.spec', () => {
 	});
 
 	test('ТС 01.1.12 Verify the the "Create an Account" link has a cursor pointer', async ({ page }) => {
-		const homePage = new HomePage(page);
 
 		await expect(homePage.createAnAccountLink).toBeVisible();
 		await expect(homePage.createAnAccountLink).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 01.1.13 Verify that the user is redirected to the "Create New Customer Account" page after clicking on the "Create an Account" link', async ({ page }) => {
+
+		await expect(page).toHaveURL(BASE_URL);
+
+		const createNewCustomerAccountPage = await homePage.clickCreateAnAccountLink();
+
+		await expect(page).toHaveURL(CREATE_NEW_CUSTOMER_ACCOUNT_PAGE_URL);
+		await expect(createNewCustomerAccountPage.pageHeader).toBeVisible();
+		await expect(createNewCustomerAccountPage.pageHeader).toHaveText(CREATE__NEW_CUSTOMER_ACCOUNT_PAGE_HEADER_TEXT);
 
 	});
 

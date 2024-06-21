@@ -1,3 +1,4 @@
+import { CreateNewCustomerAccountPage } from "./createNewCustomerAccountPage";
 import { CustomerLoginPage } from "./customerLoginPage";
 
 export class HomePage {
@@ -31,6 +32,11 @@ export class HomePage {
 	async clickSignInLink() {
 		await this.signInlink.click();
 		return new CustomerLoginPage(this.page)
+	}
+
+	async clickCreateAnAccountLink() {
+		await this.createAnAccountLink.click();
+		return new CreateNewCustomerAccountPage(this.page)
 	}
 
 }
