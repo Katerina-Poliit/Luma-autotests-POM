@@ -16,6 +16,7 @@ export class HomePage {
 		  this.searchField = page.getByPlaceholder('Search entire store here...');
 		  this.searchBtn = page.locator("button[title='Search']");
 		  this.dropdownSearch = page.locator('#search_autocomplete > ul > li');
+		  this.dropdownItem = page.locator('.qs-option-name').filter({hasText: 'shorts for men'});
 
 
 
@@ -66,6 +67,11 @@ export class HomePage {
 
 	async pressSearchField() {
 		await this.searchField.press('Enter');
+		return new SearchResultPageWithResults(this.page);
+	}
+
+	async clickDropdownItem() {
+		await this.dropdownItem.click();
 		return new SearchResultPageWithResults(this.page);
 	}
 

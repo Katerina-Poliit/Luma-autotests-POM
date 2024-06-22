@@ -35,3 +35,11 @@ export const SEARCH_FIELD_PLACEHOLDER_TEXT = 'Search entire store here...';
 export const SEARCH_ITEM = "short";
 export const SEARCH_ITEM_NEGATIVE = "sss";
 export const NO_RESULTS_MESSAGE_TEXT = "Your search returned no results.";
+
+export const AUTOCOMPLETELIST = [
+	'men t',
+	'men t shirt',
+	'men t shirst',
+	'men t short',
+	'men t shirts'
+];
