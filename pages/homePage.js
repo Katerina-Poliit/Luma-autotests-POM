@@ -24,6 +24,7 @@ export class HomePage {
 
 		//----------------------------- homePage -----------------------------------------------------------
 		this.bodyPage = page.locator('div').filter({ hasText: 'New Luma Yoga Collection Get' }).nth(3);
+		this.watsNewLink = page.getByRole('menuitem', { name: 'What\'s New' });
 
 
 
