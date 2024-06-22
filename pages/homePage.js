@@ -17,6 +17,7 @@ export class HomePage {
 		  this.searchBtn = page.locator("button[title='Search']");
 		  this.dropdownSearch = page.locator('#search_autocomplete > ul > li');
 		  this.dropdownItem = page.locator('.qs-option-name').filter({hasText: 'shorts for men'});
+		  this.cartBtn = page.getByRole('link', { name: ' My Cart' });
 
 
 
