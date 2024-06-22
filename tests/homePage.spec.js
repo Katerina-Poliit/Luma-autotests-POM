@@ -20,4 +20,10 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.2 Verify that the Home page contains the main content (body) of the page', async ({ page }) => {
+
+		await expect(homePage.bodyPage).toBeVisible();
+
+	});
+
 })
