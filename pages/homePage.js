@@ -15,6 +15,7 @@ export class HomePage {
 		  this.createAnAccountLink = page.getByRole('banner').getByRole('link', { name: 'Create an Account' });
 		  this.searchField = page.getByPlaceholder('Search entire store here...');
 		  this.searchBtn = page.locator("button[title='Search']");
+		  this.dropdownSearch = page.locator('#search_autocomplete > ul > li');
 
 
 
