@@ -10,3 +10,4 @@ export const WOMEN_LINK_TEXT = 'Women';
 export const MEN_LINK_TEXT = 'Men';
 export const GEAR_LINK_TEXT = 'Gear';
 export const TRAINING_LINK_TEXT = 'Training';
+export const SALE_LINK_TEXT = 'Sale';
