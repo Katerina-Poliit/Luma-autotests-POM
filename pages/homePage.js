@@ -23,6 +23,7 @@ export class HomePage {
 
 
 		//----------------------------- homePage -----------------------------------------------------------
+		this.bodyPage = page.locator('div').filter({ hasText: 'New Luma Yoga Collection Get' }).nth(3);
 
 
 
