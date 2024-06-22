@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-import { BASE_URL, WHATS_NEW_LINK_TEXT, WOMEN_LINK_TEXT, MEN_LINK_TEXT } from "../helpers/testDataHomePage";
+import { BASE_URL, WHATS_NEW_LINK_TEXT, WOMEN_LINK_TEXT, MEN_LINK_TEXT, GEAR_LINK_TEXT } from "../helpers/testDataHomePage";
 import { HomePage } from "../pages/homePage";
 
 test.describe('homePage.spec', () => {
@@ -44,6 +44,13 @@ test.describe('homePage.spec', () => {
 
 		await expect(homePage.menLink).toBeVisible();
 		await expect(homePage.menLink).toHaveText(MEN_LINK_TEXT);
+
+	});
+
+	test('ТС 03.1.6 Verify that the "Gear" navigation menu link is displayed and contains the appropriate text', async ({ page }) => {
+
+		await expect(homePage.gearLink).toBeVisible();
+		await expect(homePage.gearLink).toHaveText(GEAR_LINK_TEXT);
 
 	});
 

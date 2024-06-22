@@ -27,6 +27,7 @@ export class HomePage {
 		this.watsNewLink = page.getByRole('menuitem', { name: 'What\'s New' });
 		this.womenLink = page.getByRole('menuitem', { name: 'Women' });
 		this.menLink = page.getByRole('menuitem', { name: 'Men' }).last();
+		this.gearLink = page.getByRole('menuitem', { name: 'Gear' });
 
    }
 
