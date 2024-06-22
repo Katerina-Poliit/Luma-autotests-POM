@@ -5,6 +5,7 @@ import { Logo } from "../components/logo";
 import { SignIn } from "../components/signIn";
 import { CreateAccount } from "../components/createAccount";
 import { SearchField } from "../components/searchField";
+import { ShoppingCartIcon } from "../components/shoppingCartIcon";
 
 
 test.describe('headerPage.spec', () => {
@@ -381,6 +382,20 @@ test.describe('headerPage.spec', () => {
 
 		await expect(homePage.cartBtn).toBeVisible();
 		await expect(homePage.cartBtn).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 01.1.33 Verify that the shopping cart icon available on all pages of the site', async ({ page }) => {
+
+		const shoppingCartItem = new ShoppingCartIcon(page);
+		const allShoppingCartItems = NAVBAR_URLs_END_POINTS_FULL;
+
+		for(let link of allShoppingCartItems){
+			
+			await page.goto(link);
+			const shoppingCartItemAllPages = await shoppingCartItem.cartBtn;
+			await expect(shoppingCartItemAllPages).toBeVisible();
+		}
 
 	});
 

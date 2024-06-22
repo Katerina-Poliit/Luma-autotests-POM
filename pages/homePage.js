@@ -8,7 +8,6 @@ export class HomePage {
 
         this.page = page;
       //----------------------------- Header -----------------------------------------------------------
-
         this.headerSection = page.getByText('Toggle Nav My Cart My Cart');
 		  this.storeLogo = page.getByLabel('store logo');
 		  this.signInlink = page.getByRole('link', { name: 'Sign In' });
@@ -18,9 +17,6 @@ export class HomePage {
 		  this.dropdownSearch = page.locator('#search_autocomplete > ul > li');
 		  this.dropdownItem = page.locator('.qs-option-name').filter({hasText: 'shorts for men'});
 		  this.cartBtn = page.getByRole('link', { name: ' My Cart' });
-
-
-
 		//----------------------------- Footer -----------------------------------------------------------
 
 
