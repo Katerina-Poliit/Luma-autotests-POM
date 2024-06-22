@@ -45,4 +45,8 @@ export class HomePage {
 		await this.searchField.fill('a');
 	}
 
+	async cleanSearchField() {
+		await this.searchField.fill('');
+	}
+
 }
