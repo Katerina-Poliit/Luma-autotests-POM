@@ -4,6 +4,7 @@ import { HomePage } from "../pages/homePage";
 import { Logo } from "../components/logo";
 import { SignIn } from "../components/signIn";
 import { CreateAccount } from "../components/createAccount";
+import { SearchField } from "../components/searchField";
 
 
 test.describe('headerPage.spec', () => {
@@ -353,6 +354,20 @@ test.describe('headerPage.spec', () => {
 
 		//Ця перевірка порівнює довжину двох масивів autocompleteListLowerCase та autocompleteListUpperCase. Вона переконується, що обидва масиви мають однакову кількість елементів. Це важливо для того, щоб переконатись, що ні один з масивів не містить додаткових елементів, які можуть вплинути на порівняння.
 		expect(autocompleteListLowerCase.length).toEqual(autocompleteListUpperCase.length);
+
+	});
+
+	test('ТС 01.1.30 Verify that the search field available on all pages of the site', async ({ page }) => {
+
+		const search = new SearchField(page);
+		const allLinksWithSearchField = NAVBAR_URLs_END_POINTS_FULL;
+
+		for(let link of allLinksWithSearchField){
+			
+			await page.goto(link);
+			const searchFieldAllPages = await search.searchField;
+			await expect(searchFieldAllPages).toBeVisible();
+		}
 
 	});
 
