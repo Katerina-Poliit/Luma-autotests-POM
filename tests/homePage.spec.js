@@ -75,4 +75,11 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.10 Verify that the "Women" navigation menu link has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.womenLink).toBeVisible();
+		await expect(homePage.womenLink).toHaveCSS('cursor', 'pointer');
+
+	});
+
 })
