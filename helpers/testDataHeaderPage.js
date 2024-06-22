@@ -33,11 +33,5 @@ export const CREATE_AN_ACCOUNT_LINK_TEXT = 'Create an Account';
 export const CREATE__NEW_CUSTOMER_ACCOUNT_PAGE_HEADER_TEXT = 'Create New Customer Account';
 export const SEARCH_FIELD_PLACEHOLDER_TEXT = 'Search entire store here...';
 export const SEARCH_ITEM = "short";
-
-export const AUTOCOMPLETELIST = [
-	"Related search terms Short And Jacket",
-	"short and long pants",
-	"short t shirt",
-	"short+and+long+pants",
-	"Short+And+Jacket"
-];
+export const SEARCH_ITEM_NEGATIVE = "sss";
+export const NO_RESULTS_MESSAGE_TEXT = "Your search returned no results.";

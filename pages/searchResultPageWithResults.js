@@ -6,6 +6,8 @@ export class SearchResultPageWithResults {
 
         this.relatedSearchTerms = page.getByText('Related search terms Short')
 		  this.searchResults = page.getByRole('heading', { name: 'Search results for: \'short\'' }).locator('span');
+		  this.searchResultNegative = page.getByRole('heading', { name: 'Search results for: \'sss\'' }).locator('span');
+		  this.noResultsMessage = page.getByText('Your search returned no');
 
    }
 

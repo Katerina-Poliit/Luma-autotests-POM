@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-import { BASE_URL, LINKS_LIST, NAVBAR_URLs_END_POINTS_FULL, LOGO_ALIGNMENT, SIGN_IN_LINK_TEXT, CUSTOMER_LOGIN_PAGE_URL, CUSTOMER_LOGIN_PAGE_HEADER_TEXT, CREATE_AN_ACCOUNT_LINK_TEXT, CREATE_NEW_CUSTOMER_ACCOUNT_PAGE_URL, CREATE__NEW_CUSTOMER_ACCOUNT_PAGE_HEADER_TEXT, SEARCH_FIELD_PLACEHOLDER_TEXT, SEARCH_ITEM, AUTOCOMPLETELIST } from "../helpers/testDataHeaderPage";
+import { BASE_URL, LINKS_LIST, NAVBAR_URLs_END_POINTS_FULL, LOGO_ALIGNMENT, SIGN_IN_LINK_TEXT, CUSTOMER_LOGIN_PAGE_URL, CUSTOMER_LOGIN_PAGE_HEADER_TEXT, CREATE_AN_ACCOUNT_LINK_TEXT, CREATE_NEW_CUSTOMER_ACCOUNT_PAGE_URL, CREATE__NEW_CUSTOMER_ACCOUNT_PAGE_HEADER_TEXT, SEARCH_FIELD_PLACEHOLDER_TEXT, SEARCH_ITEM, SEARCH_ITEM_NEGATIVE, NO_RESULTS_MESSAGE_TEXT } from "../helpers/testDataHeaderPage";
 import { HomePage } from "../pages/homePage";
 import { Logo } from "../components/logo";
 import { SignIn } from "../components/signIn";
@@ -268,6 +268,18 @@ test.describe('headerPage.spec', () => {
 		expect(isMatchingItem).toBeTruthy();
   		await expect(searchResultPageWithResults.searchResults).toBeVisible(); 
 		await expect(searchResultPageWithResults.searchResults).toContainText(SEARCH_ITEM);
+
+	});
+
+	test('ТС 01.1.25 Verify that the user receives "Your search returned no results" if no results are found', async ({ page }) => {
+
+		await homePage.fillSearchFieldSmth(SEARCH_ITEM_NEGATIVE);
+
+		const searchResultPageWithResults = await homePage.clickSearchBtn();
+
+		await expect(searchResultPageWithResults.searchResultNegative).toBeVisible();
+		await expect(searchResultPageWithResults.noResultsMessage).toBeVisible();
+		await expect(searchResultPageWithResults.noResultsMessage).toHaveText(NO_RESULTS_MESSAGE_TEXT);
 
 	});
 
