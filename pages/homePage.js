@@ -24,7 +24,7 @@ export class HomePage {
 		  this.dropdownItem = page.locator('.qs-option-name').filter({hasText: 'shorts for men'});
 		  this.cartBtn = page.getByRole('link', { name: ' My Cart' });
 		//----------------------------- Footer -----------------------------------------------------------
-
+         this.footerContent = this.page.locator('.page-wrapper footer'),
 
 
 
