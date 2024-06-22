@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-import { BASE_URL, WHATS_NEW_LINK_TEXT, WOMEN_LINK_TEXT, MEN_LINK_TEXT, GEAR_LINK_TEXT, TRAINING_LINK_TEXT, SALE_LINK_TEXT, WHATS_NEW_URL, WHATS_NEW_PAGE_HEADER_TEXT, WOMEN_URL, WOMEN_PAGE_HEADER_TEXT, MEN_URL, MEN_PAGE_HEADER_TEXT, GEAR_URL, GEAR_PAGE_HEADER_TEXT } from "../helpers/testDataHomePage";
+import { BASE_URL, WHATS_NEW_LINK_TEXT, WOMEN_LINK_TEXT, MEN_LINK_TEXT, GEAR_LINK_TEXT, TRAINING_LINK_TEXT, SALE_LINK_TEXT, WHATS_NEW_URL, WHATS_NEW_PAGE_HEADER_TEXT, WOMEN_URL, WOMEN_PAGE_HEADER_TEXT, MEN_URL, MEN_PAGE_HEADER_TEXT, GEAR_URL, GEAR_PAGE_HEADER_TEXT, TRAINING_URL, TRAINING_PAGE_HEADER_TEXT } from "../helpers/testDataHomePage";
 import { HomePage } from "../pages/homePage";
 
 test.describe('homePage.spec', () => {
@@ -159,6 +159,19 @@ test.describe('homePage.spec', () => {
 
 		await expect(gearPage.header).toBeVisible();
 		await expect(gearPage.header).toHaveText(GEAR_PAGE_HEADER_TEXT);
+
+	});
+
+	test('ТС 03.1.19 Verify that the "Training" navigation menu link redirects to corresponding page', async ({ page }) => {
+
+		await expect(page).toHaveURL(BASE_URL);
+
+		const trainingPage = await homePage.clickTrainingLink();
+
+		await expect(page).toHaveURL(TRAINING_URL);
+
+		await expect(trainingPage.header).toBeVisible();
+		await expect(trainingPage.header).toHaveText(TRAINING_PAGE_HEADER_TEXT);
 
 	});
 

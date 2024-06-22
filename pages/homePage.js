@@ -3,6 +3,7 @@ import { CustomerLoginPage } from "./customerLoginPage";
 import { GearPage } from "./gearPage";
 import { MenPage } from "./menPage";
 import { SearchResultPageWithResults } from "./searchResultPageWithResults";
+import { TrainingPage } from "./trainingPage";
 import { WhatsNewPage } from "./watsNewPage";
 import { WomenPage } from "./womenPage";
 
@@ -104,6 +105,11 @@ export class HomePage {
 	async clickGearLink() {
 		await this.gearLink.click();
 		return new GearPage(this.page);
+	}
+
+	async clickTrainingLink() {
+		await this.trainingLink.click();
+		return new TrainingPage(this.page);
 	}
 
 }
