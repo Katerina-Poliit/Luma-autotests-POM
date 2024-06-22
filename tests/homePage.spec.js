@@ -68,4 +68,11 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.9 Verify that the "What\'s New" navigation menu link has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.watsNewLink).toBeVisible();
+		await expect(homePage.watsNewLink).toHaveCSS('cursor', 'pointer');
+
+	});
+
 })
