@@ -2,6 +2,7 @@ import { CreateNewCustomerAccountPage } from "./createNewCustomerAccountPage";
 import { CustomerLoginPage } from "./customerLoginPage";
 import { GearPage } from "./gearPage";
 import { MenPage } from "./menPage";
+import { SalePage } from "./salePage";
 import { SearchResultPageWithResults } from "./searchResultPageWithResults";
 import { TrainingPage } from "./trainingPage";
 import { WhatsNewPage } from "./watsNewPage";
@@ -110,6 +111,11 @@ export class HomePage {
 	async clickTrainingLink() {
 		await this.trainingLink.click();
 		return new TrainingPage(this.page);
+	}
+
+	async clickSaleLink() {
+		await this.saleLink.click();
+		return new SalePage(this.page);
 	}
 
 }
