@@ -49,4 +49,8 @@ export class HomePage {
 		await this.searchField.fill('');
 	}
 
+	async clickSearchField() {
+		await this.searchField.click();
+	}
+
 }

@@ -216,4 +216,15 @@ test.describe('headerPage.spec', () => {
 
 	});
 
+	test('ТС 01.1.22 Verify that the search field has a different highlight color and border appearance after clicking on it', async ({ page }) => {
+
+		await expect(homePage.searchField).toBeVisible();
+
+		await homePage.clickSearchField();
+
+		await expect(homePage.searchField).toBeVisible();
+		await expect(homePage.searchField).toHaveCSS('box-shadow', 'rgb(0, 105, 157) 0px 0px 3px 1px');
+
+	});
+
 })
