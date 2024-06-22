@@ -1,6 +1,7 @@
 import { CreateNewCustomerAccountPage } from "./createNewCustomerAccountPage";
 import { CustomerLoginPage } from "./customerLoginPage";
 import { SearchResultPageWithResults } from "./searchResultPageWithResults";
+import { WhatsNewPage } from "./watsNewPage";
 
 export class HomePage {
 
@@ -80,6 +81,11 @@ export class HomePage {
 	async clickDropdownItem() {
 		await this.dropdownItem.click();
 		return new SearchResultPageWithResults(this.page);
+	}
+
+	async clickWatsNewLink() {
+		await this.watsNewLink.click();
+		return new WhatsNewPage(this.page);
 	}
 
 }

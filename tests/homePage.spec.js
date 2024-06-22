@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-import { BASE_URL, WHATS_NEW_LINK_TEXT, WOMEN_LINK_TEXT, MEN_LINK_TEXT, GEAR_LINK_TEXT, TRAINING_LINK_TEXT, SALE_LINK_TEXT } from "../helpers/testDataHomePage";
+import { BASE_URL, WHATS_NEW_LINK_TEXT, WOMEN_LINK_TEXT, MEN_LINK_TEXT, GEAR_LINK_TEXT, TRAINING_LINK_TEXT, SALE_LINK_TEXT, WHATS_NEW_URL, WHATS_NEW_PAGE_HEADER_TEXT } from "../helpers/testDataHomePage";
 import { HomePage } from "../pages/homePage";
 
 test.describe('homePage.spec', () => {
@@ -109,5 +109,18 @@ test.describe('homePage.spec', () => {
 		await expect(homePage.saleLink).toHaveCSS('cursor', 'pointer');
 
 	});
+
+	test('ТС 03.1.15 Verify that the "What\'s New" navigation menu link redirects to corresponding page', async ({ page }) => {
+
+		await expect(page).toHaveURL(BASE_URL);
+
+		const whatsNewPage = await homePage.clickWatsNewLink();
+
+		await expect(page).toHaveURL(WHATS_NEW_URL);
+
+		await expect(whatsNewPage.header).toBeVisible();
+		await expect(whatsNewPage.header).toHaveText(WHATS_NEW_PAGE_HEADER_TEXT);
+
+		});
 
 })
