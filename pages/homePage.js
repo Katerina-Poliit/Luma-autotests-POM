@@ -63,4 +63,9 @@ export class HomePage {
 		return new SearchResultPageWithResults(this.page);
 	}
 
+	async pressSearchField() {
+		await this.searchField.press('Enter');
+		return new SearchResultPageWithResults(this.page);
+	}
+
 }
