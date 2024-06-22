@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-import { BASE_URL, LINKS_LIST, NAVBAR_URLs_END_POINTS_FULL, LOGO_ALIGNMENT, SIGN_IN_LINK_TEXT, CUSTOMER_LOGIN_PAGE_URL, CUSTOMER_LOGIN_PAGE_HEADER_TEXT, CREATE_AN_ACCOUNT_LINK_TEXT, CREATE_NEW_CUSTOMER_ACCOUNT_PAGE_URL, CREATE__NEW_CUSTOMER_ACCOUNT_PAGE_HEADER_TEXT, SEARCH_FIELD_PLACEHOLDER_TEXT } from "../helpers/testDataHeaderPage";
+import { BASE_URL, LINKS_LIST, NAVBAR_URLs_END_POINTS_FULL, LOGO_ALIGNMENT, SIGN_IN_LINK_TEXT, CUSTOMER_LOGIN_PAGE_URL, CUSTOMER_LOGIN_PAGE_HEADER_TEXT, CREATE_AN_ACCOUNT_LINK_TEXT, CREATE_NEW_CUSTOMER_ACCOUNT_PAGE_URL, CREATE__NEW_CUSTOMER_ACCOUNT_PAGE_HEADER_TEXT, SEARCH_FIELD_PLACEHOLDER_TEXT, SEARCH_ITEM, AUTOCOMPLETELIST } from "../helpers/testDataHeaderPage";
 import { HomePage } from "../pages/homePage";
 import { Logo } from "../components/logo";
 import { SignIn } from "../components/signIn";
@@ -224,6 +224,32 @@ test.describe('headerPage.spec', () => {
 
 		await expect(homePage.searchField).toBeVisible();
 		await expect(homePage.searchField).toHaveCSS('box-shadow', 'rgb(0, 105, 157) 0px 0px 3px 1px');
+
+	});
+
+	test('ТС 01.1.23 Verify that the automatic search results match the query in the search bar after clicking on the search button (magnifier)', async ({ page }) => {
+
+    await homePage.fillSearchFieldSmth(SEARCH_ITEM);
+
+    const searchResultPageWithResults = await homePage.clickSearchBtn();
+
+	 // Проверка, что связанные поисковые термины видны
+	 await expect(searchResultPageWithResults.relatedSearchTerms).toBeVisible();
+
+    // Получение списка связанных поисковых терминов на странице результатов поиска
+    const relatedSearchTerms = await searchResultPageWithResults.getRelatedSearchTermsText();
+
+    // Создание объекта регулярного выражения для поиска текста SEARCH_ITEM
+    const regex = new RegExp(SEARCH_ITEM, 'i'); // Флаг i в регулярном выражении указывает на регистронезависимый поиск
+
+    // Проверка, содержится ли хотя бы один элемент из списка связанных поисковых терминов текст SEARCH_ITEM с помощью регулярного выражения
+    const isMatchingItem = relatedSearchTerms.some(term => regex.test(term));
+
+    // Проверка, что найдено хотя бы один элемент, который соответствует тексту поиска
+    expect(isMatchingItem).toBeTruthy();
+
+    await expect(searchResultPageWithResults.searchResults).toBeVisible(); 
+    await expect(searchResultPageWithResults.searchResults).toContainText(SEARCH_ITEM);
 
 	});
 
