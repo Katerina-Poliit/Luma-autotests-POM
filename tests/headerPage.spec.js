@@ -195,4 +195,13 @@ test.describe('headerPage.spec', () => {
 		await expect(homePage.searchBtn).not.toHaveAttribute('disabled');
 	});
 
+	test('ТС 01.1.20 Verify the the search button (magnifier) has a cursor pointer', async ({ page }) => {
+
+		await homePage.fillSearchField();
+
+		await expect(homePage.searchBtn).toBeVisible()
+		await expect(homePage.searchBtn).toHaveCSS('cursor', 'pointer');
+
+	});
+
 })
