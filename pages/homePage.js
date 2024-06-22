@@ -2,6 +2,7 @@ import { CreateNewCustomerAccountPage } from "./createNewCustomerAccountPage";
 import { CustomerLoginPage } from "./customerLoginPage";
 import { SearchResultPageWithResults } from "./searchResultPageWithResults";
 import { WhatsNewPage } from "./watsNewPage";
+import { WomenPage } from "./womenPage";
 
 export class HomePage {
 
@@ -86,6 +87,11 @@ export class HomePage {
 	async clickWatsNewLink() {
 		await this.watsNewLink.click();
 		return new WhatsNewPage(this.page);
+	}
+
+	async clickWomenLink() {
+		await this.womenLink.click();
+		return new WomenPage(this.page);
 	}
 
 }
