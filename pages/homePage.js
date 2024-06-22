@@ -1,5 +1,6 @@
 import { CreateNewCustomerAccountPage } from "./createNewCustomerAccountPage";
 import { CustomerLoginPage } from "./customerLoginPage";
+import { MenPage } from "./menPage";
 import { SearchResultPageWithResults } from "./searchResultPageWithResults";
 import { WhatsNewPage } from "./watsNewPage";
 import { WomenPage } from "./womenPage";
@@ -92,6 +93,11 @@ export class HomePage {
 	async clickWomenLink() {
 		await this.womenLink.click();
 		return new WomenPage(this.page);
+	}
+
+	async clickMenLink() {
+		await this.menLink.click();
+		return new MenPage(this.page);
 	}
 
 }

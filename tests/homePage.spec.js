@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-import { BASE_URL, WHATS_NEW_LINK_TEXT, WOMEN_LINK_TEXT, MEN_LINK_TEXT, GEAR_LINK_TEXT, TRAINING_LINK_TEXT, SALE_LINK_TEXT, WHATS_NEW_URL, WHATS_NEW_PAGE_HEADER_TEXT, WOMEN_URL, WOMEN_PAGE_HEADER_TEXT } from "../helpers/testDataHomePage";
+import { BASE_URL, WHATS_NEW_LINK_TEXT, WOMEN_LINK_TEXT, MEN_LINK_TEXT, GEAR_LINK_TEXT, TRAINING_LINK_TEXT, SALE_LINK_TEXT, WHATS_NEW_URL, WHATS_NEW_PAGE_HEADER_TEXT, WOMEN_URL, WOMEN_PAGE_HEADER_TEXT, MEN_URL, MEN_PAGE_HEADER_TEXT } from "../helpers/testDataHomePage";
 import { HomePage } from "../pages/homePage";
 
 test.describe('homePage.spec', () => {
@@ -133,6 +133,19 @@ test.describe('homePage.spec', () => {
 
 		await expect(womenPage.header).toBeVisible();
 		await expect(womenPage.header).toHaveText(WOMEN_PAGE_HEADER_TEXT);
+
+	});
+
+	test('ТС 03.1.17 Verify that the Men" navigation menu link redirects to corresponding page', async ({ page }) => {
+
+		await expect(page).toHaveURL(BASE_URL);
+
+		const menPage = await homePage.clickMenLink()
+
+		await expect(page).toHaveURL(MEN_URL);
+
+		await expect(menPage.header).toBeVisible();
+		await expect(menPage.header).toHaveText(MEN_PAGE_HEADER_TEXT);
 
 	});
 
