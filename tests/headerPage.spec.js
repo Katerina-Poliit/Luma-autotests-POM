@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-import { BASE_URL, LINKS_LIST, NAVBAR_URLs_END_POINTS_FULL, LOGO_ALIGNMENT, SIGN_IN_LINK_TEXT, CUSTOMER_LOGIN_PAGE_URL, CUSTOMER_LOGIN_PAGE_HEADER_TEXT, CREATE_AN_ACCOUNT_LINK_TEXT, CREATE_NEW_CUSTOMER_ACCOUNT_PAGE_URL, CREATE__NEW_CUSTOMER_ACCOUNT_PAGE_HEADER_TEXT, SEARCH_FIELD_PLACEHOLDER_TEXT, SEARCH_ITEM, SEARCH_ITEM_NEGATIVE, NO_RESULTS_MESSAGE_TEXT } from "../helpers/testDataHeaderPage";
+import { BASE_URL, LINKS_LIST, NAVBAR_URLs_END_POINTS_FULL, LOGO_ALIGNMENT, SIGN_IN_LINK_TEXT, CUSTOMER_LOGIN_PAGE_URL, CUSTOMER_LOGIN_PAGE_HEADER_TEXT, CREATE_AN_ACCOUNT_LINK_TEXT, CREATE_NEW_CUSTOMER_ACCOUNT_PAGE_URL, CREATE__NEW_CUSTOMER_ACCOUNT_PAGE_HEADER_TEXT, SEARCH_FIELD_PLACEHOLDER_TEXT, SEARCH_ITEM, SEARCH_ITEM_NEGATIVE, NO_RESULTS_MESSAGE_TEXT, AUTOCOMPLETELIST } from "../helpers/testDataHeaderPage";
 import { HomePage } from "../pages/homePage";
 import { Logo } from "../components/logo";
 import { SignIn } from "../components/signIn";
@@ -301,6 +301,26 @@ test.describe('headerPage.spec', () => {
 			expect(textContent.trim().toLowerCase()).toContain('short'); 
 		}
 			
+	});
+
+	test('ТС 01.1.27 Verify that the user is redirected to the search results page after clicking a product name in the drop-down list, and the search results match the query entered in the search bar', async ({ page }) => {
+
+		await homePage.fillSearchFieldSmth(SEARCH_ITEM);
+
+		await expect(homePage.dropdownItem).toBeVisible();
+
+		const searchResultPageWithResults = await homePage.clickDropdownItem();
+
+		await page.waitForLoadState('networkidle');
+
+		await expect(page).toHaveURL(/search/);
+
+		await expect(searchResultPageWithResults.searchResultShortForMan).toBeVisible(); 
+		await expect(searchResultPageWithResults.searchResultShortForMan).toContainText(SEARCH_ITEM);
+
+		await expect(searchResultPageWithResults.searchResultShort).toBeVisible();
+		await expect(searchResultPageWithResults.searchResultShort).toContainText(SEARCH_ITEM);
+
 	});
 
 })
