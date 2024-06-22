@@ -1,5 +1,6 @@
 import { CreateNewCustomerAccountPage } from "./createNewCustomerAccountPage";
 import { CustomerLoginPage } from "./customerLoginPage";
+import { SearchResultPageWithResults } from "./searchResultPageWithResults";
 
 export class HomePage {
 
@@ -51,6 +52,15 @@ export class HomePage {
 
 	async clickSearchField() {
 		await this.searchField.click();
+	}
+
+	async fillSearchFieldSmth(value) {
+		await this.searchField.fill(value);
+	}
+
+	async clickSearchBtn() {
+		await this.searchBtn.click();
+		return new SearchResultPageWithResults(this.page);
 	}
 
 }
