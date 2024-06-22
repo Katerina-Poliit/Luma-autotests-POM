@@ -20,4 +20,11 @@ test.describe('footerPage.spec', () => {
 		await expect(homePage.footerContent).toBeVisible();
 
 	});
+
+	test('ТС 02.1.2 Verify that the "Notes" link is placed in the footer', async ({ page }) => {
+
+		await expect(homePage.noteslink).toBeVisible();
+		await expect(homePage.noteslink).toHaveText(NOTES_LINK_TEXT);
+
+	});
 });

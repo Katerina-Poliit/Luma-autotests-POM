@@ -25,6 +25,7 @@ export class HomePage {
 		  this.cartBtn = page.getByRole('link', { name: ' My Cart' });
 		//----------------------------- Footer -----------------------------------------------------------
          this.footerContent = this.page.locator('.page-wrapper footer'),
+		 this.noteslink = page.getByRole('link', { name: 'Notes' }),
 
 
 
