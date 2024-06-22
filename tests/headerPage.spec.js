@@ -253,4 +253,22 @@ test.describe('headerPage.spec', () => {
 
 	});
 
+	test('ТС 01.1.24 Verify that the automatic search results match the query in the search bar after pressing Enter in the search field', async ({ page }) => {
+
+		await homePage.fillSearchFieldSmth(SEARCH_ITEM);
+
+		const searchResultPageWithResults = await homePage.pressSearchField();
+  
+		await expect(searchResultPageWithResults.relatedSearchTerms).toBeVisible();
+  
+		const relatedSearchTerms = await searchResultPageWithResults.getRelatedSearchTermsText();
+		const regex = new RegExp(SEARCH_ITEM, 'i');
+		const isMatchingItem = relatedSearchTerms.some(term => regex.test(term));
+
+		expect(isMatchingItem).toBeTruthy();
+  		await expect(searchResultPageWithResults.searchResults).toBeVisible(); 
+		await expect(searchResultPageWithResults.searchResults).toContainText(SEARCH_ITEM);
+
+	});
+
 })
