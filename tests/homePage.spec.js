@@ -103,4 +103,11 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.14 Verify that the "Sale" navigation menu link has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.saleLink).toBeVisible();
+		await expect(homePage.saleLink).toHaveCSS('cursor', 'pointer');
+
+	});
+
 })
