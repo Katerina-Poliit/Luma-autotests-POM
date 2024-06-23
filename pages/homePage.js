@@ -236,6 +236,7 @@ export class HomePage {
 	}
 
 	async hoverWomenBottoms() {
+	
 		await this.womenPants.hover();
 
 	}
