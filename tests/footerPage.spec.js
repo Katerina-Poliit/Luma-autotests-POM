@@ -268,6 +268,38 @@ test.describe('footerPage.spec', () => {
 		await expect(advancedSearchPage.descriptionField).toBeVisible();
 	});
 
+	test('ТС 02.1.31 Verify that the "Advanced Search" page contains the "Short Description" field', async ({ page }) => {
+		const advancedSearchPage = await homePage.clickadvancedSearchLink();
+		await expect(advancedSearchPage.shortDescriptionField).toBeVisible();
+	});
+
+	test('ТС 02.1.32 Verify that the "Advanced Search" page contains the "Price" field', async ({ page }) => {
+		const advancedSearchPage = await homePage.clickadvancedSearchLink();
+		await expect(advancedSearchPage.priceField).toBeVisible();
+	});
+
+	test('ТС 02.1.39 Verify that the "Advanced Search" page contains the "USD" field', async ({ page }) => {
+		const advancedSearchPage = await homePage.clickadvancedSearchLink();
+		await expect(advancedSearchPage.USDField).toBeVisible();
+	});
+
+	test('ТС 02.1.33 Verify that the "Advanced Search" page contains the "Search" button', async ({ page }) => {
+		const advancedSearchPage = await homePage.clickadvancedSearchLink();
+		await expect(advancedSearchPage.searchBtn).toBeVisible();
+		await expect(advancedSearchPage.searchBtn).toHaveCSS('cursor', 'pointer');
+		await expect(advancedSearchPage.searchBtn).toHaveCSS('background', 'rgb(25, 121, 195) none repeat scroll 0% 0% / auto padding-box border-box');
+		await expect(advancedSearchPage.searchBtn).toHaveText(SEARCH_BTN_TEXT);
+	});
+
+	test('ТС 02.1.34  Verify that the transition to the results page is successful, at least one field is filled with valid data', async ({ page }) => {
+		const advancedSearchPage = await homePage.clickadvancedSearchLink();
+		await advancedSearchPage.fillSKUField();
+		await advancedSearchPage.clicksearchBtn();
+		await expect(page).toHaveURL(RESULT_SEARCH_PAGE_URL);
+		
+
+	});
+
 
 
 

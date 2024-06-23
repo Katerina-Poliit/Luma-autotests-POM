@@ -14,6 +14,7 @@ import SubscribePage from "./subscribePage";
 import PolicyPage from "./policyPage";
 import SearchtermsPage from "./searchTermsPage";
 import AndvancedSearchPage from "./advancedSearchPage";
+import ResultSearchPage from "./resultSearchPage";
 
 export class HomePage {
 
