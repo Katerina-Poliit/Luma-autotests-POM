@@ -328,6 +328,49 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.130 Verify that the subcategories are redirected to the appropriate pages', async ({ page }) => {
+
+		await homePage.hoverwomenLink();
+		await homePage.hoverwomenCategoryTops();
+	    const womenBrassTanksPage = await homePage.clicktopsBrassTanks();
+		await expect(page).toHaveURL(WOMEN_TOPS_BRASSTANKS_URL);
+		await expect(womenBrassTanksPage.headingBrassTanksPage).toHaveText(HEADING_BRASTANKS_PAGE_TEXT);
+
+	});
+
+	test('ТС 03.1.131 Verify that the dropdown contains the "Bottoms" dropdown', async ({ page }) => {
+
+		await homePage.hoverwomenLink();
+	    expect(homePage.womenBottoms).toBeVisible();
+		expect(homePage.womenBottoms).toHaveText(WOMEN_CATAGORY_BOTTOMS)
+
+	});
+
+	test('ТС 03.1.132 Verify that the "Bottoms" dropdown contains a cursor pointer', async ({ page }) => {
+
+		await homePage.hoverwomenLink();
+	    expect(homePage.womenBottoms).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 03.1.133 Verify that the "Bottoms" dropdown redirects to the appropriate page', async ({ page }) => {
+
+		await homePage.hoverwomenLink();
+	    const womenBottomsPage = await homePage.clickwomenBottoms();
+		await expect(page).toHaveURL(WOMEN_BOTTOMS_PAGE_URL);
+		await expect(womenBottomsPage.heading).toHaveText(HEADING_BOTTOMS_TEXT);
+
+	});
+
+	test('ТС 03.1.134 Verify that the "Bottoms" dropdown contains the "Pants" subcategory', async ({ page }) => {
+
+		await homePage.hoverwomenLink();
+		await homePage.hoverWomenBottoms()
+	    expect(homePage.womenPants).toBeVisible();
+		expect(homePage.womenPants).toHaveText(WOMEN_BOTTOMS_SUBCATEGORY_PANTS_TEXT)
+
+	});
+
 
 
 
