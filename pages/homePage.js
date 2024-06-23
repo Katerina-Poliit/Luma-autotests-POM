@@ -11,7 +11,9 @@ import NotesPage from "./notesPage";
 import ParticeAPIPage from "./particeApi.Page";
 import WriteForUsPage  from "./writeForUsPage";
 import SubscribePage from "./subscribePage";
-import PolicyPage from "./policyPage"
+import PolicyPage from "./policyPage";
+import SearchtermsPage from "./searchTermsPage";
+import AndvancedSearchPage from "./advancedSearchPage";
 
 export class HomePage {
 
@@ -35,7 +37,8 @@ export class HomePage {
 		 this.forUsLink = page.getByRole('link', { name: 'Write for us' });
 		 this.subscribeLink = page.getByRole('link', { name: 'Subscribe' });
 		 this.privacyCookiesLink = page.getByRole('link', { name: 'Privacy and Cookie Policy' });
-		 this.searchTermsLink = page.getByRole('link', { name: 'Search Terms' }),
+		 this.searchTermsLink = page.getByRole('link', { name: 'Search Terms' });
+		 this.advancedSearchLink = page.getByRole('link', { name: 'Advanced Search' });
 
 
 
@@ -47,6 +50,7 @@ export class HomePage {
 		this.gearLink = page.getByRole('menuitem', { name: 'Gear' });
 		this.trainingLink = page.getByRole('menuitem', { name: 'Training' });
 		this.saleLink = page.getByRole('menuitem', { name: 'Sale' });
+
 
 
    }
@@ -153,6 +157,16 @@ export class HomePage {
 	async clickprivacyCookiesLink() {
 		await this.privacyCookiesLink.click();
 		return new PolicyPage(this.page);
+	}
+
+	async clicksearchTermsLink() {
+		await this.searchTermsLink.click();
+		return new SearchtermsPage(this.page);
+	}
+
+	async clickadvancedSearchLink() {
+		await this.advancedSearchLink.click();
+		return new AndvancedSearchPage(this.page);
 	}
 
 
