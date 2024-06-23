@@ -3,6 +3,10 @@ import { HomePage } from "../pages/homePage";
 import { NOTES_LINK_TEXT, NOTES_PAGE_URL, PARTICEAPI_PAGE_URL, FOR_US_LINK_URL, SUBSCRIBE_LINK_URL, POLICY_PAGE_URL, expectedMenuItems, SEARCH_TERM_LINK_URL, SEARCH_TERMS_PAGE_HEANDING_TEXT, ADVANCED_SEARCH_PAGE_URL, SEARCH_BTN_TEXT, RESULT_SEARCH_PAGE_URL, ORDERS_RESULTS_PAGE_URL, ORDERS_AND_RETURNS_PAGE_FIELDS } from "../helpers/testDataFooterPage";
 import PolicyPage from "../pages/policyPage";
 import SearchtermsPage from "../pages/searchTermsPage";
+import ResultSearchPage from "../pages/resultSearchPage";
+import {BASE_URL} from "../helpers/testDataHomePage";
+
+
 
 
 test.describe('footerPage.spec', () => {
@@ -296,9 +300,86 @@ test.describe('footerPage.spec', () => {
 		await advancedSearchPage.fillSKUField();
 		await advancedSearchPage.clicksearchBtn();
 		await expect(page).toHaveURL(RESULT_SEARCH_PAGE_URL);
-		
 
 	});
+
+	test('ТС 02.1.36  Verify that the an informational message is displayed on the result page', async ({ page }) => {
+		const advancedSearchPage = await homePage.clickadvancedSearchLink();
+		await advancedSearchPage.fillSKUField();
+		await advancedSearchPage.clicksearchBtn();
+		const resultSearchPage = new ResultSearchPage(page);
+		await expect(resultSearchPage.validMessage).toBeVisible();
+
+	});
+
+	test('ТС 02.1.42  Verify that the transition to the results page is successful, at least one field is filled with invalid data, a warning message has been received', async ({ page }) => {
+
+		const advancedSearchPage = await homePage.clickadvancedSearchLink();
+		await advancedSearchPage.fillnotValidSKUField();
+		await advancedSearchPage.clicksearchBtn();
+		const resultSearchPage = new ResultSearchPage(page);
+		await expect(resultSearchPage.notValidMessage).toBeVisible();
+
+	});
+
+	test('ТС 02.1.37  Verify that the user can navigeate by breadcrumbs', async ({ page }) => {
+
+		const advancedSearchPage = await homePage.clickadvancedSearchLink();
+		await advancedSearchPage. fillSKUField();
+		await advancedSearchPage.clicksearchBtn();
+		await expect(page).toHaveURL(RESULT_SEARCH_PAGE_URL);
+		const resultSearchPage = new ResultSearchPage(page);
+		await resultSearchPage.clickbreadcrmsCatalog();
+		await expect(page).toHaveURL(ADVANCED_SEARCH_PAGE_URL);
+		await resultSearchPage.clickbreadcrmsHome();
+		await expect(page).toHaveURL(BASE_URL);
+
+	});
+
+	test('ТС 02.1.43 Verify that the "Order and Returns" link is placed in the footer', async ({ page }) => {
+
+		await expect(homePage.ordersReturnsLink).toBeVisible();
+
+	});
+
+	test('ТС 02.1.44 Verify that the "Order and Returns" link contains the  cursor pointer', async ({ page }) => {
+
+		await expect(homePage.ordersReturnsLink).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 02.1.45 Verify that the "Order and Returns" link opens the page, the user clicks on the "Order and Returns" link', async ({ page }) => {
+
+		await homePage.clickOrdersReturnsLink();
+		await expect(page).toHaveURL(ORDERS_RESULTS_PAGE_URL);
+
+	});
+
+	test('ТС 02.1.46 Verify that the "Order and Return" page contains fields to fill in', async ({ page }) => {
+
+        const ordersResultsPage = await homePage.clickOrdersReturnsLink();
+		const fields = await ordersResultsPage.getFilteredFields();
+
+		for (let i = 0; i < ORDERS_AND_RETURNS_PAGE_FIELDS.length; i++) {
+			const field = fields[i];
+			await expect(field).toHaveText(ORDERS_AND_RETURNS_PAGE_FIELDS[i]);
+		}
+
+	});
+
+	test('ТС 02.1.47  Verify that tthe "Order and Return" page contains the "Continue" button', async ({ page }) => {
+		const ordersResultsPage = await homePage.clickOrdersReturnsLink();
+		await expect(ordersResultsPage.continueBtn).toBeVisible();
+		await expect(ordersResultsPage.continueBtn).toHaveText('Continue');
+		await expect(ordersResultsPage.continueBtn).toHaveCSS('background', 'rgb(25, 121, 195) none repeat scroll 0% 0% / auto padding-box border-box');
+	});
+
+	test('ТС 02.1.38 Verify that the footer content contains a gray color', async ({ page }) => {
+		
+		await expect(homePage.footerContent).toHaveCSS('background', 'rgb(244, 244, 244) none repeat scroll 0% 0% / auto padding-box border-box');
+
+	});
+
 
 
 
