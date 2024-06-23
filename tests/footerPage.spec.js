@@ -2,6 +2,7 @@ const { test, expect } = require('@playwright/test');
 import { HomePage } from "../pages/homePage";
 import { NOTES_LINK_TEXT, NOTES_PAGE_URL, PARTICEAPI_PAGE_URL, FOR_US_LINK_URL, SUBSCRIBE_LINK_URL, POLICY_PAGE_URL, expectedMenuItems, SEARCH_TERM_LINK_URL, SEARCH_TERMS_PAGE_HEANDING_TEXT, ADVANCED_SEARCH_PAGE_URL, SEARCH_BTN_TEXT, RESULT_SEARCH_PAGE_URL, ORDERS_RESULTS_PAGE_URL, ORDERS_AND_RETURNS_PAGE_FIELDS } from "../helpers/testDataFooterPage";
 import PolicyPage from "../pages/policyPage";
+import SearchtermsPage from "../pages/searchTermsPage";
 
 
 test.describe('footerPage.spec', () => {
@@ -188,10 +189,54 @@ test.describe('footerPage.spec', () => {
 	});
 
 	test('ТС 02.1.23 Verify that the search-terms contains the pointer cursor', async ({ page }) => {
-		
+
 		await expect(homePage.searchTermsLink).toHaveCSS('cursor', 'pointer');
 
 	});
+
+	test('ТС 02.1.21 Verify that the "Search Terms" link opens the page, the user clicked on the "Search Terms" link', async ({ page }) => {
+
+		const searchTerms = await homePage.clicksearchTermsLink();
+		await expect(page).toHaveURL(SEARCH_TERM_LINK_URL);
+
+	});
+
+	test('ТС 02.1.22 Verify that the page contain a search-terms', async ({ page }) => {
+		const searchTerms = await homePage.clicksearchTermsLink();
+		await expect(searchTerms.searchTermsHeading).toBeVisible();
+		await expect(searchTerms.searchTermsHeading).toHaveText(SEARCH_TERMS_PAGE_HEANDING_TEXT);
+		await expect(searchTerms.searchTerms).toBeVisible();
+	});
+
+	test('ТС 02.1.24 Verify that  all tags on the "Popular Search Queries" page redirect to other pages', async ({ page }) => {
+		const searchTerms = await homePage.clicksearchTermsLink();
+		const tags = await searchTerms.getSearchTerms();
+		const tagsCount = await tags.count();
+
+
+		for (let i = 0; i < tagsCount; i++) {
+			await tags.nth(i).click();
+			const currentURL = page.url();
+
+			await expect(currentURL).not.toBe(SEARCH_TERM_LINK_URL);
+
+			await page.goBack();
+		}
+	});
+
+	test('ТС 02.1.25 Verify that the "Advanced Search" link is placed in the footer', async ({ page }) => {
+		const homePage = new HomePage(page);
+		await expect(homePage.advancedSearchLink).toBeVisible();
+
+	});
+
+	test('ТС 02.1.26 Verify that the "Advanced Search" link opens the page, the user clicks on the "Advanced Search" link', async ({ page }) => {
+		
+		await homePage. clickadvancedSearchLink();
+		await expect(page).toHaveURL(ADVANCED_SEARCH_PAGE_URL);
+
+	});
+
 
 
 
