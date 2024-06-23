@@ -231,10 +231,41 @@ test.describe('footerPage.spec', () => {
 	});
 
 	test('ТС 02.1.26 Verify that the "Advanced Search" link opens the page, the user clicks on the "Advanced Search" link', async ({ page }) => {
-		
-		await homePage. clickadvancedSearchLink();
+
+		await homePage.clickadvancedSearchLink();
 		await expect(page).toHaveURL(ADVANCED_SEARCH_PAGE_URL);
 
+	});
+
+	test('ТС 02.1.27 Verify that the "Advanced Search" link opens the page, the user clicks on the "Advanced Search" link', async ({ page }) => {
+
+		await expect(homePage.advancedSearchLink).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 02.1.27.01 Verify that the "Advanced Search" page contains the search settings', async ({ page }) => {
+
+		const advancedSearchPage = await homePage.clickadvancedSearchLink();
+		await expect(advancedSearchPage.settingsSearch).toBeVisible();
+		await expect(advancedSearchPage.settingsSearch).toHaveText('Search Settings')
+
+	});
+
+	test('ТС 02.1.28 Verify that the "Advanced Search" page contains the "Product Name" field', async ({ page }) => {
+		const advancedSearchPage = await homePage.clickadvancedSearchLink();
+		await expect(advancedSearchPage.productNameField).toBeVisible();
+
+	});
+
+	test('ТС 02.1.29 Verify that the "Advanced Search" page contains the "SKU" field', async ({ page }) => {
+		const advancedSearchPage = await homePage.clickadvancedSearchLink();
+		await expect(advancedSearchPage.SKUField).toBeVisible();
+
+	});
+
+	test('ТС 02.1.30 Verify that the "Advanced Search" page contains the "Description" field', async ({ page }) => {
+		const advancedSearchPage = await homePage.clickadvancedSearchLink();
+		await expect(advancedSearchPage.descriptionField).toBeVisible();
 	});
 
 
