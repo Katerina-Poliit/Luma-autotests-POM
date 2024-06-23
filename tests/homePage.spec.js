@@ -240,4 +240,52 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.123.1 Verify that the subcategory "Jackets" redirects to the appropriate page ', async ({ page }) => {
+
+		const homePage = new HomePage(page);
+
+		await homePage.hoverwomenLink();
+		await homePage.hoverwomenCategoryTops();
+		const womenJacketsPage = await homePage.clickWomenTopsJackets();
+		await expect(page).toHaveURL(WOMEN_TOPS_JACKETS_URL);
+		await expect(womenJacketsPage.headingJacketsPage).toBeVisible();
+		await expect(womenJacketsPage.headingJacketsPage).toHaveText(HEADING_JACKETS_TEXT);
+
+	});
+
+	test('ТС 03.1.124 Verify that the "Tops" dropdown contains the "Hoddies & Sweatshirts" subcategory', async ({ page }) => {
+
+		await homePage.hoverwomenLink();
+		await homePage.hoverwomenCategoryTops();
+		await expect(homePage.womenTopsHoodiesSweatshirts).toBeVisible();
+		await expect(homePage.womenTopsHoodiesSweatshirts).toHaveText(WOMEN_TOPS_SUBCATEGORY_HOODIESSWEATSHIRTS);
+
+	});
+
+
+	test('03.1.125 Verify that the "Hoddies & Sweatshirts" subcategory contains a cursor pointer', async ({ page }) => {
+
+		await homePage.hoverwomenLink();
+		await homePage.hoverwomenCategoryTops();
+		await expect(homePage.womenTopsHoodiesSweatshirts).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('03.1.124.1 Verify that the subcategory ""Hoodies & Sweatshirts" redirects to the appropriate page', async ({ page }) => {
+
+		const homePage = new HomePage(page);
+
+		await homePage.hoverwomenLink();
+		await homePage.hoverwomenCategoryTops();
+		const womenHoodiesSweatshirtsPage = await homePage.clickwomenTopsHoodiesSweatshirts();
+		await expect(page).toHaveURL( WOMEN_TOPS_SUBCATEGORY_HOODIESSWEATSHIRTS_URL);
+		await expect(womenHoodiesSweatshirtsPage.headingPage).toBeVisible();
+		await expect(womenHoodiesSweatshirtsPage.headingPage).toHaveText(HEADING_HOODIES_TEXT)
+
+	});
+
+	
+
+
+
 });
