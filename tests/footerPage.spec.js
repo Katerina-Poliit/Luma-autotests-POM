@@ -145,6 +145,51 @@ test.describe('footerPage.spec', () => {
 			expect(menuItems).toContain(expectedItem);
 		}
 
+	});
+
+	test('ТС 02.1.17.1 Verify that clicking each navigation menu link opens a new page', async ({ page, context }) => {
+
+		await homePage.clickprivacyCookiesLink();
+
+		const policyPage = new PolicyPage(page);
+		const list = await policyPage.navigationMenu;
+		const items = await list.locator('li').all();
+		for (const item of items) {
+			const menuItemText = await item.innerText();
+			if (expectedMenuItems.includes(menuItemText)) {
+				await item.click();
+				await homePage.open();
+				await homePage.clickprivacyCookiesLink();
+			}
+		}
+	});
+
+	test('ТС 02.1.18  Verify that the  elements contain a pointer cursor', async ({ page, context }) => {
+
+		const policyPage = await homePage.clickprivacyCookiesLink();
+		const list = await policyPage.navigationMenu;
+		const items = await list.locator('li').all();
+		for (const item of items) {
+			await expect(item).toHaveCSS('cursor', 'auto');
+		}
+	});
+
+	test('ТС 02.1.19 Verify that the navigation menu is colored gray', async ({ page }) => {
+
+		const policyPage = await homePage.clickprivacyCookiesLink();
+		await expect(policyPage.navigationMenu).toHaveCSS('background', 'rgb(245, 245, 245) none repeat scroll 0% 0% / auto padding-box border-box');
+
+	});
+
+	test('ТС 02.1.20 Verify that the "Search Terms" link is placed in the footer', async ({ page }) => {
+
+		await expect(homePage.searchTermsLink).toBeVisible();
+
+	});
+
+	test('ТС 02.1.23 Verify that the search-terms contains the pointer cursor', async ({ page }) => {
+		
+		await expect(homePage.searchTermsLink).toHaveCSS('cursor', 'pointer');
 
 	});
 
