@@ -7,6 +7,8 @@ import { SearchResultPageWithResults } from "./searchResultPageWithResults";
 import { TrainingPage } from "./trainingPage";
 import { WhatsNewPage } from "./watsNewPage";
 import { WomenPage } from "./womenPage";
+import NotesPage from "./notesPage";
+import ParticeAPIPage from "./particeApi.Page";
 
 export class HomePage {
 
@@ -26,6 +28,7 @@ export class HomePage {
 		//----------------------------- Footer -----------------------------------------------------------
          this.footerContent = this.page.locator('.page-wrapper footer'),
 		 this.noteslink = page.getByRole('link', { name: 'Notes' }),
+		 this.pacticeAPI = page.getByRole('link', { name: 'Practice API Testing using Magento' }),
 
 
 
@@ -117,6 +120,16 @@ export class HomePage {
 	async clickSaleLink() {
 		await this.saleLink.click();
 		return new SalePage(this.page);
+	}
+
+	async clickNoteslink() {
+		await this.noteslink.click();
+		return new NotesPage(this.page);
+	}
+
+	async clickpacticeAPI() {
+		await this.pacticeAPI.click();
+		return new ParticeAPIPage(this.page);
 	}
 
 }
