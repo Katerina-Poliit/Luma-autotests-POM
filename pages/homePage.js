@@ -34,7 +34,8 @@ export class HomePage {
 		 this.pacticeAPI = page.getByRole('link', { name: 'Practice API Testing using Magento' }),
 		 this.forUsLink = page.getByRole('link', { name: 'Write for us' });
 		 this.subscribeLink = page.getByRole('link', { name: 'Subscribe' });
-		 this.privacyCookiesLink = page.getByRole('link', { name: 'Privacy and Cookie Policy' }),
+		 this.privacyCookiesLink = page.getByRole('link', { name: 'Privacy and Cookie Policy' });
+		 this.searchTermsLink = page.getByRole('link', { name: 'Search Terms' }),
 
 
 
