@@ -19,6 +19,8 @@ import WomenTopsPage from "./womenTopsPage";
 import WomenTopsJacketsPage from "./womenTopsJacketsPage";
 import WomenHoodiesSweatshirtsPage from "./womenHoodiesSweatshirtsPage";
 import WomenTeesPage from "./womenTeesPage";
+import WomenBrassTanksPage from "./womenBrassTanksPage";
+import WomenBottomsPage from "./womenBottomsPage";
 
 export class HomePage {
 
@@ -64,6 +66,9 @@ export class HomePage {
 		this.womenTopsHoodiesSweatshirts = page.locator('#ui-id-12');
 		this.topsSubcategoryTees = page.locator('#ui-id-13');
 		this.topsBrassTanks = page.locator('#ui-id-14');
+		this.womenBottoms = page.getByRole('menuitem', { name: ' Bottoms' });
+        this.womenPants = page.locator('#ui-id-15');
+
 
 
 	}
@@ -218,6 +223,25 @@ export class HomePage {
 
 		return new WomenTeesPage(this.page);
 	}
+
+	async clicktopsBrassTanks() {
+		await this.topsBrassTanks.click();
+
+		return new WomenBrassTanksPage(this.page);
+	}
+	async clickwomenBottoms() {
+		await this.womenBottoms.click();
+
+		return new WomenBottomsPage(this.page);
+	}
+
+	async hoverWomenBottoms() {
+	
+		await this.womenPants.hover();
+
+	}
+
+
 
 
 
