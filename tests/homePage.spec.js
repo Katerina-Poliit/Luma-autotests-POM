@@ -284,7 +284,55 @@ test.describe('homePage.spec', () => {
 
 	});
 
-	
+	test('ТС 03.1.126 Verify that the "Tops" dropdown contains the "Tees" subcategory', async ({ page }) => {
+
+		await homePage.hoverwomenLink();
+		await homePage.hoverwomenCategoryTops();
+	    expect(homePage.topsSubcategoryTees).toBeVisible();
+		expect(homePage.topsSubcategoryTees).toHaveText(WOMEN_TOPS_SUBCATEGORY_TEES_TEXT)
+
+	});
+
+	test('ТС 03.1.127 Verify that the "Tees" subcategory contains a cursor pointer', async ({ page }) => {
+
+		await homePage.hoverwomenLink();
+		await homePage.hoverwomenCategoryTops();
+	    expect(homePage.topsSubcategoryTees).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 03.1.127.1 Verify that the subcategory "Tees" redirects to the appropriate page', async ({ page }) => {
+
+		await homePage.hoverwomenLink();
+		await homePage.hoverwomenCategoryTops();
+	    const womenTeesPage = await homePage.clicktopsSubcategoryTees();
+		await expect(page).toHaveURL(WOMEN_TOPS_TEES_URL);
+		await expect(womenTeesPage.headingTessPage).toBeVisible();
+		await expect(womenTeesPage.headingTessPage).toHaveText(HEADING_TEES_PAGE_TEXT);
+	});
+
+	test('ТС 03.1.128 Verify that the "Tops" dropdown contains the "Brass Tanks" subcategory', async ({ page }) => {
+
+		await homePage.hoverwomenLink();
+		await homePage.hoverwomenCategoryTops();
+	    expect(homePage.topsBrassTanks).toBeVisible();
+		expect(homePage.topsBrassTanks).toHaveText(WOMEN_TOPS_SUBCATEGORY_BRAS_TANKS)
+
+	});
+
+	test('ТС 03.1.129 Verify that the "Brass Tanks" subcategory contains a cursor pointer', async ({ page }) => {
+
+		await homePage.hoverwomenLink();
+		await homePage.hoverwomenCategoryTops();
+	    expect(homePage.topsBrassTanks).toHaveCSS('cursor', 'pointer');
+
+	});
+
+
+
+
+
+
 
 
 
