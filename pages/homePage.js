@@ -9,7 +9,9 @@ import { WhatsNewPage } from "./watsNewPage";
 import { WomenPage } from "./womenPage";
 import NotesPage from "./notesPage";
 import ParticeAPIPage from "./particeApi.Page";
-import WriteForUsPage  from "./writeForUsPage"
+import WriteForUsPage  from "./writeForUsPage";
+import SubscribePage from "./subscribePage";
+import PolicyPage from "./policyPage"
 
 export class HomePage {
 
@@ -31,7 +33,8 @@ export class HomePage {
 		 this.noteslink = page.getByRole('link', { name: 'Notes' }),
 		 this.pacticeAPI = page.getByRole('link', { name: 'Practice API Testing using Magento' }),
 		 this.forUsLink = page.getByRole('link', { name: 'Write for us' });
-		 this.subscribeLink = page.getByRole('link', { name: 'Subscribe' }),
+		 this.subscribeLink = page.getByRole('link', { name: 'Subscribe' });
+		 this.privacyCookiesLink = page.getByRole('link', { name: 'Privacy and Cookie Policy' }),
 
 
 
@@ -140,5 +143,16 @@ export class HomePage {
 		await this.forUsLink.click();
 		return new WriteForUsPage(this.page);
 	}
+
+	async clicksubscribeLink() {
+		await this.subscribeLink.click();
+		return new SubscribePage(this.page);
+	}
+
+	async clickprivacyCookiesLink() {
+		await this.privacyCookiesLink.click();
+		return new PolicyPage(this.page);
+	}
+
 
 }
