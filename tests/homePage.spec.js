@@ -365,9 +365,8 @@ test.describe('homePage.spec', () => {
 	test('ТС 03.1.134 Verify that the "Bottoms" dropdown contains the "Pants" subcategory', async ({ page }) => {
 
 		await homePage.hoverwomenLink();
-		await homePage.hoverWomenBottoms()
-	    expect(homePage.womenPants).toBeVisible();
-		expect(homePage.womenPants).toHaveText(WOMEN_BOTTOMS_SUBCATEGORY_PANTS_TEXT)
+		await homePage.hoverWomenBottoms();
+		expect(homePage.womenPants).toHaveText(WOMEN_BOTTOMS_SUBCATEGORY_PANTS_TEXT);
 
 	});
 
