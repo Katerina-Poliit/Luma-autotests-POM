@@ -15,6 +15,7 @@ import PolicyPage from "./policyPage";
 import SearchtermsPage from "./searchTermsPage";
 import AndvancedSearchPage from "./advancedSearchPage";
 import ResultSearchPage from "./resultSearchPage";
+import OrdersReturnsPage from "./ordersReturnsPage";
 
 export class HomePage {
 
@@ -40,6 +41,7 @@ export class HomePage {
 		 this.privacyCookiesLink = page.getByRole('link', { name: 'Privacy and Cookie Policy' });
 		 this.searchTermsLink = page.getByRole('link', { name: 'Search Terms' });
 		 this.advancedSearchLink = page.getByRole('link', { name: 'Advanced Search' });
+		 this.ordersReturnsLink = page.getByRole('link', { name: 'Orders and Returns' });
 
 
 
@@ -169,6 +171,12 @@ export class HomePage {
 		await this.advancedSearchLink.click();
 		return new AndvancedSearchPage(this.page);
 	}
+
+	async clickOrdersReturnsLink() {
+		await this.ordersReturnsLink.click();
+		return new OrdersReturnsPage(this.page);
+	}
+
 
 
 }
