@@ -18,6 +18,7 @@ import OrdersReturnsPage from "./ordersReturnsPage";
 import WomenTopsPage from "./womenTopsPage";
 import WomenTopsJacketsPage from "./womenTopsJacketsPage";
 import WomenHoodiesSweatshirtsPage from "./womenHoodiesSweatshirtsPage";
+import WomenTeesPage from "./womenTeesPage";
 
 export class HomePage {
 
@@ -61,6 +62,8 @@ export class HomePage {
 		this.womenCategoryTops = page.getByRole('menuitem', { name: ' Tops' });
 		this.womenTopsJackets = page.locator('#ui-id-11');
 		this.womenTopsHoodiesSweatshirts = page.locator('#ui-id-12');
+		this.topsSubcategoryTees = page.locator('#ui-id-13');
+		this.topsBrassTanks = page.locator('#ui-id-14');
 
 
 	}
@@ -208,6 +211,12 @@ export class HomePage {
 		await this.womenTopsHoodiesSweatshirts.click();
 
 		return new WomenHoodiesSweatshirtsPage(this.page);
+	}
+
+	async clicktopsSubcategoryTees() {
+		await this.topsSubcategoryTees.click();
+
+		return new WomenTeesPage(this.page);
 	}
 
 
