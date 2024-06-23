@@ -9,6 +9,7 @@ import { WhatsNewPage } from "./watsNewPage";
 import { WomenPage } from "./womenPage";
 import NotesPage from "./notesPage";
 import ParticeAPIPage from "./particeApi.Page";
+import WriteForUsPage  from "./writeForUsPage"
 
 export class HomePage {
 
@@ -29,6 +30,8 @@ export class HomePage {
          this.footerContent = this.page.locator('.page-wrapper footer'),
 		 this.noteslink = page.getByRole('link', { name: 'Notes' }),
 		 this.pacticeAPI = page.getByRole('link', { name: 'Practice API Testing using Magento' }),
+		 this.forUsLink = page.getByRole('link', { name: 'Write for us' });
+		 this.subscribeLink = page.getByRole('link', { name: 'Subscribe' }),
 
 
 
@@ -40,6 +43,7 @@ export class HomePage {
 		this.gearLink = page.getByRole('menuitem', { name: 'Gear' });
 		this.trainingLink = page.getByRole('menuitem', { name: 'Training' });
 		this.saleLink = page.getByRole('menuitem', { name: 'Sale' });
+
 
    }
 
@@ -130,6 +134,11 @@ export class HomePage {
 	async clickpacticeAPI() {
 		await this.pacticeAPI.click();
 		return new ParticeAPIPage(this.page);
+	}
+
+	async clickforUsLink() {
+		await this.forUsLink.click();
+		return new WriteForUsPage(this.page);
 	}
 
 }

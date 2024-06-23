@@ -65,4 +65,43 @@ test.describe('footerPage.spec', () => {
 		await expect(notesPage).toHaveURL(PARTICEAPI_PAGE_URL);
 
 	});
+
+	test('ТС 02.1.8 Verify that the "Write for us" link is placed in the footer', async ({ page }) => {
+
+		await expect(homePage.forUsLink).toBeVisible();
+
+	});
+
+	test('ТС 02.1.9 Verify that the "Write for us" link contains the pointer cursor', async ({ page }) => {
+
+		await expect(homePage.forUsLink).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 02.1.10 Verify that the "Write for us" link leads to the correct page.', async ({ page }) => {
+		const homePage = new HomePage(page);
+
+		const pagePromise = page.waitForEvent('popup');
+		await homePage.clickforUsLink();
+		const notesPage = await pagePromise;
+
+		await expect(notesPage).toHaveURL(FOR_US_LINK_URL);
+
+	});
+
+	test('ТС 02.1.11 Verify that the "Subscribe" link is placed in the footer', async ({ page }) => {
+
+		await expect(homePage.subscribeLink).toBeVisible();
+
+	});
+
+	test('ТС 02.1.12 Verify that the "Subscribe" link contains the pointer cursor', async ({ page }) => {
+		const homePage = new HomePage(page);
+		await expect(homePage.subscribeLink).toHaveCSS('cursor', 'pointer');
+
+	});
+
+
+
+
 });
