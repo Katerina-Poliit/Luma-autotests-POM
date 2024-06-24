@@ -64,6 +64,7 @@ export class HomePage {
 		this.lumaYogaCollectionSectionInfBlockCTA = page.locator('.title').filter({ hasText: 'Get fit and look fab in new seasonal styles' });
 		this.shopNewYogaBtn = page.locator('.button');
 		this.oFF20Section = page.getByRole('link', { name: '20% OFF Luma pants when you' });
+		this.oFF20SectionInfBlock = page.locator('.home-pants .content');
 
 		//----------------------------- Kate -----------------------------------------------------------
 		this.womenDropdown = page.locator('.nav-2 > ul > li > a');
