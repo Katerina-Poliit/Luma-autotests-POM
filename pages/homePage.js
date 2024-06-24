@@ -58,6 +58,7 @@ export class HomePage {
 		this.saleLink = page.getByRole('menuitem', { name: 'Sale' });
 		this.promoBlock = page.locator('div').filter({ hasText: 'New Luma Yoga Collection Get' }).nth(3);
 		this.lumaYogaCollectionSection = page.getByRole('link', { name: 'New Luma Yoga Collection Get' });
+		this.lumaYogaCollectionSectionInfBlock = page.locator('.bg-white').first();
 
 		//----------------------------- Kate -----------------------------------------------------------
 		this.womenDropdown = page.locator('.nav-2 > ul > li > a');
