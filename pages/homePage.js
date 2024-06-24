@@ -26,6 +26,7 @@ import { PantsPage } from "./pantsPage";
 import { TeesPage } from "./teesPage";
 import WomenPanstPage from "./womenPantsPage";
 import WomenShortsPage from "./womenShortsPage";
+import MenTopsPage from "./menTopsPage";
 
 export class HomePage {
 
@@ -88,6 +89,9 @@ export class HomePage {
 		this.womenBottoms = page.getByRole('menuitem', { name: ' Bottoms' });
       this.womenPants = page.locator('#ui-id-15');
 	  this.womenShorts = page.locator('#ui-id-16');
+	  this.menDropdown = page.getByRole('menuitem', { name: ' Men' });
+	  this.menTops = page.locator('#ui-id-17');
+	  this.menTopsJackets = page.locator('#ui-id-19');
 
 
 
@@ -305,6 +309,20 @@ export class HomePage {
 	async clickwomenShorts() {
 		await this.womenShorts.click();
 		return new WomenShortsPage(this.page);
+
+	}
+
+	async hovermenDropdown() {
+		await this.menDropdown.hover();
+	}
+
+	async hoverMenTops() {
+		await this.menTops.hover();
+	}
+
+	async clickMenTops() {
+		await this.menTops.click();
+		return new MenTopsPage(this.page);
 
 	}
 
