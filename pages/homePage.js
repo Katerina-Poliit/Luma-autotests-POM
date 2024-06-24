@@ -21,6 +21,7 @@ import WomenHoodiesSweatshirtsPage from "./womenHoodiesSweatshirtsPage";
 import WomenTeesPage from "./womenTeesPage";
 import WomenBrassTanksPage from "./womenBrassTanksPage";
 import WomenBottomsPage from "./womenBottomsPage";
+import { NewLumaYogaCollectionSectionPage } from "./newLumaYogaCollectionSectionPage";
 
 export class HomePage {
 
@@ -66,7 +67,7 @@ export class HomePage {
 		this.topsSubcategoryTees = page.locator('#ui-id-13');
 		this.topsBrassTanks = page.locator('#ui-id-14');
 		this.womenBottoms = page.getByRole('menuitem', { name: ' Bottoms' });
-        this.womenPants = page.locator('#ui-id-15');
+      this.womenPants = page.locator('#ui-id-15');
 
 
 
@@ -237,7 +238,11 @@ export class HomePage {
 	async hoverWomenBottoms() {
 	
 		await this.womenPants.hover();
+	}
 
+	async clickNewLumaYogaCollectionSection() {
+		await this.lumaYogaCollectionSection.click();
+		return new NewLumaYogaCollectionSectionPage(this.page);
 	}
 
 
