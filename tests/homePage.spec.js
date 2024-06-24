@@ -429,6 +429,13 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.29 Verify that the "Shop New Yoga" button has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.shopNewYogaBtn).toBeVisible();
+		await expect(homePage.shopNewYogaBtn).toHaveCSS('cursor', 'pointer');
+
+	});
+
 
 
 
