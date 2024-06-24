@@ -490,6 +490,13 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.37 Verify that the information block has the call to action text', async ({ page }) => {
+
+		await expect(homePage.oFF20SectionInfBlockCTA).toBeVisible();
+		await expect(homePage.oFF20SectionInfBlockCTA).toHaveText(OFF_20_SECTION_CTA_TEXT);
+
+	});
+
 
 
 
