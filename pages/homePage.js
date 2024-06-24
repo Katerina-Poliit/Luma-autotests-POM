@@ -70,6 +70,7 @@ export class HomePage {
 		this.oFF20SectionInfBlockCTA = page.locator('.info').filter({ hasText: 'Luma pants when you shop today*' });
 		this.shopPantsLink = page.locator('.icon').filter({ hasText: 'Shop Pants' });
 		this.evenMoreSection = page.getByRole('link', { name: 'Even more ways to mix and' });
+		this.evenMoreSectionInfBlock = page.locator('.home-t-shirts .content');
 
 		//----------------------------- Kate -----------------------------------------------------------
 		this.womenDropdown = page.locator('.nav-2 > ul > li > a');

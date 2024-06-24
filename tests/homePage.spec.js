@@ -544,6 +544,12 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.44 Verify that the "Even more ways to mix and match" promo sections has the information block', async ({ page }) => {
+
+		await expect(homePage.evenMoreSectionInfBlock).toBeVisible();
+
+	});
+
 
 
 
