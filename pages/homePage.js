@@ -22,6 +22,7 @@ import WomenTeesPage from "./womenTeesPage";
 import WomenBrassTanksPage from "./womenBrassTanksPage";
 import WomenBottomsPage from "./womenBottomsPage";
 import { NewLumaYogaCollectionSectionPage } from "./newLumaYogaCollectionSectionPage";
+import { PantsPage } from "./pantsPage";
 
 export class HomePage {
 
@@ -253,6 +254,11 @@ export class HomePage {
 	async clickShopNewYogaBtn() {
 		await this.shopNewYogaBtn.click();
 		return new NewLumaYogaCollectionSectionPage(this.page);
+	}
+
+	async clickoFF20Section() {
+		await this.oFF20Section.click();
+		return new PantsPage(this.page);
 	}
 
 
