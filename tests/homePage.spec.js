@@ -527,6 +527,14 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.42 Verify that the "Even more ways to mix and match" promo section has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.evenMoreSection).toBeVisible();
+		await expect(homePage.evenMoreSection).toHaveCSS('cursor', 'pointer');
+
+	});
+
+
 
 
 
