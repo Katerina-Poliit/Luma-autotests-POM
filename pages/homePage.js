@@ -67,6 +67,7 @@ export class HomePage {
 		this.oFF20SectionInfBlock = page.locator('.home-pants .content');
 		this.oFF20SectionInfBlockHeader = page.locator('.title').filter({ hasText: '20% OFF' });
 		this.oFF20SectionInfBlockCTA = page.locator('.info').filter({ hasText: 'Luma pants when you shop today*' });
+		this.shopPantsLink = page.locator('.icon').filter({ hasText: 'Shop Pants' });
 
 		//----------------------------- Kate -----------------------------------------------------------
 		this.womenDropdown = page.locator('.nav-2 > ul > li > a');

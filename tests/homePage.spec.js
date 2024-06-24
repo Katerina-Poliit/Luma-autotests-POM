@@ -497,6 +497,13 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.38 Verify that the information block containes the "Shop pants" link', async ({ page }) => {
+
+		await expect(homePage.shopPantsLink).toBeVisible();
+		await expect(homePage.shopPantsLink).toHaveText(SHOP_PANTS_LINK_TEXT);
+
+	});
+
 
 
 
