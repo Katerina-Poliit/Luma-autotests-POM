@@ -29,6 +29,8 @@ import WomenShortsPage from "./womenShortsPage";
 import MenTopsPage from "./menTopsPage";
 import MenTopsJacketsPage from "./menJacketsPage";
 import MenHoddiesSweatshirtsPage from "./menHoddiesSweatshirtsPage";
+import MenTopsTeesPage from "./menTopsTeesPage";
+import MenTopsTanksPage from "./menTopsTanksPage";
 
 export class HomePage {
 
@@ -96,6 +98,8 @@ export class HomePage {
 		this.menTopsJackets = page.locator('#ui-id-19');
 		this.menTopsHoodiesSweatshirts = page.locator('#ui-id-20');
 		this.menTopsTees = page.locator('#ui-id-21');
+		this.menTopsTanks = page.locator('#ui-id-22');
+		this.menBottoms = page.locator('#ui-id-18');
 
 
 
@@ -348,6 +352,24 @@ export class HomePage {
 
 	async hoverMenTopsTees() {
 		await this.menTopsTees.hover();
+	}
+
+	async clickMenTopsTees() {
+		await this.menTopsTees.click();
+		return new MenTopsTeesPage(this.page);
+	}
+
+	async hoverMenTopsTanks() {
+		await this.menTopsTanks.hover();
+	}
+
+	async clickMenTopsTanks() {
+		await this.menTopsTanks.click();
+		return new MenTopsTanksPage(this.page);
+	}
+
+	async hoverMenBottoms() {
+		await this.menBottoms.hover();
 	}
 
 

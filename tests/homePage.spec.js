@@ -762,6 +762,55 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.149.1 Verify that the "Tees" dropdown redirects to the appropriate page', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenTops();
+		const menTopsTeesPage = await homePage.clickMenTopsTees();
+		await expect(page).toHaveURL(MEN_TOPS_TESS_PAGE_URL);
+		await expect(menTopsTeesPage.header).toHaveText(HEADING_TEES_PAGE_TEXT);
+
+	});
+
+	test('ТС 03.1.150 Verify that the "Tops" dropdown contains the "Brass Tanks" subcategory', async ({ page }) => {
+
+		const homePage = new HomePage(page);
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenTops();
+		await homePage.hoverMenTopsTanks();
+		expect(homePage.menTopsTanks).toBeVisible();
+		expect(homePage.menTopsTanks).toHaveText(MEN_TOPS_SUBCATEGORY_TANKS_TEXT);
+
+	});
+
+	test('ТС 03.1.151 Verify that the "Tops" dropdown contains the "Brass Tanks" subcategory', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenTops();
+		await homePage.hoverMenTopsTanks();
+        expect(homePage.menTopsTanks).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 03.1.152 Verify that the " Tanks" subcategories are redirected to the appropriate pages', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenTops();
+		const menTopsTanksPage = await homePage.clickMenTopsTanks();
+		await expect(page).toHaveURL(MEN_TOPS_TANKS_PAGE_URL)
+        expect(menTopsTanksPage.header).toHaveText(HEADING_MEN_TANKS_PAGE_TEXT);
+
+	});
+
+	test('ТС 03.1.153 Verify that the dropdown contains the "Bottoms" dropdown', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenBottoms();
+		expect(homePage.menBottoms).toBeVisible();
+		expect(homePage.menBottoms).toHaveText( MEN_CATAGORY_BOTTOMS);
+
+	});
 
 
 
