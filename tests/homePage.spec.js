@@ -460,6 +460,13 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.33 Verify that the "20% OFF" promo section has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.oFF20Section).toBeVisible();
+		await expect(homePage.oFF20Section).toHaveCSS('cursor', 'pointer');
+
+	});
+
 
 
 
