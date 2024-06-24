@@ -27,7 +27,8 @@ export const MEN_SHORTS_PAGE_URL = 'https://magento.softwaretestingboard.com/men
 export const GEAR_BAGS_PAGE_URL = 'https://magento.softwaretestingboard.com/gear/bags.html';
 export const GEAR_FITNESS_PAGE_URL = 'https://magento.softwaretestingboard.com/gear/fitness-equipment.html';
 export const GEAR_WATCHES_PAGE_URL = 'https://magento.softwaretestingboard.com/gear/watches.html';
-export const TRAINING_VIDEO_DOWNLOAD_PAGE_URL = 'https://magento.softwaretestingboard.com/training/training-video.html'
+export const TRAINING_VIDEO_DOWNLOAD_PAGE_URL = 'https://magento.softwaretestingboard.com/training/training-video.html';
+export const NEW_LUMA_YOGA_COLLECTION_URL = 'https://magento.softwaretestingboard.com/collections/yoga-new.html';
 
 
 
@@ -78,3 +79,4 @@ export const WOMEN_TOPS_SUBCATEGORY_JACKETS = 'Jackets';
 export const WOMEN_TOPS_SUBCATEGORY_HOODIESSWEATSHIRTS = 'Hoodies & Sweatshirts';
 export const PANTS_HEADER_TEXT = 'Pants';
 export const TEES_HEADER_TEXT = 'Tees';
+export const NEW_LUMA_YOGA_COLLECTION_HEADER_TEXT = 'New Luma Yoga Collection';
