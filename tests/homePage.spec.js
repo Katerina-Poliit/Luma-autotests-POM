@@ -703,7 +703,68 @@ test.describe('homePage.spec', () => {
 		await homePage.hoverMenTops();
 		expect(homePage.menTopsJackets).toHaveCSS('cursor', 'pointer');
 
-	})
+	});
+
+
+	test('ТС 03.1.146 Verify that the "Jackets" subcategories are redirected to the appropriate pages', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenTops();
+		const menJacktsPage = await homePage.clickMenTopsJackets();
+		await expect(page).toHaveURL(MEN_TOPS_JACKETS_URL);
+		await expect(menJacktsPage.header).toHaveText(HEADING_JACKETS_TEXT);
+
+	});
+
+	test('ТС 03.1.146 Verify that the "Tops" dropdown contains the "Hoddies & Sweatshirts" subcategory', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenTops();
+		expect(homePage.menTopsHoodiesSweatshirts).toBeVisible();
+		expect(homePage.menTopsHoodiesSweatshirts).toHaveText(MEN_TOPS_HOODIESSWEATSHIRTS_TEXT);
+
+	});
+
+	test('ТС 03.1.147 Verify that the "Hoddies & Sweatshirts" subcategory contains a cursor pointer', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenTops();
+		await homePage.hoverMenTopsHoodiesSweatshirts()
+		expect(homePage.menTopsHoodiesSweatshirts).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 03.1.147.1 Verify that the "Hoddies & Sweatshirts" dropdown redirects to the appropriate page', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenTops();
+		const menHoddiesSweatshirtsPage = await homePage.clickMenTopsHoodiesSweatshirts();
+		await expect(page).toHaveURL(MEN_HOODIESSWEATSHIRTS_URL);
+		await expect(menHoddiesSweatshirtsPage.header).toHaveText(HEADING_HOODIES_TEXT);
+
+	});
+
+	test('ТС 03.1.148 Verify that the "Tops" dropdown contains the "Tees" subcategory', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenTops();
+		expect(homePage.menTopsTees).toBeVisible();
+		expect(homePage.menTopsTees).toHaveText(MEN_TOPS_TEES_TEXT);
+
+	});
+
+	test('ТС 03.1.149 Verify that the "Tees" subcategory contains a cursor pointer', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenTops();
+		await homePage.hoverMenTopsTees()
+	    expect(homePage.menTopsTees).toHaveCSS('cursor', 'pointer');
+
+	});
+
+
+
+
 
 
 
