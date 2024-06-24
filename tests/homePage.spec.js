@@ -571,6 +571,13 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.48 Verify that the "Shop Tees" link has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.shopTeesLink).toBeVisible();
+		await expect(homePage.shopTeesLink).toHaveCSS('cursor', 'pointer');
+
+	});
+
 
 
 
