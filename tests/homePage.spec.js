@@ -454,6 +454,12 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.32 Verify that the promo block contains "20% OFF" promo section', async ({ page }) => {
+
+		await expect(homePage.oFF20Section).toBeVisible();
+
+	});
+
 
 
 
