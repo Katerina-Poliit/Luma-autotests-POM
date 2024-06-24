@@ -59,6 +59,7 @@ export class HomePage {
 		this.promoBlock = page.locator('div').filter({ hasText: 'New Luma Yoga Collection Get' }).nth(3);
 		this.lumaYogaCollectionSection = page.getByRole('link', { name: 'New Luma Yoga Collection Get' });
 		this.lumaYogaCollectionSectionInfBlock = page.locator('.bg-white').first();
+		this.lumaYogaCollectionSectionInfBlockHeader = page.locator('.info').filter({ hasText: 'New Luma Yoga Collection' });
 
 		//----------------------------- Kate -----------------------------------------------------------
 		this.womenDropdown = page.locator('.nav-2 > ul > li > a');
