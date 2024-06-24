@@ -550,6 +550,13 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.45 Verify that the information block has the header', async ({ page }) => {
+
+		await expect(homePage.evenMoreSectionInfBlockHeader).toBeVisible();
+		await expect(homePage.evenMoreSectionInfBlockHeader).toHaveText(EVEN_MORE_SECTION_HEADER_TEXT);
+
+	});
+
 
 
 
