@@ -191,7 +191,7 @@ test.describe('homePage.spec', () => {
 	test('ТС 03.1.117 Verify that the "Women" navigation menu link contains the dropdown', async ({ page }) => {
 
 		await homePage.hoverwomenLink();
-	    expect(homePage.womenDropdown).toBeTruthy();
+	   expect(homePage.womenDropdown).toBeTruthy();
 
 	});
 
@@ -288,7 +288,7 @@ test.describe('homePage.spec', () => {
 
 		await homePage.hoverwomenLink();
 		await homePage.hoverwomenCategoryTops();
-	    expect(homePage.topsSubcategoryTees).toBeVisible();
+	   expect(homePage.topsSubcategoryTees).toBeVisible();
 		expect(homePage.topsSubcategoryTees).toHaveText(WOMEN_TOPS_SUBCATEGORY_TEES_TEXT)
 
 	});
@@ -297,7 +297,7 @@ test.describe('homePage.spec', () => {
 
 		await homePage.hoverwomenLink();
 		await homePage.hoverwomenCategoryTops();
-	    expect(homePage.topsSubcategoryTees).toHaveCSS('cursor', 'pointer');
+	   expect(homePage.topsSubcategoryTees).toHaveCSS('cursor', 'pointer');
 
 	});
 
@@ -305,7 +305,7 @@ test.describe('homePage.spec', () => {
 
 		await homePage.hoverwomenLink();
 		await homePage.hoverwomenCategoryTops();
-	    const womenTeesPage = await homePage.clicktopsSubcategoryTees();
+	   const womenTeesPage = await homePage.clicktopsSubcategoryTees();
 		await expect(page).toHaveURL(WOMEN_TOPS_TEES_URL);
 		await expect(womenTeesPage.headingTessPage).toBeVisible();
 		await expect(womenTeesPage.headingTessPage).toHaveText(HEADING_TEES_PAGE_TEXT);
@@ -315,7 +315,7 @@ test.describe('homePage.spec', () => {
 
 		await homePage.hoverwomenLink();
 		await homePage.hoverwomenCategoryTops();
-	    expect(homePage.topsBrassTanks).toBeVisible();
+	   expect(homePage.topsBrassTanks).toBeVisible();
 		expect(homePage.topsBrassTanks).toHaveText(WOMEN_TOPS_SUBCATEGORY_BRAS_TANKS)
 
 	});
@@ -324,7 +324,7 @@ test.describe('homePage.spec', () => {
 
 		await homePage.hoverwomenLink();
 		await homePage.hoverwomenCategoryTops();
-	    expect(homePage.topsBrassTanks).toHaveCSS('cursor', 'pointer');
+	   expect(homePage.topsBrassTanks).toHaveCSS('cursor', 'pointer');
 
 	});
 
@@ -332,7 +332,7 @@ test.describe('homePage.spec', () => {
 
 		await homePage.hoverwomenLink();
 		await homePage.hoverwomenCategoryTops();
-	    const womenBrassTanksPage = await homePage.clicktopsBrassTanks();
+	   const womenBrassTanksPage = await homePage.clicktopsBrassTanks();
 		await expect(page).toHaveURL(WOMEN_TOPS_BRASSTANKS_URL);
 		await expect(womenBrassTanksPage.headingBrassTanksPage).toHaveText(HEADING_BRASTANKS_PAGE_TEXT);
 
@@ -341,7 +341,7 @@ test.describe('homePage.spec', () => {
 	test('ТС 03.1.131 Verify that the dropdown contains the "Bottoms" dropdown', async ({ page }) => {
 
 		await homePage.hoverwomenLink();
-	    expect(homePage.womenBottoms).toBeVisible();
+	   expect(homePage.womenBottoms).toBeVisible();
 		expect(homePage.womenBottoms).toHaveText(WOMEN_CATAGORY_BOTTOMS)
 
 	});
@@ -349,14 +349,14 @@ test.describe('homePage.spec', () => {
 	test('ТС 03.1.132 Verify that the "Bottoms" dropdown contains a cursor pointer', async ({ page }) => {
 
 		await homePage.hoverwomenLink();
-	    expect(homePage.womenBottoms).toHaveCSS('cursor', 'pointer');
+	   expect(homePage.womenBottoms).toHaveCSS('cursor', 'pointer');
 
 	});
 
 	test('ТС 03.1.133 Verify that the "Bottoms" dropdown redirects to the appropriate page', async ({ page }) => {
 
 		await homePage.hoverwomenLink();
-	    const womenBottomsPage = await homePage.clickwomenBottoms();
+	   const womenBottomsPage = await homePage.clickwomenBottoms();
 		await expect(page).toHaveURL(WOMEN_BOTTOMS_PAGE_URL);
 		await expect(womenBottomsPage.heading).toHaveText(HEADING_BOTTOMS_TEXT);
 
@@ -370,6 +370,12 @@ test.describe('homePage.spec', () => {
 	// 	expect(homePage.womenPants).toHaveText(WOMEN_BOTTOMS_SUBCATEGORY_PANTS_TEXT);
 
 	// });
+
+	test('ТС 03.1.21 Verify that the Home page contains the promo block', async ({ page }) => {
+
+		await expect(homePage.promoBlock).toBeVisible();
+
+	});
 
 
 
