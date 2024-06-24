@@ -557,6 +557,13 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.46 Verify that the information block has the call to action text', async ({ page }) => {
+
+		await expect(homePage.evenMoreSectionInfBlockCTA).toBeVisible();
+		await expect(homePage.evenMoreSectionInfBlockCTA).toHaveText(EVEN_MORE_SECTION_CTA_TEXT);
+
+	});
+
 
 
 
