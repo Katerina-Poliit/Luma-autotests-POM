@@ -564,7 +564,7 @@ test.describe('homePage.spec', () => {
 
 	});
 
-	test('ТС 03.1.47 Verify that the information block containes the "Shop Tees" link', async ({ page }) => {
+	test('ТС 03.1.47 Verify that the information block contains the "Shop Tees" link', async ({ page }) => {
 
 		await expect(homePage.shopTeesLink).toBeVisible();
 		await expect(homePage.shopTeesLink).toHaveText(SHOP_TEES_LINK_TEXT);
@@ -593,6 +593,14 @@ test.describe('homePage.spec', () => {
 		await expect(homePage.takeItFromErinSection).toBeVisible();
 
 	});
+
+	test('ТС 03.1.51 Verify that the "Take it from Erin" promo section has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.takeItFromErinSection).toBeVisible();
+		await expect(homePage.takeItFromErinSection).toHaveCSS('cursor', 'pointer');
+
+	});
+
 
 
 
