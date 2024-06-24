@@ -32,6 +32,7 @@ export const NEW_LUMA_YOGA_COLLECTION_URL = 'https://magento.softwaretestingboar
 
 
 
+
 //test data
 
 export const WHATS_NEW_LINK_TEXT = "What's New";
@@ -84,3 +85,4 @@ export const NEW_LUMA_YOGA_COLLECTION_HEADER_TEXT = 'New Luma Yoga Collection';
 export const NEW_LUMA_YOGA_COLLECTION_IB_HEADER_TEXT = 'New Luma Yoga Collection';
 export const NEW_LUMA_YOGA_COLLECTION_IB_CTA_TEXT = 'Get fit and look fab in new seasonal styles';
 export const SHOP_NEW_YOGA_BTN_TEXT = 'Shop New Yoga';
+
