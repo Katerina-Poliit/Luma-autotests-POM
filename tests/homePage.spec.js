@@ -422,7 +422,7 @@ test.describe('homePage.spec', () => {
 
 	});
 
-	test('ТС 03.1.28 Verify that the information block containes the "Shop New Yoga" button', async ({ page }) => {
+	test('ТС 03.1.28 Verify that the information block contains the "Shop New Yoga" button', async ({ page }) => {
 
 		await expect(homePage.shopNewYogaBtn).toBeVisible();
 		await expect(homePage.shopNewYogaBtn).toHaveText(SHOP_NEW_YOGA_BTN_TEXT);
@@ -497,11 +497,17 @@ test.describe('homePage.spec', () => {
 
 	});
 
-	test('ТС 03.1.38 Verify that the information block containes the "Shop pants" link', async ({ page }) => {
+	test('ТС 03.1.38 Verify that the information block contains the "Shop pants" link', async ({ page }) => {
 
 		await expect(homePage.shopPantsLink).toBeVisible();
 		await expect(homePage.shopPantsLink).toHaveText(SHOP_PANTS_LINK_TEXT);
 
+	});
+
+	test('ТС 03.1.39 Verify that the "Shop pants" link has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.shopPantsLink).toBeVisible();
+		await expect(homePage.shopPantsLink).toHaveCSS('cursor', 'pointer');
 	});
 
 
