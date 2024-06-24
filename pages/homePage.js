@@ -281,6 +281,12 @@ export class HomePage {
 		return new TeesPage(this.page);
 	}
 
+	async clickShopTeesLink() {
+		await this.shopTeesLink.click();
+		return new TeesPage(this.page);
+	}
+
+
 
 
 
