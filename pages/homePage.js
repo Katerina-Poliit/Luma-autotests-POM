@@ -27,6 +27,8 @@ import { TeesPage } from "./teesPage";
 import WomenPanstPage from "./womenPantsPage";
 import WomenShortsPage from "./womenShortsPage";
 import MenTopsPage from "./menTopsPage";
+import MenTopsJacketsPage from "./menJacketsPage";
+import MenHoddiesSweatshirtsPage from "./menHoddiesSweatshirtsPage";
 
 export class HomePage {
 
@@ -45,9 +47,9 @@ export class HomePage {
 		this.cartBtn = page.getByRole('link', { name: ' My Cart' });
 		//----------------------------- Footer -----------------------------------------------------------
 		this.footerContent = this.page.locator('.page-wrapper footer'),
-		this.noteslink = page.getByRole('link', { name: 'Notes' }),
-		this.pacticeAPI = page.getByRole('link', { name: 'Practice API Testing using Magento' }),
-		this.forUsLink = page.getByRole('link', { name: 'Write for us' });
+			this.noteslink = page.getByRole('link', { name: 'Notes' }),
+			this.pacticeAPI = page.getByRole('link', { name: 'Practice API Testing using Magento' }),
+			this.forUsLink = page.getByRole('link', { name: 'Write for us' });
 		this.subscribeLink = page.getByRole('link', { name: 'Subscribe' });
 		this.privacyCookiesLink = page.getByRole('link', { name: 'Privacy and Cookie Policy' });
 		this.searchTermsLink = page.getByRole('link', { name: 'Search Terms' });
@@ -87,11 +89,13 @@ export class HomePage {
 		this.topsSubcategoryTees = page.locator('#ui-id-13');
 		this.topsBrassTanks = page.locator('#ui-id-14');
 		this.womenBottoms = page.getByRole('menuitem', { name: ' Bottoms' });
-      this.womenPants = page.locator('#ui-id-15');
-	  this.womenShorts = page.locator('#ui-id-16');
-	  this.menDropdown = page.getByRole('menuitem', { name: ' Men' });
-	  this.menTops = page.locator('#ui-id-17');
-	  this.menTopsJackets = page.locator('#ui-id-19');
+		this.womenPants = page.locator('#ui-id-15');
+		this.womenShorts = page.locator('#ui-id-16');
+		this.menDropdown = page.getByRole('menuitem', { name: ' Men' });
+		this.menTops = page.locator('#ui-id-17');
+		this.menTopsJackets = page.locator('#ui-id-19');
+		this.menTopsHoodiesSweatshirts = page.locator('#ui-id-20');
+		this.menTopsTees = page.locator('#ui-id-21');
 
 
 
@@ -324,6 +328,26 @@ export class HomePage {
 		await this.menTops.click();
 		return new MenTopsPage(this.page);
 
+	}
+
+	async clickMenTopsJackets() {
+		await this.menTopsJackets.click();
+		return new MenTopsJacketsPage(this.page);
+
+	}
+
+	async hoverMenTopsHoodiesSweatshirts() {
+		await this.menTopsHoodiesSweatshirts.hover();
+	}
+
+	async clickMenTopsHoodiesSweatshirts() {
+		await this.menTopsHoodiesSweatshirts.click();
+		return new MenHoddiesSweatshirtsPage(this.page);
+
+	}
+
+	async hoverMenTopsTees() {
+		await this.menTopsTees.hover();
 	}
 
 
