@@ -508,6 +508,17 @@ test.describe('homePage.spec', () => {
 
 		await expect(homePage.shopPantsLink).toBeVisible();
 		await expect(homePage.shopPantsLink).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 03.1.40 Verify that the user is redirected to the "Pants" page after clicking on the "Shop pants" link', async ({ page }) => {
+
+		const pantsPage = await homePage.clickShopPantsLink();
+
+		await expect(page).toHaveURL(PANTS_URL);
+		await expect(pantsPage.header).toBeVisible();
+		await expect(pantsPage.header).toHaveText(PANTS_HEADER_TEXT);
+		
 	});
 
 

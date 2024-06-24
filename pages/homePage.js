@@ -265,6 +265,12 @@ export class HomePage {
 		return new PantsPage(this.page);
 	}
 
+	async clickShopPantsLink() {
+		await this.shopPantsLink.click();
+		return new PantsPage(this.page);
+	}
+
+
 
 
 
