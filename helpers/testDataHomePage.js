@@ -89,4 +89,5 @@ export const SHOP_NEW_YOGA_BTN_TEXT = 'Shop New Yoga';
 export const OFF_20_SECTION_HEADER_TEXT = '20% OFF';
 export const OFF_20_SECTION_CTA_TEXT = 'Luma pants when you shop today*';
 export const SHOP_PANTS_LINK_TEXT = 'Shop Pants';
+export const EVEN_MORE_SECTION_HEADER_TEXT = 'Even more ways to mix and match';
 
