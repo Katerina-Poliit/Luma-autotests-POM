@@ -29,6 +29,7 @@ export const GEAR_FITNESS_PAGE_URL = 'https://magento.softwaretestingboard.com/g
 export const GEAR_WATCHES_PAGE_URL = 'https://magento.softwaretestingboard.com/gear/watches.html';
 export const TRAINING_VIDEO_DOWNLOAD_PAGE_URL = 'https://magento.softwaretestingboard.com/training/training-video.html';
 export const NEW_LUMA_YOGA_COLLECTION_URL = 'https://magento.softwaretestingboard.com/collections/yoga-new.html';
+export const TEES_URL = 'https://magento.softwaretestingboard.com/promotions/tees-all.html';
 
 
 
