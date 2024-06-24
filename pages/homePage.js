@@ -249,6 +249,11 @@ export class HomePage {
 		return new NewLumaYogaCollectionSectionPage(this.page);
 	}
 
+	async clickShopNewYogaBtn() {
+		await this.shopNewYogaBtn.click();
+		return new NewLumaYogaCollectionSectionPage(this.page);
+	}
+
 
 
 

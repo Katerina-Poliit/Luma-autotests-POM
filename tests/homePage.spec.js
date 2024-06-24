@@ -443,6 +443,17 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.31 Verify that the user is redirected to the "New Luma Yoga Collection" page after clicking on the "Shop New Yoga" button', async ({ page }) => {
+
+		const newLumaYogaCollectionSectionPage = await homePage.clickShopNewYogaBtn();
+
+		await expect(page).toHaveURL(NEW_LUMA_YOGA_COLLECTION_URL);
+
+		await expect(newLumaYogaCollectionSectionPage.header).toBeVisible();
+		await expect(newLumaYogaCollectionSectionPage.header).toHaveText(NEW_LUMA_YOGA_COLLECTION_HEADER_TEXT);
+
+	});
+
 
 
 
