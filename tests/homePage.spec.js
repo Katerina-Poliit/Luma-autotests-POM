@@ -377,6 +377,12 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.22 Verify that the promo block contains "New Luma Yoga Collection" promo section', async ({ page }) => {
+
+		await expect(homePage.lumaYogaCollectionSection).toBeVisible();
+
+	});
+
 
 
 
