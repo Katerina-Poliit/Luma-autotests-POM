@@ -79,4 +79,6 @@ export const WOMEN_TOPS_SUBCATEGORY_JACKETS = 'Jackets';
 export const WOMEN_TOPS_SUBCATEGORY_HOODIESSWEATSHIRTS = 'Hoodies & Sweatshirts';
 export const PANTS_HEADER_TEXT = 'Pants';
 export const TEES_HEADER_TEXT = 'Tees';
+
 export const NEW_LUMA_YOGA_COLLECTION_HEADER_TEXT = 'New Luma Yoga Collection';
+export const NEW_LUMA_YOGA_COLLECTION_IB_HEADER_TEXT = 'New Luma Yoga Collection';
