@@ -518,7 +518,7 @@ test.describe('homePage.spec', () => {
 		await expect(page).toHaveURL(PANTS_URL);
 		await expect(pantsPage.header).toBeVisible();
 		await expect(pantsPage.header).toHaveText(PANTS_HEADER_TEXT);
-		
+
 	});
 
 	test('ТС 03.1.41 Verify that the promo block contains "Even more ways to mix and match" promo section', async ({ page }) => {
@@ -600,6 +600,58 @@ test.describe('homePage.spec', () => {
 		await expect(homePage.takeItFromErinSection).toHaveCSS('cursor', 'pointer');
 
 	});
+	test('ТС 03.1.135 Verify that the "Bottoms" dropdown contains the "Pants" subcategory', async ({ page }) => {
+
+		await homePage.hoverwomenLink();
+		await homePage.hoverwomenBottoms()
+	    expect(homePage.womenPants).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 03.1.135.1 Verify that the "Pants" subcategories are redirected to the appropriate pages', async ({ page }) => {
+
+		await homePage.hoverwomenLink();
+		await homePage.hoverwomenBottoms()
+	    const womenPantsPage = await homePage.clickwomenPants();
+		await expect(page).toHaveURL(WOMEN_BOTTOMS_PANTS_PAGE_URL);
+		await expect(womenPantsPage.heading).toHaveText(HEADING_WOMEN_PANTS_PAGE_TEXT)
+
+	});
+
+
+	test('ТС 03.1.136 Verify that the "Bottoms" dropdown contains the "Shorts" subcategory', async ({ page }) => {
+
+		await homePage.hoverwomenLink();
+		await homePage.hoverwomenBottoms()
+	    expect(homePage.womenShorts).toBeVisible();
+		expect(homePage.womenShorts).toHaveText(WOMEN_BOTTOMS_SUBCATEGORY_SHORTS_TEXT)
+
+	});
+
+	test('ТС 03.1.137 Verify that the "Shorts" subcategory contains a cursor pointer', async ({ page }) => {
+
+		await homePage.hoverwomenLink();
+		await homePage.hoverwomenBottoms()
+	    expect(homePage.womenShorts).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 03.1.138 Verify that the "Shorts" subcategories are redirected to the appropriate pages', async ({ page }) => {
+
+		const homePage = new HomePage(page);
+
+		await homePage.hoverwomenLink();
+		await homePage.hoverwomenBottoms();
+	    const womenShortsPage = await homePage.clickwomenShorts();
+		await expect(page).toHaveURL(WOMEN_SHORTS_PAGE_URL);
+		await expect(womenShortsPage.heading).toHaveText(HEADING_WOMEN_SHORTS_PAGE_TEXT)
+
+
+	});
+
+
+
+
 
 
 
