@@ -483,6 +483,13 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.36 Verify that the information block has the header', async ({ page }) => {
+
+		await expect(homePage.oFF20SectionInfBlockHeader).toBeVisible();
+		await expect(homePage.oFF20SectionInfBlockHeader).toHaveText(OFF_20_SECTION_HEADER_TEXT);
+
+	});
+
 
 
 
