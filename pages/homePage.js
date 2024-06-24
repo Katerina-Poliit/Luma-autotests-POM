@@ -23,6 +23,7 @@ import WomenBrassTanksPage from "./womenBrassTanksPage";
 import WomenBottomsPage from "./womenBottomsPage";
 import { NewLumaYogaCollectionSectionPage } from "./newLumaYogaCollectionSectionPage";
 import { PantsPage } from "./pantsPage";
+import { TeesPage } from "./teesPage";
 
 export class HomePage {
 
@@ -269,6 +270,11 @@ export class HomePage {
 	async clickShopPantsLink() {
 		await this.shopPantsLink.click();
 		return new PantsPage(this.page);
+	}
+
+	async clickEvenMoreSection() {
+		await this.evenMoreSection.click();
+		return new TeesPage(this.page);
 	}
 
 
