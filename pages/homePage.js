@@ -74,6 +74,7 @@ export class HomePage {
 		this.evenMoreSectionInfBlockHeader = page.locator('.title').filter({ hasText: 'Even more ways to mix and match' });
 		this.evenMoreSectionInfBlockCTA = page.locator('.info').filter({ hasText: 'Buy 3 Luma tees get a 4th free' });
 		this.shopTeesLink = page.locator('.icon').filter({ hasText: 'Shop Tees' });
+		this.takeItFromErinSection = page.getByRole('link', { name: 'Take it from Erin Luma' });
 
 		//----------------------------- Kate -----------------------------------------------------------
 		this.womenDropdown = page.locator('.nav-2 > ul > li > a');
