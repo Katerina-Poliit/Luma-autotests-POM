@@ -383,6 +383,14 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.23 Verify that the "New Luma Yoga Collection" promo section has a cursor pointer', async ({ page }) => {
+
+
+		await expect(homePage.lumaYogaCollectionSection).toBeVisible();
+		await expect(homePage.lumaYogaCollectionSection).toHaveCSS('cursor', 'pointer');
+
+	});
+
 
 
 
