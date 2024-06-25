@@ -100,6 +100,9 @@ export class HomePage {
 		this.shopPerformanceLink = page.locator('.icon').filter({ hasText: 'Shop Performance' });
 		this.twiceAroundSection = page.getByRole('link', { name: 'Twice around, twice as nice' });
 		this.twiceAroundSectionInfBlock = page.locator('.bg-white').last();
+		this.twiceAroundSectionInfBlockHeader = page.locator('.title').filter({ hasText: 'Twice around, twice as nice' });
+
+
 
 		this.hotSellersSection = page.locator('.widget-product-grid');
 		this.hotSellersSectionHeader = page.getByRole('heading', { name: 'Hot Sellers' });
