@@ -924,5 +924,15 @@ test.describe('homePage.spec', () => {
 		
 	});
 
+	test('ТС 03.1.67 Verify that the user is redirected to the "Performance Fabrics" page after clicking on the "Shop Performance" link', async ({ page }) => {
+
+		const performanceFabricsPage = await homePage.clickShopPerformanceLink();
+
+		await expect(page).toHaveURL(PERFORMANCE_FABRICS_URL);
+		await expect(performanceFabricsPage.header).toBeVisible();
+		await expect(performanceFabricsPage.header).toHaveText(PERFORMANCE_FABRICS_HEADER_TEXT);
+		
+	});
+
 
 });
