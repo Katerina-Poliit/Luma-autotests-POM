@@ -108,4 +108,4 @@ export const HOT_SELLERS_INF_TEXT = 'Here is what`s trending on Luma right now';
 export const RADIANT_TEE_BREADCRUMBS = 'Radiant Tee';
 export const RADIANT_TEE_NAME_LINK_TEXT = 'Radiant Tee';
 export const ECO_FRIENDLY_HEADER_TEXT = 'Eco Friendly';
-
+export const ECO_FRIENDLY_INF_TEXT = 'Twice around, twice as nice';
