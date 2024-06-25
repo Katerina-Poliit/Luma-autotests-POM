@@ -35,6 +35,7 @@ import { ErinRecommendsPage } from "./erinRecommendsPage";
 import { PerformanceFabricsPage } from "./performanceFabrics";
 import MenBottomsPage from "./menBottomsPage";
 import MenBottomsPantsPage from "./menBottomsPantsPage";
+import { RadiantTeePage } from "./radiantTeePage";
 import MenBottomsShortsPage from "./menBottomsShortsPage";
 
 export class HomePage {
@@ -429,6 +430,11 @@ export class HomePage {
 	async clickMenBottomsPants() {
 		await this.menBottomsPants.click();
 		return new MenBottomsPantsPage(this.page);
+	}
+
+	async clickHotSellersProductCardsItemImage() {
+		await this.hotSellersProductCardsItemImage.click();
+		return new RadiantTeePage(this.page);
 	}
 
 	async hoverMenBottomsShorts() {
