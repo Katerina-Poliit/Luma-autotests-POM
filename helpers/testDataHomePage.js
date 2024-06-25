@@ -32,6 +32,7 @@ export const NEW_LUMA_YOGA_COLLECTION_URL = 'https://magento.softwaretestingboar
 export const TEES_URL = 'https://magento.softwaretestingboard.com/promotions/tees-all.html';
 export const ERIN_RECOMMENDS_URL = 'https://magento.softwaretestingboard.com/collections/erin-recommends.html';
 export const PERFORMANCE_FABRICS_URL = 'https://magento.softwaretestingboard.com/collections/performance-fabrics.html';
+export const RADIANT_TEE_URL = 'https://magento.softwaretestingboard.com/radiant-tee.html';
 
 
 
@@ -103,4 +104,5 @@ export const SCIENCE_MEETS_PERFORMANCE_IB_CTA_TEXT = 'Wicking to raingear, Luma 
 export const SHOP_PERFORMANCE_LINK_TEXT = 'Shop Performance';
 export const HOT_SELLERS_HEADER_TEXT = 'Hot Sellers';
 export const HOT_SELLERS_INF_TEXT = 'Here is what`s trending on Luma right now';
+export const RADIANT_TEE_BREADCRUMBS = 'Radiant Tee';
 
