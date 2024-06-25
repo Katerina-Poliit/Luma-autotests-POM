@@ -33,6 +33,8 @@ import MenTopsTeesPage from "./menTopsTeesPage";
 import MenTopsTanksPage from "./menTopsTanksPage";
 import { ErinRecommendsPage } from "./erinRecommendsPage";
 import { PerformanceFabricsPage } from "./performanceFabrics";
+import MenBottomsPage from "./menBottomsPage";
+import MenBottomsPantsPage from "./menBottomsPantsPage";
 
 export class HomePage {
 
@@ -116,6 +118,7 @@ export class HomePage {
 		this.menTopsTees = page.locator('#ui-id-21');
 		this.menTopsTanks = page.locator('#ui-id-22');
 		this.menBottoms = page.locator('#ui-id-18');
+		this.menBottomsPants = page.locator('#ui-id-23');
 
 
 
@@ -407,6 +410,21 @@ export class HomePage {
 		await this.shopPerformanceLink.click();
 		return new PerformanceFabricsPage(this.page);
 	}
+
+	async clickMenBottoms() {
+		await this.menBottoms.click();
+		return new MenBottomsPage(this.page);
+	}
+
+	async hoverMenBottomsPants() {
+		await this.menBottomsPants.hover();
+	}
+
+	async clickMenBottomsPants() {
+		await this.menBottomsPants.click();
+		return new MenBottomsPantsPage(this.page);
+	}
+
 
 
 
