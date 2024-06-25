@@ -91,6 +91,7 @@ export class HomePage {
 		this.scienceMeetsPerformanceSection = page.getByRole('link', { name: 'Science meets performance' });
 		this.scienceMeetsPerformanceSectionInfBlock = page.locator('.bg-white').nth(1);
 		this.scienceMeetsPerformanceSectionInfBlockHeader = page.locator('.title').filter({ hasText: 'Science meets performance' });
+		this.scienceMeetsPerformanceSectionInfBlockCTA = page.locator('.info').filter({ hasText: 'Wicking to raingear, Luma covers you' });
 
 		//----------------------------- Kate -----------------------------------------------------------
 		this.womenDropdown = page.locator('.nav-2 > ul > li > a');
