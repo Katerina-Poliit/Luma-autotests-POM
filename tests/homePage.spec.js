@@ -1267,8 +1267,6 @@ test.describe('homePage.spec', () => {
 
 	test('ТС 03.1.173 Verify that the dropdown contains a cursor pointer', async ({ page }) => {
 
-		const homePage = new HomePage(page);
-
 		await homePage.hovertrainingLink();
 		await homePage.hovertrainingVideoDownloading();
 		await expect(homePage.trainingVideoDownloading).toHaveCSS('cursor', 'pointer');
@@ -1277,14 +1275,23 @@ test.describe('homePage.spec', () => {
 
 	test('ТС 03.1.175 Verify that the "Video download"subcategory is redirected to the appropriate page', async ({ page }) => {
 
-		const homePage = new HomePage(page);
-
 		await homePage.hovertrainingLink();
 		const trainingVideoDownloadPage = await homePage.clicktrainingVideoDownloading();
 		await expect(page).toHaveURL(TRAINING_VIDEO_DOWNLOAD_PAGE_URL);
 		await expect(trainingVideoDownloadPage.Heading).toBeVisible();
 
 	});
+
+	test('ТС 03.1.87 Verify that the product card contains the stars rating', async ({ page }) => {
+
+		await expect(homePage.starsRating).toBeVisible();
+
+
+
+
+	});
+
+
 
 
 
