@@ -94,6 +94,8 @@ export class HomePage {
 		this.scienceMeetsPerformanceSectionInfBlockCTA = page.locator('.info').filter({ hasText: 'Wicking to raingear, Luma covers you' });
 		this.shopPerformanceLink = page.locator('.icon').filter({ hasText: 'Shop Performance' });
 
+		this.hotSellersSection = page.locator('.widget-product-grid');
+
 		//----------------------------- Kate -----------------------------------------------------------
 		this.womenDropdown = page.locator('.nav-2 > ul > li > a');
 		this.womenCategoryTops = page.getByRole('menuitem', { name: ' Tops' });

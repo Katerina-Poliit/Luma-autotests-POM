@@ -934,5 +934,11 @@ test.describe('homePage.spec', () => {
 		
 	});
 
+	test('ТС 03.1.77 Verify that the Home page contains the "Hot Sellers" section', async ({ page }) => {
+
+		await expect(homePage.hotSellersSection).toBeVisible();
+		
+	});
+
 
 });
