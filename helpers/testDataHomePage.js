@@ -30,6 +30,7 @@ export const GEAR_WATCHES_PAGE_URL = 'https://magento.softwaretestingboard.com/g
 export const TRAINING_VIDEO_DOWNLOAD_PAGE_URL = 'https://magento.softwaretestingboard.com/training/training-video.html';
 export const NEW_LUMA_YOGA_COLLECTION_URL = 'https://magento.softwaretestingboard.com/collections/yoga-new.html';
 export const TEES_URL = 'https://magento.softwaretestingboard.com/promotions/tees-all.html';
+export const ERIN_RECOMMENDS_URL = 'https://magento.softwaretestingboard.com/collections/erin-recommends.html';
 
 
 
@@ -81,7 +82,6 @@ export const WOMEN_TOPS_SUBCATEGORY_JACKETS = 'Jackets';
 export const WOMEN_TOPS_SUBCATEGORY_HOODIESSWEATSHIRTS = 'Hoodies & Sweatshirts';
 export const PANTS_HEADER_TEXT = 'Pants';
 export const TEES_HEADER_TEXT = 'Tees';
-
 export const NEW_LUMA_YOGA_COLLECTION_HEADER_TEXT = 'New Luma Yoga Collection';
 export const NEW_LUMA_YOGA_COLLECTION_IB_HEADER_TEXT = 'New Luma Yoga Collection';
 export const NEW_LUMA_YOGA_COLLECTION_IB_CTA_TEXT = 'Get fit and look fab in new seasonal styles';
@@ -92,4 +92,5 @@ export const SHOP_PANTS_LINK_TEXT = 'Shop Pants';
 export const EVEN_MORE_SECTION_HEADER_TEXT = 'Even more ways to mix and match';
 export const EVEN_MORE_SECTION_CTA_TEXT = 'Buy 3 Luma tees get a 4th free';
 export const SHOP_TEES_LINK_TEXT = 'Shop Tees';
+export const ERIN_RECOMMENDS_HEADER_TEXT = 'Erin Recommends';
 
