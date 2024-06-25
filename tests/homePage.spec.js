@@ -873,6 +873,13 @@ test.describe('homePage.spec', () => {
 		
 	});
 
+	test('ТС 03.1.60 Verify that the "Science meets performance" promo section has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.scienceMeetsPerformanceSection).toBeVisible();
+		await expect(homePage.scienceMeetsPerformanceSection).toHaveCSS('cursor', 'pointer');
+		
+	});
+
 
 
 
