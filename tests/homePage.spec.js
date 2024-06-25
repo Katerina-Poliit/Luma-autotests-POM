@@ -867,6 +867,12 @@ test.describe('homePage.spec', () => {
 		
 	});
 
+	test('ТС 03.1.59 Verify that the promo block contains "Science meets performance" promo section', async ({ page }) => {
+
+		await expect(homePage.scienceMeetsPerformanceSection).toBeVisible();
+		
+	});
+
 
 
 
