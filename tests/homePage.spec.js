@@ -1091,6 +1091,13 @@ test.describe('homePage.spec', () => {
 		
 	});
 
+	test('ТС 03.1.85 Verify that the name of product (link) has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.hotSellersProductCardsItemNameLink).toBeVisible();
+		await expect(homePage.hotSellersProductCardsItemNameLink).toHaveCSS('cursor', 'pointer');
+		
+	});
+
 
 
 });
