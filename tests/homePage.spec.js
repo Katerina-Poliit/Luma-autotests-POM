@@ -1286,8 +1286,11 @@ test.describe('homePage.spec', () => {
 
 		await expect(homePage.starsRating).toBeVisible();
 
+	});
 
+	test('ТС 03.1.88 Verify that the product card contains the reviews (link)', async ({ page }) => {
 
+		await expect(homePage.rewiesLink).toBeVisible();
 
 	});
 

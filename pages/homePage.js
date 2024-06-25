@@ -138,6 +138,7 @@ export class HomePage {
 		this.gearWatches = page.locator('#ui-id-27');
         this.trainingVideoDownloading = page.locator('#ui-id-28');
 		this.starsRating = page.getByTitle('60%');
+		this.rewiesLink = page.getByRole('link', { name: 'Reviews' }).first();
 
 	}
 
