@@ -122,7 +122,7 @@ export class HomePage {
 		this.menBottomsPants = page.locator('#ui-id-23');
 		this.menBottomsShorts =page.locator('#ui-id-24');
 		this.gearBags = page.locator('#ui-id-25');
-		this.gearLink = page.getByRole('menuitem', { name: 'Gear' });
+
 
 
 
