@@ -954,5 +954,12 @@ test.describe('homePage.spec', () => {
 		
 	});
 
+	test('ТС 03.1.80 Verify that the "Hot Sellers" section contains six product cards', async ({ page }) => {
+
+		await expect(homePage.hotSellersSection).toBeVisible();
+		await expect(homePage.hotSellersProductCsrdsItem).toHaveCount(6);
+		
+	});
+
 
 });
