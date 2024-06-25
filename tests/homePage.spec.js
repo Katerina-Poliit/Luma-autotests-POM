@@ -1223,6 +1223,42 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.168 Verify that the "Fitness Equipment" subcategories are redirected to the appropriate pages', async ({ page }) => {
+
+		await homePage.hovergearLink();
+		const gearFitnessEquipmentPage = await homePage.clickGearFitnessEquipment();
+		await expect(page).toHaveURL(GEAR_FITNESS_PAGE_URL);
+		await expect(gearFitnessEquipmentPage.header).toBeVisible();
+
+	});
+
+	test('ТС 03.1.169 Verify that the dropdown contains the "Watches" subcategory', async ({ page }) => {
+
+		await homePage.hovergearLink();
+		await homePage.hoverGearWatches();
+		await expect(homePage.gearWatches).toBeVisible();
+
+	});
+
+	test('ТС 03.1.170 Verify that the "Watches" subcategory contains a cursor pointer', async ({ page }) => {
+
+		await homePage.hovergearLink();
+		await homePage.hoverGearWatches();
+		await expect(homePage.gearWatches).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 03.1.171 Verify that the "Watches" subcategories are redirected to the appropriate pages', async ({ page }) => {
+
+		await homePage.hovergearLink();
+		const gearWatchesPage = await homePage.clickGearWatches();
+		await expect(page).toHaveURL(GEAR_WATCHES_PAGE_URL);
+        await expect(gearWatchesPage.header).toBeVisible();
+
+	});
+
+
+
 
 
 });
