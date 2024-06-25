@@ -99,7 +99,8 @@ export class HomePage {
 		this.hotSellersSection = page.locator('.widget-product-grid');
 		this.hotSellersSectionHeader = page.getByRole('heading', { name: 'Hot Sellers' });
 		this.hotSellersSectionInfText = page.getByText('Here is what`s trending on');
-		this.hotSellersProductCsrdsItem = page.locator('.product-item-info');
+		this.hotSellersProductCsrdsItems = page.locator('.product-item-info');
+		this.hotSellersProductCsrdsItem = page.locator('.product-item').first();
 
 		//----------------------------- Kate -----------------------------------------------------------
 		this.womenDropdown = page.locator('.nav-2 > ul > li > a');
