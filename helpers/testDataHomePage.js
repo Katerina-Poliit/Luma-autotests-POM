@@ -33,6 +33,7 @@ export const TEES_URL = 'https://magento.softwaretestingboard.com/promotions/tee
 export const ERIN_RECOMMENDS_URL = 'https://magento.softwaretestingboard.com/collections/erin-recommends.html';
 export const PERFORMANCE_FABRICS_URL = 'https://magento.softwaretestingboard.com/collections/performance-fabrics.html';
 export const RADIANT_TEE_URL = 'https://magento.softwaretestingboard.com/radiant-tee.html';
+export const ECO_FRIENDLY_URL = 'https://magento.softwaretestingboard.com/collections/eco-friendly.html';
 
 
 
@@ -106,4 +107,5 @@ export const HOT_SELLERS_HEADER_TEXT = 'Hot Sellers';
 export const HOT_SELLERS_INF_TEXT = 'Here is what`s trending on Luma right now';
 export const RADIANT_TEE_BREADCRUMBS = 'Radiant Tee';
 export const RADIANT_TEE_NAME_LINK_TEXT = 'Radiant Tee';
+export const ECO_FRIENDLY_HEADER_TEXT = 'Eco Friendly';
 
