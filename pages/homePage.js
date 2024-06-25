@@ -95,6 +95,7 @@ export class HomePage {
 		this.shopPerformanceLink = page.locator('.icon').filter({ hasText: 'Shop Performance' });
 
 		this.hotSellersSection = page.locator('.widget-product-grid');
+		this.hotSellersSectionHeader = page.getByRole('heading', { name: 'Hot Sellers' })
 
 		//----------------------------- Kate -----------------------------------------------------------
 		this.womenDropdown = page.locator('.nav-2 > ul > li > a');

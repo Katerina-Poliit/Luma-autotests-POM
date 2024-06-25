@@ -101,4 +101,5 @@ export const PERFORMANCE_FABRICS_HEADER_TEXT = 'Performance Fabrics';
 export const SCIENCE_MEETS_PERFORMANCE_IB_HEADER_TEXT = 'Science meets performance';
 export const SCIENCE_MEETS_PERFORMANCE_IB_CTA_TEXT = 'Wicking to raingear, Luma covers you';
 export const SHOP_PERFORMANCE_LINK_TEXT = 'Shop Performance';
+export const HOT_SELLERS_HEADER_TEXT = 'Hot Sellers';
 
