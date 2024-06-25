@@ -95,4 +95,5 @@ export const SHOP_TEES_LINK_TEXT = 'Shop Tees';
 export const ERIN_RECOMMENDS_HEADER_TEXT = 'Erin Recommends';
 export const ERIN_RECOMMENDS_IB_HEADER_TEXT = 'Take it from Erin';
 export const ERIN_RECOMMENDS_IB_CTA_TEXT = 'Luma founder Erin Renny shares her favorites!';
+export const SHOP_ERIN_RECOMMENDS_LINK_TEXT = 'Shop Erin Recommends';
 
