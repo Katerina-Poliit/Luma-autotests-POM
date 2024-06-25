@@ -1301,6 +1301,13 @@ test.describe('homePage.spec', () => {
 	});
 
 
+	test('ТС 03.1.90 Verify that the reviews (link) is colored blue', async ({ page }) => {
+
+		await expect(homePage.rewiesLink).toHaveCSS('color', 'rgb(0, 107, 180)');
+
+	});
+
+
 
 
 
