@@ -1294,6 +1294,13 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.89 Verify that the reviews (link) have a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.rewiesLink).toHaveCSS('cursor', 'pointer');
+
+	});
+
+
 
 
 
