@@ -1162,4 +1162,11 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.75 Verify that the "Shop Eco-Friendly" link has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.shopEcoFriendlyLink).toBeVisible();
+		await expect(homePage.shopEcoFriendlyLink).toHaveCSS('cursor', 'pointer');
+
+	});
+
 });
