@@ -1067,14 +1067,14 @@ test.describe('homePage.spec', () => {
 	test('ТС 03.1.82 Verify that the product card contains the image of product', async ({ page }) => {
 
 		await expect(homePage.hotSellersProductCardsItemImage).toBeVisible();
-		
+
 	});
 
 	test('ТС 03.1.83 Verify that the image of product has a cursor pointer', async ({ page }) => {
 
 		await expect(homePage.hotSellersProductCardsItemImage).toBeVisible();
 		await expect(homePage.hotSellersProductCardsItemImage).toHaveCSS('cursor', 'pointer');
-		
+
 	});
 
 	test('ТС 03.1.83.1 Verify that the user is redirected to the product page after clicking on the image of product', async ({ page }) => {
@@ -1082,7 +1082,7 @@ test.describe('homePage.spec', () => {
 		const radiantTeePage = await homePage.clickHotSellersProductCardsItemImage();
 
 		await expect(page).toHaveURL(RADIANT_TEE_URL);
-		
+
 		await expect(radiantTeePage.breadcrumbs).toBeVisible();
 		await expect(radiantTeePage.breadcrumbs).toHaveText(RADIANT_TEE_BREADCRUMBS);
 
@@ -1092,14 +1092,14 @@ test.describe('homePage.spec', () => {
 
 		await expect(homePage.hotSellersProductCardsItemNameLink).toBeVisible();
 		await expect(homePage.hotSellersProductCardsItemNameLink).toHaveText(RADIANT_TEE_NAME_LINK_TEXT);
-		
+
 	});
 
 	test('ТС 03.1.85 Verify that the name of product (link) has a cursor pointer', async ({ page }) => {
 
 		await expect(homePage.hotSellersProductCardsItemNameLink).toBeVisible();
 		await expect(homePage.hotSellersProductCardsItemNameLink).toHaveCSS('cursor', 'pointer');
-		
+
 	});
 
 	test('ТС 03.1.86 Verify that the user is redirected to the product page after clicking on the name of product (link)', async ({ page }) => {
@@ -1107,7 +1107,7 @@ test.describe('homePage.spec', () => {
 		const radiantTeePage = await homePage.clickHotSellersProductCardsItemNameLink();
 
 		await expect(page).toHaveURL(RADIANT_TEE_URL);
-		
+
 		await expect(radiantTeePage.breadcrumbs).toBeVisible();
 		await expect(radiantTeePage.breadcrumbs).toHaveText(RADIANT_TEE_BREADCRUMBS);
 
@@ -1131,7 +1131,7 @@ test.describe('homePage.spec', () => {
 		const ecoFriendlyPage = await homePage.clickTwiceAroundSection();
 
 		await expect(page).toHaveURL(ECO_FRIENDLY_URL);
-		
+
 		await expect(ecoFriendlyPage.header).toBeVisible();
 		await expect(ecoFriendlyPage.header).toHaveText(ECO_FRIENDLY_HEADER_TEXT);
 
@@ -1176,10 +1176,53 @@ test.describe('homePage.spec', () => {
 		const ecoFriendlyPage = await homePage.clickShopEcoFriendlyLink();
 
 		await expect(page).toHaveURL(ECO_FRIENDLY_URL);
-		
+
 		await expect(ecoFriendlyPage.header).toBeVisible();
 		await expect(ecoFriendlyPage.header).toHaveText(ECO_FRIENDLY_HEADER_TEXT);
 
 	});
+
+	test('ТС 03.1.163 Verify that the dropdown contains the "Bags" subcategory', async ({ page }) => {
+
+		await homePage.hovergearLink();
+		await homePage.hoverGearBags()
+		expect(homePage.gearBags).toBeVisible();
+
+	});
+
+	test('ТС 03.1.164 Verify that the dropdown contains the "Bags" subcategory', async ({ page }) => {
+
+		await homePage.hovergearLink();
+		await homePage.hoverGearBags()
+		expect(homePage.gearBags).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 03.1.165 Verify that the "Bags" subcategories are redirected to the appropriate pages', async ({ page }) => {
+
+		await homePage.hovergearLink();
+		const gearBagsPage = await homePage.clickGearBags();
+		await expect(page).toHaveURL(GEAR_BAGS_PAGE_URL);
+		await expect(gearBagsPage.header).toHaveText(HEADING_GEAR_BAGS_PAGE_TEXT);
+
+	});
+
+	test('ТС 03.1.166 Verify that the dropdown contains the "Fitness Equipment" subcategory', async ({ page }) => {
+
+		await homePage.hovergearLink();
+		await homePage.hoverGearFitnessEquipment();
+		await expect(homePage.gearFitnessEquipment).toBeVisible();
+
+	});
+
+	test('ТС 03.1.167 Verify that the "Fitness Equipment" subcategory contains a cursor pointer', async ({ page }) => {
+
+		await homePage.hovergearLink();
+		await homePage.hoverGearFitnessEquipment();
+		await expect(homePage.gearFitnessEquipment).toHaveCSS('cursor', 'pointer');
+
+	});
+
+
 
 });

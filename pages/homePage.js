@@ -38,6 +38,7 @@ import MenBottomsPantsPage from "./menBottomsPantsPage";
 import { RadiantTeePage } from "./radiantTeePage";
 import MenBottomsShortsPage from "./menBottomsShortsPage";
 import { EcoFriendlyPage } from "./ecoFriendlyPage";
+import GearBagsPage from "./gearBagsPage";
 
 export class HomePage {
 
@@ -130,6 +131,7 @@ export class HomePage {
 		this.menBottomsPants = page.locator('#ui-id-23');
 		this.menBottomsShorts =page.locator('#ui-id-24');
 		this.gearBags = page.locator('#ui-id-25');
+		this.gearFitnessEquipment = page.locator('#ui-id-26');
 
 
 
@@ -469,4 +471,16 @@ export class HomePage {
 		return new EcoFriendlyPage(this.page);
 	}
 
+	async hoverGearBags() {
+		await this.gearBags.hover();
+	}
+
+	async clickGearBags() {
+		await this.gearBags.click();
+		return new GearBagsPage(this.page);
+	}
+
+	async hoverGearFitnessEquipment() {
+		await this.gearFitnessEquipment.hover();
+	}
 }
