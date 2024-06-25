@@ -103,8 +103,6 @@ export class HomePage {
 		this.twiceAroundSectionInfBlockHeader = page.locator('.title').filter({ hasText: 'Twice around, twice as nice' });
 		this.twiceAroundSectionInfBlockCTA = page.locator('.info').filter({ hasText: 'Find conscientious, comfy clothing in our eco-friendly collection' });
 		this.shopEcoFriendlyLink = page.locator('.icon').filter({ hasText: 'Shop Eco-Friendly' });
-
-
 		this.hotSellersSection = page.locator('.widget-product-grid');
 		this.hotSellersSectionHeader = page.getByRole('heading', { name: 'Hot Sellers' });
 		this.hotSellersSectionInfText = page.getByText('Here is what`s trending on');
@@ -463,6 +461,11 @@ export class HomePage {
 
 	async clickTwiceAroundSection() {
 		await this.twiceAroundSection.click();
+		return new EcoFriendlyPage(this.page);
+	}
+
+	async clickShopEcoFriendlyLink() {
+		await this.shopEcoFriendlyLink.click();
 		return new EcoFriendlyPage(this.page);
 	}
 
