@@ -34,6 +34,7 @@ export const ERIN_RECOMMENDS_URL = 'https://magento.softwaretestingboard.com/col
 export const PERFORMANCE_FABRICS_URL = 'https://magento.softwaretestingboard.com/collections/performance-fabrics.html';
 export const RADIANT_TEE_URL = 'https://magento.softwaretestingboard.com/radiant-tee.html';
 export const ECO_FRIENDLY_URL = 'https://magento.softwaretestingboard.com/collections/eco-friendly.html';
+export const RADIANT_TEE_REVIEWS_URL = 'https://magento.softwaretestingboard.com/radiant-tee.html#reviews';
 
 
 

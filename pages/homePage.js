@@ -42,6 +42,7 @@ import GearBagsPage from "./gearBagsPage";
 import GearFitnessEquipmentPage from "./gearFitnessEquipmentPage";
 import GearWatchesPage from "./gearWatchesPage";
 import TrainingVideoDownloadPage from "./trainingVideoDownloadPage";
+import ReviewsPage from "../components/reviewsPage";
 
 export class HomePage {
 
@@ -512,6 +513,12 @@ export class HomePage {
 	async clicktrainingVideoDownloading() {
 		await this.trainingVideoDownloading.click();
 		return new TrainingVideoDownloadPage(this.page);
+	}
+
+	async clickRewiesLink() {
+		await this.rewiesLink.click();
+		return new ReviewsPage(this.page);
+
 	}
 
 }
