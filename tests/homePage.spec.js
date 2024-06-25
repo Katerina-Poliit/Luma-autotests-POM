@@ -850,6 +850,13 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.57 Verify that the "Shop Erin Recommends" link has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.shopErinRecommendsLink).toBeVisible();
+		await expect(homePage.shopErinRecommendsLink).toHaveCSS('cursor', 'pointer');
+
+	});
+
 
 
 
