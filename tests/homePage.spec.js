@@ -820,13 +820,13 @@ test.describe('homePage.spec', () => {
 		await expect(page).toHaveURL(ERIN_RECOMMENDS_URL);
 		await expect(erinRecommendsPage.header).toBeVisible();
 		await expect(erinRecommendsPage.header).toHaveText(ERIN_RECOMMENDS_HEADER_TEXT);
-		
+
 	});
 
 	test('ТС 03.1.53 Verify that the "Take it from Erin" promo sections has the information block', async ({ page }) => {
 
 		await expect(homePage.takeItFromErinSectionInfBlock).toBeVisible();
-		
+
 	});
 
 	test('ТС 03.1.54 Verify that the information block has the header', async ({ page }) => {
@@ -864,20 +864,20 @@ test.describe('homePage.spec', () => {
 		await expect(page).toHaveURL(ERIN_RECOMMENDS_URL);
 		await expect(erinRecommendsPage.header).toBeVisible();
 		await expect(erinRecommendsPage.header).toHaveText(ERIN_RECOMMENDS_HEADER_TEXT);
-		
+
 	});
 
 	test('ТС 03.1.59 Verify that the promo block contains "Science meets performance" promo section', async ({ page }) => {
 
 		await expect(homePage.scienceMeetsPerformanceSection).toBeVisible();
-		
+
 	});
 
 	test('ТС 03.1.60 Verify that the "Science meets performance" promo section has a cursor pointer', async ({ page }) => {
 
 		await expect(homePage.scienceMeetsPerformanceSection).toBeVisible();
 		await expect(homePage.scienceMeetsPerformanceSection).toHaveCSS('cursor', 'pointer');
-		
+
 	});
 
 	test('ТС 03.1.61 Verify that the user is redirected to the "Performance Fabrics" page after clicking on the "Science meets performance" promo section', async ({ page }) => {
@@ -887,41 +887,41 @@ test.describe('homePage.spec', () => {
 		await expect(page).toHaveURL(PERFORMANCE_FABRICS_URL);
 		await expect(performanceFabricsPage.header).toBeVisible();
 		await expect(performanceFabricsPage.header).toHaveText(PERFORMANCE_FABRICS_HEADER_TEXT);
-		
+
 	});
 
 	test('ТС 03.1.62 Verify that the "Science meets performance" promo sections has the information block', async ({ page }) => {
 
 		await expect(homePage.scienceMeetsPerformanceSectionInfBlock).toBeVisible();
-		
+
 	});
 
 	test('ТС 03.1.63 Verify that the information block has the header', async ({ page }) => {
 
 		await expect(homePage.scienceMeetsPerformanceSectionInfBlockHeader).toBeVisible();
 		await expect(homePage.scienceMeetsPerformanceSectionInfBlockHeader).toHaveText(SCIENCE_MEETS_PERFORMANCE_IB_HEADER_TEXT);
-		
+
 	});
 
 	test('ТС 03.1.64 Verify that the information block has the call to action text', async ({ page }) => {
 
 		await expect(homePage.scienceMeetsPerformanceSectionInfBlockCTA).toBeVisible();
 		await expect(homePage.scienceMeetsPerformanceSectionInfBlockCTA).toHaveText(SCIENCE_MEETS_PERFORMANCE_IB_CTA_TEXT);
-		
+
 	});
 
 	test('ТС 03.1.65 Verify that the information block contains the "Shop Performance" link', async ({ page }) => {
 
 		await expect(homePage.shopPerformanceLink).toBeVisible();
 		await expect(homePage.shopPerformanceLink).toHaveText(SHOP_PERFORMANCE_LINK_TEXT);
-		
+
 	});
 
 	test('ТС 03.1.66 Verify that the "Shop Performance" link has a cursor pointer', async ({ page }) => {
 
 		await expect(homePage.shopPerformanceLink).toBeVisible();
 		await expect(homePage.shopPerformanceLink).toHaveCSS('cursor', 'pointer');
-		
+
 	});
 
 	test('ТС 03.1.67 Verify that the user is redirected to the "Performance Fabrics" page after clicking on the "Shop Performance" link', async ({ page }) => {
@@ -931,34 +931,81 @@ test.describe('homePage.spec', () => {
 		await expect(page).toHaveURL(PERFORMANCE_FABRICS_URL);
 		await expect(performanceFabricsPage.header).toBeVisible();
 		await expect(performanceFabricsPage.header).toHaveText(PERFORMANCE_FABRICS_HEADER_TEXT);
-		
+
 	});
 
 	test('ТС 03.1.77 Verify that the Home page contains the "Hot Sellers" section', async ({ page }) => {
 
 		await expect(homePage.hotSellersSection).toBeVisible();
-		
+
 	});
 
 	test('ТС 03.1.78 Verify that the "Hot Sellers" section has the header', async ({ page }) => {
 
 		await expect(homePage.hotSellersSectionHeader).toBeVisible();
 		await expect(homePage.hotSellersSectionHeader).toHaveText(HOT_SELLERS_HEADER_TEXT);
-		
+
 	});
 
 	test('ТС 03.1.79 Verify that the "Hot Sellers" section has the information text', async ({ page }) => {
 
 		await expect(homePage.hotSellersSectionInfText).toBeVisible();
 		await expect(homePage.hotSellersSectionInfText).toHaveText(HOT_SELLERS_INF_TEXT);
-		
+
 	});
 
 	test('ТС 03.1.80 Verify that the "Hot Sellers" section contains six product cards', async ({ page }) => {
 
 		await expect(homePage.hotSellersSection).toBeVisible();
 		await expect(homePage.hotSellersProductCsrdsItem).toHaveCount(6);
-		
+
+	});
+
+
+	test('ТС 03.1.154 Verify that the "Bottoms" dropdown contains a cursor pointer', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenBottoms();
+		expect(homePage.menBottoms).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 03.1.155 Verify that the "Bottoms" dropdown redirects to the appropriate page', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		const menBottomsPage = await homePage.clickMenBottoms();
+		await expect(page).toHaveURL(MEN_BOTTOMS_PAGE_URL);
+		await expect(menBottomsPage.header).toHaveText(HEADING_BOTTOMS_TEXT);
+
+	});
+
+	test('ТС 03.1.156 Verify that the "Bottoms" dropdown contains the "Pants" subcategory', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenBottoms();
+		await homePage.hoverMenBottomsPants();
+		expect(homePage.menBottomsPants).toBeVisible();
+		expect(homePage.menBottomsPants).toHaveText(MEN_BOTTOMS_SUBCATEGORY_PANTS_TEXT);
+
+	});
+
+	test('ТС 03.1.157 Verify that the "Pants" subcategory contains a cursor pointer', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenBottoms();
+		await homePage.hoverMenBottomsPants();
+		expect(homePage.menBottomsPants).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 03.1.157.1 Verify that the " Pants" subcategories are redirected to the appropriate pages', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenBottoms();
+		const menBottomsPage = await homePage.clickMenBottomsPants();
+		await expect(page).toHaveURL(MEN_BOTTOMS_PANTS_PAGE_URL);
+		await expect(menBottomsPage.header).toHaveText(HEADING_MEN_BOTTOMS_PANTS_TEXT)
+
 	});
 
 
