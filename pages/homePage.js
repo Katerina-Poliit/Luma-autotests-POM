@@ -104,6 +104,7 @@ export class HomePage {
 		this.hotSellersProductCardsItems = page.locator('.product-item-info');
 		this.hotSellersProductCardsItem = page.locator('.product-item').first();
 		this.hotSellersProductCardsItemImage = page.locator('.product-image-photo').first();
+		this.hotSellersProductCardsItemNameLink = page.getByText('Radiant Tee')
 
 		//----------------------------- Kate -----------------------------------------------------------
 		this.womenDropdown = page.locator('.nav-2 > ul > li > a');
@@ -338,7 +339,6 @@ export class HomePage {
 		return new WomenPanstPage(this.page);
 
 	}
-
 
 	async clickwomenShorts() {
 		await this.womenShorts.click();
