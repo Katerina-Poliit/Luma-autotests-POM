@@ -823,6 +823,12 @@ test.describe('homePage.spec', () => {
 		
 	});
 
+	test('ТС 03.1.53 Verify that the "Take it from Erin" promo sections has the information block', async ({ page }) => {
+
+		await expect(homePage.takeItFromErinSectionInfBlock).toBeVisible();
+		
+	});
+
 
 
 
