@@ -1135,4 +1135,10 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.71 Verify that the "Twice around, twice as nice" promo sections has the information block', async ({ page }) => {
+
+		await expect(homePage.twiceAroundSectionInfBlock).toBeVisible();
+
+	});
+
 });

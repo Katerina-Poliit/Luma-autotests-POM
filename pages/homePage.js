@@ -99,7 +99,7 @@ export class HomePage {
 		this.scienceMeetsPerformanceSectionInfBlockCTA = page.locator('.info').filter({ hasText: 'Wicking to raingear, Luma covers you' });
 		this.shopPerformanceLink = page.locator('.icon').filter({ hasText: 'Shop Performance' });
 		this.twiceAroundSection = page.getByRole('link', { name: 'Twice around, twice as nice' });
-
+		this.twiceAroundSectionInfBlock = page.locator('.bg-white').last();
 
 		this.hotSellersSection = page.locator('.widget-product-grid');
 		this.hotSellersSectionHeader = page.getByRole('heading', { name: 'Hot Sellers' });
