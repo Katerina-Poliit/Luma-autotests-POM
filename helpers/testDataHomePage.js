@@ -31,6 +31,7 @@ export const TRAINING_VIDEO_DOWNLOAD_PAGE_URL = 'https://magento.softwaretesting
 export const NEW_LUMA_YOGA_COLLECTION_URL = 'https://magento.softwaretestingboard.com/collections/yoga-new.html';
 export const TEES_URL = 'https://magento.softwaretestingboard.com/promotions/tees-all.html';
 export const ERIN_RECOMMENDS_URL = 'https://magento.softwaretestingboard.com/collections/erin-recommends.html';
+export const PERFORMANCE_FABRICS_URL = 'https://magento.softwaretestingboard.com/collections/performance-fabrics.html';
 
 
 
@@ -96,4 +97,5 @@ export const ERIN_RECOMMENDS_HEADER_TEXT = 'Erin Recommends';
 export const ERIN_RECOMMENDS_IB_HEADER_TEXT = 'Take it from Erin';
 export const ERIN_RECOMMENDS_IB_CTA_TEXT = 'Luma founder Erin Renny shares her favorites!';
 export const SHOP_ERIN_RECOMMENDS_LINK_TEXT = 'Shop Erin Recommends';
+export const PERFORMANCE_FABRICS_HEADER_TEXT = 'Performance Fabrics';
 
