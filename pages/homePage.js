@@ -382,6 +382,12 @@ export class HomePage {
 		return new ErinRecommendsPage(this.page);
 	}
 
+	async clickShopErinRecommendsLink() {
+		await this.shopErinRecommendsLink.click();
+		return new ErinRecommendsPage(this.page);
+	}
+
+
 
 
 

@@ -857,6 +857,16 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.58 Verify that the user is redirected to the "Erin Recommends" page after clicking on the "Shop Erin Recommends" link', async ({ page }) => {
+
+		const erinRecommendsPage = await homePage.clickShopErinRecommendsLink();
+
+		await expect(page).toHaveURL(ERIN_RECOMMENDS_URL);
+		await expect(erinRecommendsPage.header).toBeVisible();
+		await expect(erinRecommendsPage.header).toHaveText(ERIN_RECOMMENDS_HEADER_TEXT);
+		
+	});
+
 
 
 
