@@ -89,6 +89,7 @@ export class HomePage {
 		this.takeItFromErinSectionInfBlockCTA = page.locator('.info').filter({ hasText: 'Luma founder Erin Renny shares her favorites!' });
 		this.shopErinRecommendsLink = page.locator('.icon').filter({ hasText: 'Shop Erin Recommends' });
 		this.scienceMeetsPerformanceSection = page.getByRole('link', { name: 'Science meets performance' });
+		this.scienceMeetsPerformanceSectionInfBlock = page.locator('.bg-white').nth(1);
 
 		//----------------------------- Kate -----------------------------------------------------------
 		this.womenDropdown = page.locator('.nav-2 > ul > li > a');

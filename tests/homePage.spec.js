@@ -890,4 +890,10 @@ test.describe('homePage.spec', () => {
 		
 	});
 
+	test('ТС 03.1.62 Verify that the "Science meets performance" promo sections has the information block', async ({ page }) => {
+
+		await expect(homePage.scienceMeetsPerformanceSectionInfBlock).toBeVisible();
+		
+	});
+
 });
