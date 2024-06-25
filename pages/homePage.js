@@ -105,7 +105,6 @@ export class HomePage {
 		this.hotSellersProductCardsItem = page.locator('.product-item').first();
 		this.hotSellersProductCardsItemImage = page.locator('.product-image-photo').first();
 		this.hotSellersProductCardsItemNameLink = page.getByText('Radiant Tee')
-
 		//----------------------------- Kate -----------------------------------------------------------
 		this.womenDropdown = page.locator('.nav-2 > ul > li > a');
 		this.womenCategoryTops = page.getByRole('menuitem', { name: ' Tops' });
@@ -445,8 +444,14 @@ export class HomePage {
 		await this.menBottomsShorts.click();
 		return new MenBottomsShortsPage(this.page);
 	}
+
 	async hovergearLink() {
 		await this.gearLink.hover();
+	}
+
+	async clickHotSellersProductCardsItemNameLink() {
+		await this.hotSellersProductCardsItemNameLink.click();
+		return new RadiantTeePage(this.page);
 	}
 
 

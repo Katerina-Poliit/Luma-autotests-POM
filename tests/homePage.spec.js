@@ -1098,6 +1098,17 @@ test.describe('homePage.spec', () => {
 		
 	});
 
+	test('ТС 03.1.86 Verify that the user is redirected to the product page after clicking on the name of product (link)', async ({ page }) => {
+
+		const radiantTeePage = await homePage.clickHotSellersProductCardsItemNameLink();
+
+		await expect(page).toHaveURL(RADIANT_TEE_URL);
+		
+		await expect(radiantTeePage.breadcrumbs).toBeVisible();
+		await expect(radiantTeePage.breadcrumbs).toHaveText(RADIANT_TEE_BREADCRUMBS);
+
+	});
+
 
 
 });
