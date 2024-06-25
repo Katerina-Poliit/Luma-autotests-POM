@@ -90,6 +90,7 @@ export class HomePage {
 		this.shopErinRecommendsLink = page.locator('.icon').filter({ hasText: 'Shop Erin Recommends' });
 		this.scienceMeetsPerformanceSection = page.getByRole('link', { name: 'Science meets performance' });
 		this.scienceMeetsPerformanceSectionInfBlock = page.locator('.bg-white').nth(1);
+		this.scienceMeetsPerformanceSectionInfBlockHeader = page.locator('.title').filter({ hasText: 'Science meets performance' });
 
 		//----------------------------- Kate -----------------------------------------------------------
 		this.womenDropdown = page.locator('.nav-2 > ul > li > a');
