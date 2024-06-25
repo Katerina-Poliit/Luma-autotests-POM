@@ -1021,5 +1021,12 @@ test.describe('homePage.spec', () => {
 		
 	});
 
+	test('ТС 03.1.83 Verify that the image of product has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.hotSellersProductCardsItemImage).toBeVisible();
+		await expect(homePage.hotSellersProductCardsItemImage).toHaveCSS('cursor', 'pointer');
+		
+	});
+
 
 });
