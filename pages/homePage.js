@@ -32,6 +32,7 @@ import MenHoddiesSweatshirtsPage from "./menHoddiesSweatshirtsPage";
 import MenTopsTeesPage from "./menTopsTeesPage";
 import MenTopsTanksPage from "./menTopsTanksPage";
 import { ErinRecommendsPage } from "./erinRecommendsPage";
+import { PerformanceFabricsPage } from "./performanceFabrics";
 
 export class HomePage {
 
@@ -387,6 +388,12 @@ export class HomePage {
 		await this.shopErinRecommendsLink.click();
 		return new ErinRecommendsPage(this.page);
 	}
+
+	async clickScienceMeetsPerformanceSection() {
+		await this.scienceMeetsPerformanceSection.click();
+		return new PerformanceFabricsPage(this.page);
+	}
+
 
 
 
