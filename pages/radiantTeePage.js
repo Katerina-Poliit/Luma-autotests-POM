@@ -5,6 +5,7 @@ export class RadiantTeePage {
         this.page = page;
 
 		  this.breadcrumbs = page.locator('li').filter({ hasText: 'Radiant Tee' }).getByRole('strong');
+       
 
    }
 
