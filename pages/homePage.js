@@ -102,7 +102,7 @@ export class HomePage {
 		this.twiceAroundSectionInfBlock = page.locator('.bg-white').last();
 		this.twiceAroundSectionInfBlockHeader = page.locator('.title').filter({ hasText: 'Twice around, twice as nice' });
 		this.twiceAroundSectionInfBlockCTA = page.locator('.info').filter({ hasText: 'Find conscientious, comfy clothing in our eco-friendly collection' });
-
+		this.shopEcoFriendlyLink = page.locator('.icon').filter({ hasText: 'Shop Eco-Friendly' });
 
 
 		this.hotSellersSection = page.locator('.widget-product-grid');
