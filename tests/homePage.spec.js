@@ -957,7 +957,7 @@ test.describe('homePage.spec', () => {
 	test('ТС 03.1.80 Verify that the "Hot Sellers" section contains six product cards', async ({ page }) => {
 
 		await expect(homePage.hotSellersSection).toBeVisible();
-		await expect(homePage.hotSellersProductCsrdsItem).toHaveCount(6);
+		await expect(homePage.hotSellersProductCardsItems).toHaveCount(6);
 
 	});
 
@@ -1008,6 +1008,7 @@ test.describe('homePage.spec', () => {
 
 	});
 
+
 	test('ТС 03.1.158 Verify that the "Bottoms" dropdown contains the "Shorts" subcategory', async ({ page }) => {
 
 		await homePage.hovermenDropdown();
@@ -1050,6 +1051,28 @@ test.describe('homePage.spec', () => {
 		expect(homePage.gearLink).toHaveCSS('cursor', 'pointer');
 
 	})
+
+
+	test('ТС 03.1.81 Verify that the product card has a cursor auto', async ({ page }) => {
+
+		await expect(homePage.hotSellersProductCardsItem).toBeVisible();
+		await expect(homePage.hotSellersProductCardsItem).toHaveCSS('cursor', 'auto');
+
+	});
+
+	test('ТС 03.1.82 Verify that the product card contains the image of product', async ({ page }) => {
+
+		await expect(homePage.hotSellersProductCardsItemImage).toBeVisible();
+		
+	});
+
+	test('ТС 03.1.83 Verify that the image of product has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.hotSellersProductCardsItemImage).toBeVisible();
+		await expect(homePage.hotSellersProductCardsItemImage).toHaveCSS('cursor', 'pointer');
+		
+	});
+
 
 
 });
