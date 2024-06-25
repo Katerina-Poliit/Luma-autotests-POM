@@ -85,6 +85,7 @@ export class HomePage {
 		this.takeItFromErinSection = page.getByRole('link', { name: 'Take it from Erin Luma' });
 		this.takeItFromErinSectionInfBlock = page.locator('.home-erin .content');
 		this.takeItFromErinSectionInfBlockHeader = page.locator('.title').filter({ hasText: 'Take it from Erin' });
+		this.takeItFromErinSectionInfBlockCTA = page.locator('.info').filter({ hasText: 'Luma founder Erin Renny shares her favorites!' });
 
 		//----------------------------- Kate -----------------------------------------------------------
 		this.womenDropdown = page.locator('.nav-2 > ul > li > a');
