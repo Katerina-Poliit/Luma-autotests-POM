@@ -398,6 +398,11 @@ export class HomePage {
 		return new PerformanceFabricsPage(this.page);
 	}
 
+	async clickShopPerformanceLink() {
+		await this.shopPerformanceLink.click();
+		return new PerformanceFabricsPage(this.page);
+	}
+
 
 
 
