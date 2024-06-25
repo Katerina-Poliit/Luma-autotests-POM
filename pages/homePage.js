@@ -41,6 +41,7 @@ import { EcoFriendlyPage } from "./ecoFriendlyPage";
 import GearBagsPage from "./gearBagsPage";
 import GearFitnessEquipmentPage from "./gearFitnessEquipmentPage";
 import GearWatchesPage from "./gearWatchesPage";
+import TrainingVideoDownloadPage from "./trainingVideoDownloadPage";
 
 export class HomePage {
 
@@ -135,6 +136,7 @@ export class HomePage {
 		this.gearBags = page.locator('#ui-id-25');
 		this.gearFitnessEquipment = page.locator('#ui-id-26');
 		this.gearWatches = page.locator('#ui-id-27');
+        this.trainingVideoDownloading = page.locator('#ui-id-28');
 
 	}
 
@@ -496,4 +498,18 @@ export class HomePage {
 		await this.gearWatches.click();
 		return new GearWatchesPage (this.page);
 	}
+
+	async hovertrainingVideoDownloading() {
+		await this.trainingVideoDownloading.hover();
+	}
+
+	async hovertrainingLink() {
+		await this.trainingLink.hover();
+	}
+
+	async clicktrainingVideoDownloading() {
+		await this.trainingVideoDownloading.click();
+		return new TrainingVideoDownloadPage(this.page);
+	}
+
 }
