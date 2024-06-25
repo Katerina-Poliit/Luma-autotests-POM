@@ -110,3 +110,4 @@ export const RADIANT_TEE_NAME_LINK_TEXT = 'Radiant Tee';
 export const ECO_FRIENDLY_HEADER_TEXT = 'Eco Friendly';
 export const ECO_FRIENDLY_INF_TEXT = 'Twice around, twice as nice';
 export const ECO_FRIENDLY_INF_CTA_TEXT = 'Find conscientious, comfy clothing in our eco-friendly collection';
+export const ECO_FRIENDLY_INF_LINK_TEXT = 'Shop Eco-Friendly';
