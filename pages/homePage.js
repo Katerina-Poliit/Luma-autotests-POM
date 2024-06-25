@@ -36,6 +36,7 @@ import { PerformanceFabricsPage } from "./performanceFabrics";
 import MenBottomsPage from "./menBottomsPage";
 import MenBottomsPantsPage from "./menBottomsPantsPage";
 import { RadiantTeePage } from "./radiantTeePage";
+import MenBottomsShortsPage from "./menBottomsShortsPage";
 
 export class HomePage {
 
@@ -122,6 +123,9 @@ export class HomePage {
 		this.menTopsTanks = page.locator('#ui-id-22');
 		this.menBottoms = page.locator('#ui-id-18');
 		this.menBottomsPants = page.locator('#ui-id-23');
+		this.menBottomsShorts =page.locator('#ui-id-24');
+		this.gearBags = page.locator('#ui-id-25');
+
 
 
 
@@ -433,7 +437,17 @@ export class HomePage {
 		return new RadiantTeePage(this.page);
 	}
 
+	async hoverMenBottomsShorts() {
+		await this.menBottomsShorts.hover();
+	}
 
+	async clickMenBottomsShorts() {
+		await this.menBottomsShorts.click();
+		return new MenBottomsShortsPage(this.page);
+	}
+	async hovergearLink() {
+		await this.gearLink.hover();
+	}
 
 
 

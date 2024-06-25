@@ -1008,6 +1008,51 @@ test.describe('homePage.spec', () => {
 
 	});
 
+
+	test('ТС 03.1.158 Verify that the "Bottoms" dropdown contains the "Shorts" subcategory', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenBottoms();
+		await homePage.hoverMenBottomsShorts();
+		expect(homePage.menBottomsShorts).toBeVisible();
+
+	});
+
+	test('ТС 03.1.159 Verify that the "Shorts" subcategory contains a cursor pointer', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenBottoms();
+		await homePage.hoverMenBottomsShorts();
+		expect(homePage.menBottomsShorts).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 03.1.160 Verify that the  "Shorts" subcategories are redirected to the appropriate pages', async ({ page }) => {
+
+		await homePage.hovermenDropdown();
+		await homePage.hoverMenBottoms();
+		const menBottomsShortsPage = await homePage.clickMenBottomsShorts();
+		await expect(page).toHaveURL(MEN_SHORTS_PAGE_URL);
+		await expect(menBottomsShortsPage.header).toHaveText(HEADING_MEN_SHORTS_PAGE_TEXT)
+
+	});
+
+	test('ТС 03.1.161 Verify that the "Gear" navigation menu link contains the dropdown', async ({ page }) => {
+
+
+		await homePage.hovergearLink();
+		expect(homePage.gearLink).toBeVisible();
+
+	});
+
+	test('ТС 03.1.162 Verify that the dropdown contains a cursor pointer', async ({ page }) => {
+
+		await homePage.hovergearLink();
+		expect(homePage.gearLink).toHaveCSS('cursor', 'pointer');
+
+	})
+
+
 	test('ТС 03.1.81 Verify that the product card has a cursor auto', async ({ page }) => {
 
 		await expect(homePage.hotSellersProductCardsItem).toBeVisible();
@@ -1038,6 +1083,7 @@ test.describe('homePage.spec', () => {
 		await expect(radiantTeePage.breadcrumbs).toHaveText(RADIANT_TEE_BREADCRUMBS);
 
 	});
+
 
 
 });
