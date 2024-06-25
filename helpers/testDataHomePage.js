@@ -92,5 +92,6 @@ export const SHOP_PANTS_LINK_TEXT = 'Shop Pants';
 export const EVEN_MORE_SECTION_HEADER_TEXT = 'Even more ways to mix and match';
 export const EVEN_MORE_SECTION_CTA_TEXT = 'Buy 3 Luma tees get a 4th free';
 export const SHOP_TEES_LINK_TEXT = 'Shop Tees';
+export const ERIN_RECOMMENDS_HEADER_TEXT = 'Erin Recommends';
 export const ERIN_RECOMMENDS_IB_HEADER_TEXT = 'Take it from Erin';
 
