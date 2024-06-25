@@ -84,6 +84,7 @@ export class HomePage {
 		this.shopTeesLink = page.locator('.icon').filter({ hasText: 'Shop Tees' });
 		this.takeItFromErinSection = page.getByRole('link', { name: 'Take it from Erin Luma' });
 		this.takeItFromErinSectionInfBlock = page.locator('.home-erin .content');
+		this.takeItFromErinSectionInfBlockHeader = page.locator('.title').filter({ hasText: 'Take it from Erin' });
 
 		//----------------------------- Kate -----------------------------------------------------------
 		this.womenDropdown = page.locator('.nav-2 > ul > li > a');
