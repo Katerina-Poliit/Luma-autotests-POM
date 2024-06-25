@@ -1115,6 +1115,13 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.69 Verify that the "Twice around, twice as nice" promo section has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.twiceAroundSection).toBeVisible();
+		await expect(homePage.twiceAroundSection).toHaveCSS('cursor', 'pointer');
+
+	});
+
 
 
 });
