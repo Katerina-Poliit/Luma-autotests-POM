@@ -97,6 +97,8 @@ export class HomePage {
 		this.scienceMeetsPerformanceSectionInfBlockHeader = page.locator('.title').filter({ hasText: 'Science meets performance' });
 		this.scienceMeetsPerformanceSectionInfBlockCTA = page.locator('.info').filter({ hasText: 'Wicking to raingear, Luma covers you' });
 		this.shopPerformanceLink = page.locator('.icon').filter({ hasText: 'Shop Performance' });
+		this.twiceAroundSection = page.getByRole('link', { name: 'Twice around, twice as nice' });
+
 
 		this.hotSellersSection = page.locator('.widget-product-grid');
 		this.hotSellersSectionHeader = page.getByRole('heading', { name: 'Hot Sellers' });
