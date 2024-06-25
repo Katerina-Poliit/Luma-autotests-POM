@@ -1315,6 +1315,41 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.92 Verify that the product card contains the price', async ({ page }) => {
+
+		await expect(homePage.priceProduct).toBeVisible();
+
+	});
+
+	test('ТС 03.1.93 Verify that the price contains the text', async ({ page }) => {
+
+		await expect(homePage.priceText).toHaveText('As low as');
+
+	});
+
+	test('ТС 03.1.94 Verify that the price contains the value of price', async ({ page }) => {
+
+		await expect(homePage.priceProduct).toHaveText('$22.00');
+
+	});
+
+	test('ТС 03.1.95 Verify that the product card contains the size buttons', async ({ page }) => {
+
+		await expect(homePage.sizeProduct).toBeVisible();
+
+	});
+
+
+	test('ТС 03.1.96 Verify that the size button has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.sizeProduct).toHaveCSS('cursor', 'auto');
+
+	});
+
+
+
+
+
 
 
 

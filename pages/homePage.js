@@ -140,6 +140,9 @@ export class HomePage {
         this.trainingVideoDownloading = page.locator('#ui-id-28');
 		this.starsRating = page.getByTitle('60%');
 		this.rewiesLink = page.getByRole('link', { name: 'Reviews' }).first();
+		this.priceProduct = page.locator('#old-price-1556-widget-product-grid').getByText('$');
+		this.priceText = page.getByText('As low as').first();
+		this.sizeProduct = page.locator('.size').nth(0);
 
 	}
 
