@@ -37,6 +37,7 @@ import MenBottomsPage from "./menBottomsPage";
 import MenBottomsPantsPage from "./menBottomsPantsPage";
 import { RadiantTeePage } from "./radiantTeePage";
 import MenBottomsShortsPage from "./menBottomsShortsPage";
+import { EcoFriendlyPage } from "./ecoFriendlyPage";
 
 export class HomePage {
 
@@ -456,11 +457,9 @@ export class HomePage {
 		return new RadiantTeePage(this.page);
 	}
 
-
-
-
-
-
-
+	async clickTwiceAroundSection() {
+		await this.twiceAroundSection.click();
+		return new EcoFriendlyPage(this.page);
+	}
 
 }
