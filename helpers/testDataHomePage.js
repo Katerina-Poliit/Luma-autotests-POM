@@ -98,5 +98,6 @@ export const ERIN_RECOMMENDS_IB_HEADER_TEXT = 'Take it from Erin';
 export const ERIN_RECOMMENDS_IB_CTA_TEXT = 'Luma founder Erin Renny shares her favorites!';
 export const SHOP_ERIN_RECOMMENDS_LINK_TEXT = 'Shop Erin Recommends';
 export const PERFORMANCE_FABRICS_HEADER_TEXT = 'Performance Fabrics';
-export const SCIENCE_MEETS_PERFORMANCE_HEADER_TEXT = 'Science meets performance';
+export const SCIENCE_MEETS_PERFORMANCE_IB_HEADER_TEXT = 'Science meets performance';
+export const SCIENCE_MEETS_PERFORMANCE_IB_CTA_TEXT = 'Wicking to raingear, Luma covers you';
 
