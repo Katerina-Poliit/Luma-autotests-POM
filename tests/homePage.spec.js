@@ -917,5 +917,12 @@ test.describe('homePage.spec', () => {
 		
 	});
 
+	test('ТС 03.1.66 Verify that the "Shop Performance" link has a cursor pointer', async ({ page }) => {
+
+		await expect(homePage.shopPerformanceLink).toBeVisible();
+		await expect(homePage.shopPerformanceLink).toHaveCSS('cursor', 'pointer');
+		
+	});
+
 
 });
