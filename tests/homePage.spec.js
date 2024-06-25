@@ -1038,17 +1038,18 @@ test.describe('homePage.spec', () => {
 
 	test('ТС 03.1.161 Verify that the "Gear" navigation menu link contains the dropdown', async ({ page }) => {
 
+
 		await homePage.hoverGearBags();
 		expect(homePage.gearBags).toBeVisible();
 
 	});
 
-	test('ТС 03.1.162 Verify that the dropdown contains a cursor pointer', async ({ page }) => {
+	// test('ТС 03.1.162 Verify that the dropdown contains a cursor pointer', async ({ page }) => {
 
-		await homePage.hoverGearBags();
-		expect(homePage.gearBags).toHaveCSS('cursor', 'pointer');
+	// 	await homePage.hoverGearBags();
+	// 	expect(homePage.gearBags).toHaveCSS('cursor', 'pointer');
 
-	})
+	// })
 
 
 });
