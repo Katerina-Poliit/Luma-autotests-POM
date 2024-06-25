@@ -31,6 +31,7 @@ import MenTopsJacketsPage from "./menJacketsPage";
 import MenHoddiesSweatshirtsPage from "./menHoddiesSweatshirtsPage";
 import MenTopsTeesPage from "./menTopsTeesPage";
 import MenTopsTanksPage from "./menTopsTanksPage";
+import { ErinRecommendsPage } from "./erinRecommendsPage";
 
 export class HomePage {
 
@@ -49,9 +50,9 @@ export class HomePage {
 		this.cartBtn = page.getByRole('link', { name: ' My Cart' });
 		//----------------------------- Footer -----------------------------------------------------------
 		this.footerContent = this.page.locator('.page-wrapper footer'),
-			this.noteslink = page.getByRole('link', { name: 'Notes' }),
-			this.pacticeAPI = page.getByRole('link', { name: 'Practice API Testing using Magento' }),
-			this.forUsLink = page.getByRole('link', { name: 'Write for us' });
+		this.noteslink = page.getByRole('link', { name: 'Notes' }),
+		this.pacticeAPI = page.getByRole('link', { name: 'Practice API Testing using Magento' }),
+		this.forUsLink = page.getByRole('link', { name: 'Write for us' });
 		this.subscribeLink = page.getByRole('link', { name: 'Subscribe' });
 		this.privacyCookiesLink = page.getByRole('link', { name: 'Privacy and Cookie Policy' });
 		this.searchTermsLink = page.getByRole('link', { name: 'Search Terms' });
@@ -370,6 +371,11 @@ export class HomePage {
 
 	async hoverMenBottoms() {
 		await this.menBottoms.hover();
+	}
+
+	async clickTakeItFromErinSection() {
+		await this.takeItFromErinSection.click();
+		return new ErinRecommendsPage(this.page);
 	}
 
 
