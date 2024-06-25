@@ -957,7 +957,7 @@ test.describe('homePage.spec', () => {
 	test('ТС 03.1.80 Verify that the "Hot Sellers" section contains six product cards', async ({ page }) => {
 
 		await expect(homePage.hotSellersSection).toBeVisible();
-		await expect(homePage.hotSellersProductCsrdsItem).toHaveCount(6);
+		await expect(homePage.hotSellersProductCsrdsItems).toHaveCount(6);
 
 	});
 
@@ -1006,6 +1006,12 @@ test.describe('homePage.spec', () => {
 		await expect(page).toHaveURL(MEN_BOTTOMS_PANTS_PAGE_URL);
 		await expect(menBottomsPage.header).toHaveText(HEADING_MEN_BOTTOMS_PANTS_TEXT)
 
+	});
+
+	test('ТС 03.1.81 Verify that the product card has a cursor auto', async ({ page }) => {
+
+		await expect(homePage.hotSellersProductCsrdsItem).toBeVisible();
+		await expect(homePage.hotSellersProductCsrdsItem).toHaveCSS('cursor', 'auto');
 	});
 
 
