@@ -92,6 +92,7 @@ export class HomePage {
 		this.scienceMeetsPerformanceSectionInfBlock = page.locator('.bg-white').nth(1);
 		this.scienceMeetsPerformanceSectionInfBlockHeader = page.locator('.title').filter({ hasText: 'Science meets performance' });
 		this.scienceMeetsPerformanceSectionInfBlockCTA = page.locator('.info').filter({ hasText: 'Wicking to raingear, Luma covers you' });
+		this.shopPerformanceLink = page.locator('.icon').filter({ hasText: 'Shop Performance' });
 
 		//----------------------------- Kate -----------------------------------------------------------
 		this.womenDropdown = page.locator('.nav-2 > ul > li > a');
