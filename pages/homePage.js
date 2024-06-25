@@ -101,6 +101,7 @@ export class HomePage {
 		this.twiceAroundSection = page.getByRole('link', { name: 'Twice around, twice as nice' });
 		this.twiceAroundSectionInfBlock = page.locator('.bg-white').last();
 		this.twiceAroundSectionInfBlockHeader = page.locator('.title').filter({ hasText: 'Twice around, twice as nice' });
+		this.twiceAroundSectionInfBlockCTA = page.locator('.info').filter({ hasText: 'Find conscientious, comfy clothing in our eco-friendly collection' });
 
 
 
