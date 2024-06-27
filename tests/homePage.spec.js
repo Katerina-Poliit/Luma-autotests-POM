@@ -1361,6 +1361,7 @@ test.describe('homePage.spec', () => {
 		}
 	});
 
+
 	test('ТС 03.1.97 Verify that the size button has a red border after clicking on it and moving the cursor away from it.', async ({ page }) => {
 		const firstCard = page.locator('.size').nth(0);
 
@@ -1375,18 +1376,5 @@ test.describe('homePage.spec', () => {
 
 
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });
