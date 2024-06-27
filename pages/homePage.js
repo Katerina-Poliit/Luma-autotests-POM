@@ -16,7 +16,7 @@ import SearchtermsPage from "./searchTermsPage";
 import AndvancedSearchPage from "./advancedSearchPage";
 import OrdersReturnsPage from "./ordersReturnsPage";
 import WomenTopsPage from "./womenTopsPage";
-import WomenTopsJacketsPage from "./womenJacketsPage";
+import WomenJacketsPage from "./womenJacketsPage"
 import WomenHoodiesSweatshirtsPage from "./womenHoodiesSweatshirtsPage";
 import WomenTeesPage from "./womenTeesPage";
 import WomenBrassTanksPage from "./womenBrassTanksPage";
@@ -29,14 +29,14 @@ import WomenShortsPage from "./womenShortsPage";
 import MenTopsPage from "./menTopsPage";
 import MenTopsJacketsPage from "./menJacketsPage";
 import MenHoddiesSweatshirtsPage from "./menHoddiesSweatshirtsPage";
-import MenTopsTeesPage from "./menTeesPage";
-import MenTopsTanksPage from "./menTanksPage";
+import MenTeesPage from "./menTeesPage";
+import MenTanksPage from "./menTanksPage";
 import { ErinRecommendsPage } from "./erinRecommendsPage";
 import { PerformanceFabricsPage } from "./performanceFabrics";
 import MenBottomsPage from "./menBottomsPage";
-import MenBottomsPantsPage from "./menPantsPage";
+import MenPantsPage from "./menPantsPage";
 import { RadiantTeePage } from "./radiantTeePage";
-import MenBottomsShortsPage from "./menShortsPage";
+import MenShortsPage from "./menShortsPage";
 import { EcoFriendlyPage } from "./ecoFriendlyPage";
 import GearBagsPage from "./gearBagsPage";
 import GearFitnessEquipmentPage from "./gearFitnessEquipmentPage";
@@ -283,7 +283,7 @@ export class HomePage {
 
 	async clickWomenTopsJackets() {
 		await this.womenTopsJackets.click();
-		return new WomenTopsJacketsPage(this.page);
+		return new WomenJacketsPage(this.page);
 	}
 
 	async clickwomenTopsHoodiesSweatshirts() {
@@ -396,7 +396,7 @@ export class HomePage {
 
 	async clickMenTopsTees() {
 		await this.menTopsTees.click();
-		return new MenTopsTeesPage(this.page);
+		return new MenTeesPage(this.page);
 	}
 
 	async hoverMenTopsTanks() {
@@ -405,7 +405,7 @@ export class HomePage {
 
 	async clickMenTopsTanks() {
 		await this.menTopsTanks.click();
-		return new MenTopsTanksPage(this.page);
+		return new MenTanksPage(this.page);
 	}
 
 	async hoverMenBottoms() {
@@ -443,7 +443,7 @@ export class HomePage {
 
 	async clickMenBottomsPants() {
 		await this.menBottomsPants.click();
-		return new MenBottomsPantsPage(this.page);
+		return new MenPantsPage(this.page);
 	}
 
 	async clickHotSellersProductCardsItemImage() {
@@ -457,7 +457,7 @@ export class HomePage {
 
 	async clickMenBottomsShorts() {
 		await this.menBottomsShorts.click();
-		return new MenBottomsShortsPage(this.page);
+		return new MenShortsPage(this.page);
 	}
 
 	async hovergearLink() {
