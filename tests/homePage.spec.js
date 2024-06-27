@@ -1389,4 +1389,15 @@ test.describe('homePage.spec', () => {
 		}
 	});
 
+	test('ТС 03.1.000 Verify that the color button has a cursor pointer', async ({ page }) => {
+
+		for (const color of COLORLABLES) {
+			const colorLocator = homePage.colorContainer.locator(`div[option-label="${color}"]`);
+			await colorLocator.hover();
+			const cursorStyle = await colorLocator.evaluate(el => window.getComputedStyle(el).cursor);
+			expect(cursorStyle).toBe('pointer');
+			console.log(`Cursor style for color ${color} is: ${cursorStyle}`);
+		}
+	});
+
 });
