@@ -144,6 +144,7 @@ export class HomePage {
 		this.priceText = page.getByText('As low as').first();
 		this.sizeProduct = page.locator('.size').nth(0);
 		this.sizeXS = page.locator('li').filter({ hasText: 'Radiant Tee Rating: 60% 3' }).getByLabel('XS');
+		this.colorContainer = page.locator('.swatch-attribute.color').nth(0);
 
 	}
 
