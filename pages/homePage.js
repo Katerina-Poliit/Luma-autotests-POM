@@ -523,4 +523,9 @@ export class HomePage {
 		return new ReviewsPage(this.page);
 	}
 
+
+	async clickSizeProduct() {
+		await this.sizeProduct.click();
+	}
+
 }

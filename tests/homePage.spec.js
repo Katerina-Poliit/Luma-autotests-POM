@@ -1361,4 +1361,20 @@ test.describe('homePage.spec', () => {
 		}
 	});
 
+
+	test('ТС 03.1.97 Verify that the size button has a red border after clicking on it and moving the cursor away from it.', async ({ page }) => {
+		const firstCard = page.locator('.size').nth(0);
+
+		for (const size of SIZES) {
+
+			const sizeLocator = firstCard.locator(`div[role="option"][aria-label="${size}"]`);
+		}
+        await homePage.clickSizeProduct();
+		await expect(homePage.sizeProduct).toHaveCSS('outline', 'rgb(51, 51, 51) none 0px');
+		// await page.mouse.move(0, 0);
+		// await expect(homePage.sizeProduct).toHaveCSS('outline', 'rgb(51, 51, 51) none 0px');
+
+
+	});
+
 });
