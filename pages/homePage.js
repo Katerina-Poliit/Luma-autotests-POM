@@ -524,5 +524,9 @@ export class HomePage {
 
 	}
 
-	
+	async clickSizeProduct() {
+		await this.sizeProduct.click();
+	}
+
+
 }
