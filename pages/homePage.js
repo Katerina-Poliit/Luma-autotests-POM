@@ -5,7 +5,7 @@ import { MenPage } from "./menPage";
 import { SalePage } from "./salePage";
 import { SearchResultPageWithResults } from "./searchResultPageWithResults";
 import { TrainingPage } from "./trainingPage";
-import { WhatsNewPage } from "./watsNewPage";
+import { WhatsNewPage } from "./whatsNewPage";
 import { WomenPage } from "./womenPage";
 import NotesPage from "./notesPage";
 import ParticeAPIPage from "./particeApi.Page";
@@ -521,8 +521,6 @@ export class HomePage {
 	async clickRewiesLink() {
 		await this.rewiesLink.click();
 		return new ReviewsPage(this.page);
-
 	}
 
-	
 }
