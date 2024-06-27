@@ -1361,16 +1361,4 @@ test.describe('homePage.spec', () => {
 		}
 	});
 
-
-
-
-
-
-
-
-
-
-
-
-
 });
