@@ -143,6 +143,7 @@ export class HomePage {
 		this.priceProduct = page.locator('#old-price-1556-widget-product-grid').getByText('$');
 		this.priceText = page.getByText('As low as').first();
 		this.sizeProduct = page.locator('.size').nth(0);
+		this.sizeXS = page.locator('li').filter({ hasText: 'Radiant Tee Rating: 60% 3' }).getByLabel('XS');
 
 	}
 
@@ -526,6 +527,10 @@ export class HomePage {
 
 	async clickSizeProduct() {
 		await this.sizeProduct.click();
+	}
+
+	async clicksizeXS() {
+		await this.sizeXS.click();
 	}
 
 }
