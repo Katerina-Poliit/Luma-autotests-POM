@@ -112,3 +112,4 @@ export const ECO_FRIENDLY_HEADER_TEXT = 'Eco Friendly';
 export const ECO_FRIENDLY_INF_TEXT = 'Twice around, twice as nice';
 export const ECO_FRIENDLY_INF_CTA_TEXT = 'Find conscientious, comfy clothing in our eco-friendly collection';
 export const ECO_FRIENDLY_INF_LINK_TEXT = 'Shop Eco-Friendly';
+export const SIZES = ['XS', 'S', 'M', 'L', 'XL'];

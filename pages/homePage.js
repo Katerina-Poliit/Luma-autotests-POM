@@ -524,4 +524,5 @@ export class HomePage {
 
 	}
 
+	
 }
