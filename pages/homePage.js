@@ -534,4 +534,9 @@ export class HomePage {
 		await this.hotSellersProductCardsSizeXS.click();
 	}
 
+	async hoverGearBags() {
+		await this.gearBags.hover();
+	}
+
+
 }

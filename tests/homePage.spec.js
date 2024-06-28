@@ -1426,4 +1426,17 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.104 Verify that the the tooltip is displayed after hovering the mouse cursor over the size', async ({ page }) => {
+
+		const firstCard = homePage.hotSellersProductCardsSizeProduct;
+		for (const size of SIZES) {
+			const sizeLocator = firstCard.locator(`div[role="option"][aria-label="${size}"]`);
+			await sizeLocator.hover();
+
+			const tooltipLocator = page.locator('.swatch-option-tooltip');
+			await expect(tooltipLocator).toBeVisible();
+			// console.log(`Tooltip is visible after hovering over size "${size}"`);
+		}
+
+	});
 });
