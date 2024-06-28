@@ -57,3 +57,6 @@ export const MEN_PANTS_HEADING_TEXT = 'Pants';
 export const MEN_SHORTS_LINK_TEXT = 'Shorts';
 export const MEN_SHORTS_BREADCRUMBS_TEXT = 'Shorts';
 export const MEN_SHORTS_HEADING_TEXT = 'Shorts';
+
+export const COMPARE_PRODUCT_SECTION_HEADING_TEXT = 'Compare Products';
+export const COMPARE_PRODUCT_SECTION_TEXT = 'You have no items to compare.';

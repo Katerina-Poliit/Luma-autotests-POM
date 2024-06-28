@@ -36,6 +36,12 @@ export class WhatsNewPage {
 		  this.menTanksLink = page.getByRole('link', { name: 'Tanks', exact: true });
 		  this.menPantsLink = page.getByRole('link', { name: 'Pants' }).nth(1);
 		  this.menShortsLink = page.getByRole('link', { name: 'Shorts' }).nth(1);
+		  this.compareProductsSection = page.getByText('Compare Products You have no');
+		  this.compareProductsSectionHeading = page.getByRole('heading', { name: 'Compare Products' });
+		  this.compareProductsSectionText = page.getByText('You have no items to compare.');
+		  this.productCard = page.locator('li').filter({ hasText: 'Overnight Duffle Rating: 60%' });
+		  this.addToCompareIcon = page.getByRole('link', { name: 'Add to Compare' }).nth(1);
+		  this.nameAddedItemToCompare = page.getByRole('link', { name: 'Remove This Item' })
 
    }
 
@@ -99,9 +105,18 @@ export class WhatsNewPage {
 		return new MenPantsPage(this.page);
 	}
 
-	async clickMmnShortsLink() {
+	async clickMenShortsLink() {
 		await this.menShortsLink.click();
 		return new MenShortsPage(this.page);
+	}
+
+	async hoverProductCard() {
+		await this.productCard.hover();
+	}
+
+	async clickAddToCompareIcon() {
+		await this.addToCompareIcon.click();
+		return this;
 	}
 
 }
