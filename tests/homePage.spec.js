@@ -1275,26 +1275,26 @@ test.describe('homePage.spec', () => {
 
 	test('ТС 03.1.87 Verify that the product card contains the stars rating', async ({ page }) => {
 
-		await expect(homePage.starsRating).toBeVisible();
+		await expect(homePage.hotSellersProductCardsStarsRating).toBeVisible();
 
 	});
 
 	test('ТС 03.1.88 Verify that the product card contains the reviews (link)', async ({ page }) => {
 
-		await expect(homePage.rewiesLink).toBeVisible();
+		await expect(homePage.hotSellersProductCardsRewiesLink).toBeVisible();
 
 	});
 
 	test('ТС 03.1.89 Verify that the reviews (link) have a cursor pointer', async ({ page }) => {
 
-		await expect(homePage.rewiesLink).toHaveCSS('cursor', 'pointer');
+		await expect(homePage.hotSellersProductCardsRewiesLink).toHaveCSS('cursor', 'pointer');
 
 	});
 
 
 	test('ТС 03.1.90 Verify that the reviews (link) is colored blue', async ({ page }) => {
 
-		await expect(homePage.rewiesLink).toHaveCSS('color', 'rgb(0, 107, 180)');
+		await expect(homePage.hotSellersProductCardsRewiesLink).toHaveCSS('color', 'rgb(0, 107, 180)');
 
 	});
 
@@ -1308,25 +1308,25 @@ test.describe('homePage.spec', () => {
 
 	test('ТС 03.1.92 Verify that the product card contains the price', async ({ page }) => {
 
-		await expect(homePage.priceProduct).toBeVisible();
+		await expect(homePage.hotSellersProductCardsPriceProduct).toBeVisible();
 
 	});
 
 	test('ТС 03.1.93 Verify that the price contains the text', async ({ page }) => {
 
-		await expect(homePage.priceText).toHaveText('As low as');
+		await expect(homePage.hotSellersProductCardsPriceText).toHaveText('As low as');
 
 	});
 
 	test('ТС 03.1.94 Verify that the price contains the value of price', async ({ page }) => {
 
-		await expect(homePage.priceProduct).toHaveText('$22.00');
+		await expect(homePage.hotSellersProductCardsPriceProduct).toHaveText('$22.00');
 
 	});
 
 	test('ТС 03.1.95 Verify that the product card contains the size buttons', async ({ page }) => {
 
-		await expect(homePage.sizeProduct).toBeVisible();
+		await expect(homePage.hotSellersProductCardsSizeProduct).toBeVisible();
 
 	});
 
@@ -1334,7 +1334,7 @@ test.describe('homePage.spec', () => {
 	test('ТС 03.1.96 Verify that the size button has a cursor pointer', async ({ page }) => {
 
 
-		const firstCard = homePage.sizeProduct;
+		const firstCard = homePage.hotSellersProductCardsSizeProduct;
 
     // Перебираем размеры внутри первой карточки
     for (const size of SIZES) {
@@ -1357,9 +1357,9 @@ test.describe('homePage.spec', () => {
 
 		await homePage.clicksizeXS();
 
-		await expect(homePage.sizeProduct).toHaveCSS('outline', 'rgb(51, 51, 51) none 0px');
+		await expect(homePage.hotSellersProductCardsSizeProduct).toHaveCSS('outline', 'rgb(51, 51, 51) none 0px');
 		await page.mouse.move(0, 0);
-		await expect(homePage.sizeProduct).toHaveCSS('outline', 'rgb(51, 51, 51) none 0px');
+		await expect(homePage.hotSellersProductCardsSizeProduct).toHaveCSS('outline', 'rgb(51, 51, 51) none 0px');
 
 
 	});
@@ -1367,14 +1367,14 @@ test.describe('homePage.spec', () => {
 	test('ТС 03.1.97 Verify that the size button has a blue border while it is clicked and held down', async ({ page }) => {
 
         await homePage.clicksizeXS();
-		await expect(homePage.sizeXS).toHaveCSS('box-shadow', 'rgb(0, 105, 157) 0px 0px 3px 1px');
+		await expect(homePage.hotSellersProductCardsSizeXS).toHaveCSS('box-shadow', 'rgb(0, 105, 157) 0px 0px 3px 1px');
 
 	});
 
 	test('ТС 03.1.99 Verify that the product card contains the color buttons', async ({ page }) => {
 
 		for (const color of COLORLABLES) {
-			const colorContainer = homePage.colorContainer;
+			const colorContainer = homePage.hotSellersProductCardsColorContainer;
 			await expect(colorContainer).toBeVisible();
 			// console.log(`Color button for ${color} is visible`);
 		}
@@ -1383,12 +1383,27 @@ test.describe('homePage.spec', () => {
 	test('ТС 03.1.000 Verify that the color button has a cursor pointer', async ({ page }) => {
 
 		for (const color of COLORLABLES) {
-			const colorLocator = homePage.colorContainer.locator(`div[option-label="${color}"]`);
+			const colorLocator = homePage.hotSellersProductCardsColorContainer.locator(`div[option-label="${color}"]`);
 			await colorLocator.hover();
 			const cursorStyle = await colorLocator.evaluate(el => window.getComputedStyle(el).cursor);
 			expect(cursorStyle).toBe('pointer');
 			console.log(`Cursor style for color ${color} is: ${cursorStyle}`);
 		}
+	});
+
+	test('ТС 03.1.101 Verify that the color button has a shadow border around it after being clicked', async ({ page }) => {
+
+		for (const color of COLORLABLES) {
+			const colorLocator = homePage.hotSellersProductCardsColorContainer.locator(`div[option-label="${color}"]`);
+			await colorLocator.click();
+
+			const outline = await colorLocator.evaluate(el => window.getComputedStyle(el).outline);
+        expect(outline).not.toBe('rgb(255 85 1)'); // Проверяем, что outline не 'none'
+
+		}
+
+
+
 	});
 
 });
