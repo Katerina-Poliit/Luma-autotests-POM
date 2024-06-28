@@ -1450,4 +1450,12 @@ test.describe('homePage.spec', () => {
 		}
 
 	});
+
+	test('ТС 03.1.106 Verify that the product cart additionally highlights after hovering over on it.', async ({ page }) => {
+
+		await homePage.hoverhotSellersProductCards();
+		await homePage.hoverHotSellersProductCardsAddToCartBtn();
+		const boxShadow = await homePage.hotSellersProductCards.evaluate(el => window.getComputedStyle(el).border);
+		expect(boxShadow).toBe('0px none rgb(0, 107, 180)');
+	});
 });
