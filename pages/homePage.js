@@ -145,6 +145,8 @@ export class HomePage {
 		this.hotSellersProductCardsSizeProduct = page.locator('.size').nth(0);
 		this.hotSellersProductCardsSizeXS = page.locator('li').filter({ hasText: 'Radiant Tee Rating: 60% 3' }).getByLabel('XS');
 		this.hotSellersProductCardsColorContainer = page.locator('.swatch-attribute.color').nth(0);
+		this.hotSellersProductCardsAddToCartBtn = page.locator('li').filter({ hasText: 'Radiant Tee Rating: 60% 3' }).getByRole('button');
+		this.hotSellersProductCards = page.getByRole('link', { name: 'Radiant Tee' }).first();
 
 	}
 
@@ -536,6 +538,19 @@ export class HomePage {
 
 	async hoverGearBags() {
 		await this.gearBags.hover();
+	}
+
+
+	async hoverHotSellersProductCardsAddToCartBtn() {
+		await this.hotSellersProductCardsAddToCartBtn.hover();
+	}
+
+	async hoverHotSellersProductCardsAddToCartBtn() {
+		await this.hotSellersProductCardsAddToCartBtn.hover();
+	}
+
+	async hoverhotSellersProductCards() {
+		await this.hotSellersProductCards.hover();
 	}
 
 
