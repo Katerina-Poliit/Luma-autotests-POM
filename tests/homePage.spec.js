@@ -993,13 +993,13 @@ test.describe('homePage.spec', () => {
 
 	});
 
-	test('ТС 03.1.157.1 Verify that the " Pants" subcategories are redirected to the appropriate pages', async ({ page }) => {
+	test('ТС 03.1.157.1 Verify that the "Pants" subcategories are redirected to the appropriate pages', async ({ page }) => {
 
 		await homePage.hovermenDropdown();
 		await homePage.hoverMenBottoms();
 		const menBottomsPage = await homePage.clickMenBottomsPants();
 		await expect(page).toHaveURL(MEN_BOTTOMS_PANTS_PAGE_URL);
-		await expect(menBottomsPage.header).toHaveText(HEADING_MEN_BOTTOMS_PANTS_TEXT)
+		await expect(menBottomsPage.headingPantsPage).toHaveText(HEADING_MEN_BOTTOMS_PANTS_TEXT)
 
 	});
 
@@ -1028,7 +1028,7 @@ test.describe('homePage.spec', () => {
 		await homePage.hoverMenBottoms();
 		const menBottomsShortsPage = await homePage.clickMenBottomsShorts();
 		await expect(page).toHaveURL(MEN_SHORTS_PAGE_URL);
-		await expect(menBottomsShortsPage.header).toHaveText(HEADING_MEN_SHORTS_PAGE_TEXT)
+		await expect(menBottomsShortsPage.headingShortsPage).toHaveText(HEADING_MEN_SHORTS_PAGE_TEXT)
 
 	});
 
