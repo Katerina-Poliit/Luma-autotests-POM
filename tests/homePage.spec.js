@@ -1477,7 +1477,7 @@ test.describe('homePage.spec', () => {
 
 		await homePage.hoverhotSellersProductCards();
 		await homePage.hoverHotSellersProductCardsAddToCartBtn();
-		await expect(homePage.hotSellersProductCardsAddToCartBtn).toHaveCSS('background', 'rgb(25, 121, 195) none repeat scroll 0% 0% / auto padding-box border-box');
+		await expect(homePage.hotSellersProductCardsAddToCartBtn).toHaveCSS('background', 'rgb(0, 107, 180) none repeat scroll 0% 0% / auto padding-box border-box');
 	});
 
 
