@@ -1,4 +1,6 @@
 import { HomePage } from "./homePage";
+import MenHoddiesSweatshirtsPage from "./menHoddiesSweatshirtsPage";
+import MenJacketsPage from "./menJacketsPage";
 import WomenBrassTanksPage from "./womenBrassTanksPage";
 import WomenHoodiesSweatshirtsPage from "./womenHoodiesSweatshirtsPage";
 import WomenJacketsPage from "./womenJacketsPage";
@@ -24,6 +26,8 @@ export class WhatsNewPage {
 		  this.shortsLink = page.getByRole('link', { name: 'Shorts' }).first();
 		  this.newInMensSection = page.getByText('Hoodies & Sweatshirts Jackets Tees Tanks Pants Shorts');
 		  this.newInWomensSectionHeading = page.getByText('New in men\'s');
+		  this.menHoodiesSweatshirtsLink = page.getByRole('link', { name: 'Hoodies & Sweatshirts' }).nth(1);
+		  this.menJacketsLink = page.getByRole('link', { name: 'Jackets' }).nth(1);
 
    }
 
@@ -60,6 +64,16 @@ export class WhatsNewPage {
 	async clickShortsLink() {
 		await this.shortsLink.click();
 		return new WomenShortsPage(this.page);
+	}
+
+	async clickMenHoodiesSweatshirtsLink() {
+		await this.menHoodiesSweatshirtsLink.click();
+		return new MenHoddiesSweatshirtsPage(this.page);
+	}
+
+	async clickMenJacketsLink() {
+		await this.menJacketsLink.click();
+		return new MenJacketsPage(this.page);
 	}
 
 }

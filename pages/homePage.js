@@ -27,7 +27,7 @@ import { TeesPage } from "./teesPage";
 import WomenPanstPage from "./womenPantsPage";
 import WomenShortsPage from "./womenShortsPage";
 import MenTopsPage from "./menTopsPage";
-import MenTopsJacketsPage from "./menJacketsPage";
+import MenJacketsPage from "./menJacketsPage";
 import MenHoddiesSweatshirtsPage from "./menHoddiesSweatshirtsPage";
 import MenTeesPage from "./menTeesPage";
 import MenTanksPage from "./menTanksPage";
@@ -377,7 +377,7 @@ export class HomePage {
 
 	async clickMenTopsJackets() {
 		await this.menTopsJackets.click();
-		return new MenTopsJacketsPage(this.page);
+		return new MenJacketsPage(this.page);
 
 	}
 

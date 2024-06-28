@@ -708,7 +708,7 @@ test.describe('homePage.spec', () => {
 		await homePage.hoverMenTops();
 		const menJacktsPage = await homePage.clickMenTopsJackets();
 		await expect(page).toHaveURL(MEN_TOPS_JACKETS_URL);
-		await expect(menJacktsPage.header).toHaveText(HEADING_JACKETS_TEXT);
+		await expect(menJacktsPage.headingJacketsPage).toHaveText(HEADING_JACKETS_TEXT);
 
 	});
 
@@ -736,7 +736,7 @@ test.describe('homePage.spec', () => {
 		await homePage.hoverMenTops();
 		const menHoddiesSweatshirtsPage = await homePage.clickMenTopsHoodiesSweatshirts();
 		await expect(page).toHaveURL(MEN_HOODIESSWEATSHIRTS_URL);
-		await expect(menHoddiesSweatshirtsPage.header).toHaveText(HEADING_HOODIES_TEXT);
+		await expect(menHoddiesSweatshirtsPage.headingHoddiesSweatshirtsPage).toHaveText(HEADING_HOODIES_TEXT);
 
 	});
 
