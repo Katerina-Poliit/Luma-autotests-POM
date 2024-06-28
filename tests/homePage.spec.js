@@ -1419,4 +1419,11 @@ test.describe('homePage.spec', () => {
 
 	});
 
+	test('ТС 03.1.103 Verify that additional information is available after hovering over the rating (the percentage appears)', async ({ page }) => {
+
+		await expect(homePage.hotSellersProductCardsStarsRating).toBeVisible();
+		await expect(homePage.hotSellersProductCardsStarsRating).toHaveText('60%');
+
+	});
+
 });
