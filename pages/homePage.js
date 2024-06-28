@@ -138,13 +138,13 @@ export class HomePage {
 		this.gearFitnessEquipment = page.locator('#ui-id-26');
 		this.gearWatches = page.locator('#ui-id-27');
         this.trainingVideoDownloading = page.locator('#ui-id-28');
-		this.starsRating = page.getByTitle('60%');
-		this.rewiesLink = page.getByRole('link', { name: 'Reviews' }).first();
-		this.priceProduct = page.locator('#old-price-1556-widget-product-grid').getByText('$');
-		this.priceText = page.getByText('As low as').first();
-		this.sizeProduct = page.locator('.size').nth(0);
-		this.sizeXS = page.locator('li').filter({ hasText: 'Radiant Tee Rating: 60% 3' }).getByLabel('XS');
-		this.colorContainer = page.locator('.swatch-attribute.color').nth(0);
+		this.hotSellersProductCardsStarsRating = page.getByTitle('60%');
+		this.hotSellersProductCardsRewiesLink = page.getByRole('link', { name: 'Reviews' }).first();
+		this.hotSellersProductCardsPriceProduct = page.locator('#old-price-1556-widget-product-grid').getByText('$');
+		this.hotSellersProductCardsPriceText = page.getByText('As low as').first();
+		this.hotSellersProductCardsSizeProduct = page.locator('.size').nth(0);
+		this.hotSellersProductCardsSizeXS = page.locator('li').filter({ hasText: 'Radiant Tee Rating: 60% 3' }).getByLabel('XS');
+		this.hotSellersProductCardsColorContainer = page.locator('.swatch-attribute.color').nth(0);
 
 	}
 
@@ -521,7 +521,7 @@ export class HomePage {
 	}
 
 	async clickRewiesLink() {
-		await this.rewiesLink.click();
+		await this.hotSellersProductCardsRewiesLink.click();
 		return new ReviewsPage(this.page);
 	}
 
@@ -531,7 +531,7 @@ export class HomePage {
 	}
 
 	async clicksizeXS() {
-		await this.sizeXS.click();
+		await this.hotSellersProductCardsSizeXS.click();
 	}
 
 }
