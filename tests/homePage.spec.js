@@ -1458,4 +1458,28 @@ test.describe('homePage.spec', () => {
 		const boxShadow = await homePage.hotSellersProductCards.evaluate(el => window.getComputedStyle(el).border);
 		expect(boxShadow).toBe('0px none rgb(0, 107, 180)');
 	});
+
+	test('ТС 03.1.107 Verify that the "Add to Card" button appears after hovering over the product card', async ({ page }) => {
+
+		await homePage.hoverhotSellersProductCards();
+		await homePage.hoverHotSellersProductCardsAddToCartBtn();
+		await expect(homePage.hotSellersProductCardsAddToCartBtn).toBeVisible();
+	});
+
+	test('ТС 03.1.108 Verify that the "Add to Card" has a cursor pointer', async ({ page }) => {
+
+		await homePage.hoverhotSellersProductCards();
+		await homePage.hoverHotSellersProductCardsAddToCartBtn();
+		await expect(homePage.hotSellersProductCardsAddToCartBtn).toHaveCSS('cursor', 'pointer');
+	});
+
+	test('ТС 03.1.109 Verify that the "Add to Card" is colored blue', async ({ page }) => {
+
+		await homePage.hoverhotSellersProductCards();
+		await homePage.hoverHotSellersProductCardsAddToCartBtn();
+		await expect(homePage.hotSellersProductCardsAddToCartBtn).toHaveCSS('background', 'rgb(25, 121, 195) none repeat scroll 0% 0% / auto padding-box border-box');
+	});
+
+
+
 });
