@@ -1,6 +1,8 @@
 import { HomePage } from "./homePage";
+import WomenBrassTanksPage from "./womenBrassTanksPage";
 import WomenHoodiesSweatshirtsPage from "./womenHoodiesSweatshirtsPage";
 import WomenJacketsPage from "./womenJacketsPage";
+import WomenPanstPage from "./womenPantsPage";
 import WomenTeesPage from "./womenTeesPage";
 
 export class WhatsNewPage {
@@ -16,6 +18,8 @@ export class WhatsNewPage {
 		  this.hoodiesSweatshirtsLink = page.getByRole('link', { name: 'Hoodies & Sweatshirts' }).first();
 		  this.jacketsLink = page.getByRole('link', { name: 'Jackets' }).first();
 		  this.teesLink = page.getByRole('link', { name: 'Tees' }).first();
+		  this.brasTanksLink = page.getByRole('link', { name: 'Bras & Tanks' });
+		  this.pantsLink = page.getByRole('link', { name: 'Pants' }).first()
 
    }
 
@@ -37,6 +41,16 @@ export class WhatsNewPage {
 	async clickTeesLink() {
 		await this.teesLink.click();
 		return new WomenTeesPage(this.page);
+	}
+
+	async clickBrasTanksLink() {
+		await this.brasTanksLink.click();
+		return new WomenBrassTanksPage(this.page);
+	}
+
+	async clickPantsLink() {
+		await this.pantsLink.click();
+		return new WomenPanstPage(this.page);
 	}
 
 }

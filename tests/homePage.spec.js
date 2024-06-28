@@ -366,15 +366,6 @@ test.describe('homePage.spec', () => {
 
 	});
 
-	// test('ТС 03.1.134 Verify that the "Bottoms" dropdown contains the "Pants" subcategory', async ({ page }) => {
-
-	// 	await homePage.hoverwomenLink();
-	// 	await homePage.hoverWomenBottoms();
-	// 	await homePage.womenPants.waitFor();
-	// 	expect(homePage.womenPants).toHaveText(WOMEN_BOTTOMS_SUBCATEGORY_PANTS_TEXT);
-
-	// });
-
 	test('ТС 03.1.21 Verify that the Home page contains the promo block', async ({ page }) => {
 
 		await expect(homePage.promoBlock).toBeVisible();
@@ -619,7 +610,7 @@ test.describe('homePage.spec', () => {
 		await homePage.hoverwomenBottoms()
 		const womenPantsPage = await homePage.clickwomenPants();
 		await expect(page).toHaveURL(WOMEN_BOTTOMS_PANTS_PAGE_URL);
-		await expect(womenPantsPage.heading).toHaveText(HEADING_WOMEN_PANTS_PAGE_TEXT)
+		await expect(womenPantsPage.headingPanstPage).toHaveText(HEADING_WOMEN_PANTS_PAGE_TEXT)
 
 	});
 
