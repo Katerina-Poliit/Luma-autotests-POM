@@ -3,6 +3,7 @@ import WomenBrassTanksPage from "./womenBrassTanksPage";
 import WomenHoodiesSweatshirtsPage from "./womenHoodiesSweatshirtsPage";
 import WomenJacketsPage from "./womenJacketsPage";
 import WomenPanstPage from "./womenPantsPage";
+import WomenShortsPage from "./womenShortsPage";
 import WomenTeesPage from "./womenTeesPage";
 
 export class WhatsNewPage {
@@ -13,13 +14,16 @@ export class WhatsNewPage {
 
 		  this.header = page.getByLabel('What\'s New').getByText('What\'s New');
 		  this.homeBreadcrumbs = page.getByRole('link', { name: 'Home' });
-		  this.newInWomansSection = page.getByText('Hoodies & Sweatshirts Jackets Tees Bras & Tanks Pants Shorts');
-		  this.newInWomansSectionHeader = page.getByText('New in women\'s');
+		  this.newInWomensSection = page.getByText('Hoodies & Sweatshirts Jackets Tees Bras & Tanks Pants Shorts');
+		  this.newInWomensSectionHeader = page.getByText('New in women\'s');
 		  this.hoodiesSweatshirtsLink = page.getByRole('link', { name: 'Hoodies & Sweatshirts' }).first();
 		  this.jacketsLink = page.getByRole('link', { name: 'Jackets' }).first();
 		  this.teesLink = page.getByRole('link', { name: 'Tees' }).first();
 		  this.brasTanksLink = page.getByRole('link', { name: 'Bras & Tanks' });
-		  this.pantsLink = page.getByRole('link', { name: 'Pants' }).first()
+		  this.pantsLink = page.getByRole('link', { name: 'Pants' }).first();
+		  this.shortsLink = page.getByRole('link', { name: 'Shorts' }).first();
+		  this.newInMensSection = page.getByText('Hoodies & Sweatshirts Jackets Tees Tanks Pants Shorts');
+		  this.newInWomensSectionHeading = page.getByText('New in men\'s');
 
    }
 
@@ -51,6 +55,11 @@ export class WhatsNewPage {
 	async clickPantsLink() {
 		await this.pantsLink.click();
 		return new WomenPanstPage(this.page);
+	}
+
+	async clickShortsLink() {
+		await this.shortsLink.click();
+		return new WomenShortsPage(this.page);
 	}
 
 }

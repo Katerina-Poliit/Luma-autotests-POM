@@ -638,7 +638,7 @@ test.describe('homePage.spec', () => {
 		await homePage.hoverwomenBottoms();
 		const womenShortsPage = await homePage.clickwomenShorts();
 		await expect(page).toHaveURL(WOMEN_SHORTS_PAGE_URL);
-		await expect(womenShortsPage.heading).toHaveText(HEADING_WOMEN_SHORTS_PAGE_TEXT);
+		await expect(womenShortsPage.headingShortsPage).toHaveText(HEADING_WOMEN_SHORTS_PAGE_TEXT);
 
 	});
 
