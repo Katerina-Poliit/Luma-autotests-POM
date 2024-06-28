@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 import { HomePage } from "../pages/homePage";
 
-import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMANS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT, BRAS_TANKS_LINK_TEXT, BRAS_TANKS_URL, BRAS_TANKS_BREADCRUMBS_TEXT, BRAS_TANKS_HEADING_TEXT, PANTS_LINK_TEXT, PANTS_URL, PANTS_BREADCRUMBS_TEXT, PANTS_HEADING_TEXT } from "../helpers/testDataWhatsNewPage";
+import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMENS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT, BRAS_TANKS_LINK_TEXT, BRAS_TANKS_URL, BRAS_TANKS_BREADCRUMBS_TEXT, BRAS_TANKS_HEADING_TEXT, PANTS_LINK_TEXT, PANTS_URL, PANTS_BREADCRUMBS_TEXT, PANTS_HEADING_TEXT, SHORTS_LINK_TEXT, SHORTS_URL, SHORTS_BREADCRUMBS_TEXT, SHORTS_HEADING_TEXT, NEW_IN_MEN_SECTION_HEADER_TEXT } from "../helpers/testDataWhatsNewPage";
 
 test.describe('whatsNewPage.spec', () => {
 
@@ -44,14 +44,14 @@ test.describe('whatsNewPage.spec', () => {
 
 	test('ТС 04.1.3 Verify that the "What\'s New" page contains the "NEW IN WOMEN\'S" section', async ({ page }) => {
 
-		await expect(whatsNewPage.newInWomansSection).toBeVisible();
+		await expect(whatsNewPage.newInWomensSection).toBeVisible();
 		
 	});
 
 	test('ТС 04.1.4 Verify that the "NEW IN WOMEN\'S" section contains the header', async ({ page }) => {
 
-		await expect(whatsNewPage.newInWomansSectionHeader).toBeVisible();
-		await expect(whatsNewPage.newInWomansSectionHeader).toHaveText(NEW_IN_WOMANS_SECTION_HEADER_TEXT);
+		await expect(whatsNewPage.newInWomensSectionHeader).toBeVisible();
+		await expect(whatsNewPage.newInWomensSectionHeader).toHaveText(NEW_IN_WOMENS_SECTION_HEADER_TEXT);
 		
 	});
 
@@ -192,6 +192,47 @@ test.describe('whatsNewPage.spec', () => {
 
 		await expect(womenPantsPage.headingPanstPage).toBeVisible();
 		await expect(womenPantsPage.headingPanstPage).toHaveText(PANTS_HEADING_TEXT);
+		
+	});
+
+	test('ТС 04.1.20 Verify that the "NEW IN WOMEN\'S" section contains the "Shorts" link', async ({ page }) => {
+
+		await expect(whatsNewPage.shortsLink).toBeVisible();
+		await expect(whatsNewPage.shortsLink).toHaveText(SHORTS_LINK_TEXT);
+		
+	});
+
+	test('ТС 04.1.21 Verify that the "Shorts" link has a cursor pointer', async ({ page }) => {
+
+		await expect(whatsNewPage.shortsLink).toBeVisible();
+		await expect(whatsNewPage.shortsLink).toHaveCSS('cursor', 'pointer');
+		
+	});
+
+	test('ТС 04.1.22 Verify that the user is redirected to the "Shorts" page after clicking on the "Shorts" link', async ({ page }) => {
+
+		const womenShortsPage = await whatsNewPage.clickShortsLink();
+
+		await expect(page).toHaveURL(SHORTS_URL);
+
+		await expect(womenShortsPage.shortsBreadcrumbs).toBeVisible();
+		await expect(womenShortsPage.shortsBreadcrumbs).toHaveText(SHORTS_BREADCRUMBS_TEXT);
+
+		await expect(womenShortsPage.headingShortsPage).toBeVisible();
+		await expect(womenShortsPage.headingShortsPage).toHaveText(SHORTS_HEADING_TEXT);
+		
+	});
+
+	test('ТС 04.1.23 Verify that the "What\'s New" page contains the "NEW IN MEN\'S" section', async ({ page }) => {
+
+		await expect(whatsNewPage.newInMensSection).toBeVisible();
+		
+	});
+
+	test('ТС 04.1.24 Verify that the "NEW IN MEN\'S" section contains the heading', async ({ page }) => {
+
+		await expect(whatsNewPage.newInWomensSectionHeading).toBeVisible();
+		await expect(whatsNewPage.newInWomensSectionHeading).toHaveText(NEW_IN_MEN_SECTION_HEADER_TEXT);
 		
 	});
 
