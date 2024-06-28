@@ -1481,5 +1481,38 @@ test.describe('homePage.spec', () => {
 	});
 
 
+	test('ТС 03.1.110 Verify that the user is redirected to the respective product page after clicking on the "Add to Card"', async ({ page }) => {
+
+		await homePage.hoverhotSellersProductCards();
+		await homePage.clickHotSellersProductCardsAddToCartBtn();
+		await expect(page).toHaveURL(RADIANT_TEE_URL);
+
+	});
+
+	test('ТС 03.1.111 Verify that the "Add to Wish List" button appears after hovering over the product card', async ({ page }) => {
+
+		await homePage.hoverhotSellersProductCards();
+		await expect(homePage.hotSellersProductCardsAddToWishListBtn).toBeVisible();
+
+	});
+
+	test('ТС 03.1.112 Verify that the "Add to Wish List" button appears after hovering over the product card', async ({ page }) => {
+
+		await homePage.hoverhotSellersProductCards();
+		await expect(homePage.hotSellersProductCardsAddToWishListBtn).toHaveCSS('cursor', 'pointer');
+
+	});
+
+
+	// test('ТС 03.1.113 Verify that the user is redirected to the "My Wish List" page and the selected product item appears in the "My Wish List" page after clicking on the "Add to Wish List" button (only registered user)', async ({ page }) => {
+
+	// 	await homePage.hoverhotSellersProductCards();
+	// 	await homePage.clickHotSellersProductCardsAddToWishListBtn();
+
+
+	// });
+
+
+
 
 });
