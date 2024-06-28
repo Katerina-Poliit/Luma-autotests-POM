@@ -1432,10 +1432,21 @@ test.describe('homePage.spec', () => {
 		for (const size of SIZES) {
 			const sizeLocator = firstCard.locator(`div[role="option"][aria-label="${size}"]`);
 			await sizeLocator.hover();
-
 			const tooltipLocator = page.locator('.swatch-option-tooltip');
 			await expect(tooltipLocator).toBeVisible();
 			// console.log(`Tooltip is visible after hovering over size "${size}"`);
+		}
+
+	});
+
+	test('ТС 03.1.105 Verify that after hovering over the colors, the tooltip is displayed.', async ({ page }) => {
+
+		const firstCard = homePage.hotSellersProductCardsColorContainer
+		for (const color of COLORLABLES) {
+			const colorLocator = firstCard.locator(`div[option-label="${color}"]`);
+			await colorLocator.hover();
+			const tooltipLocator = page.locator('.swatch-option-tooltip');
+			await expect(tooltipLocator).toBeVisible();
 		}
 
 	});
