@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 import { HomePage } from "../pages/homePage";
 
-import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMANS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADER_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADER_TEXT, TEES_LINK_TEXT } from "../helpers/testDataWhatsNewPage";
+import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMANS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT } from "../helpers/testDataWhatsNewPage";
 
 test.describe('whatsNewPage.spec', () => {
 
@@ -71,15 +71,15 @@ test.describe('whatsNewPage.spec', () => {
 
 	test('ТС 04.1.7 Verify that the user is redirected to the "Hoodies & Sweatshirts" page after clicking on the "Hoodies & Sweatshirts" link', async ({ page }) => {
 
-		const hoodiesSweatshirtsLink = await whatsNewPage.clickHoodiesSweatshirtsLink();
+		const womenHoodiesSweatshirtsPage = await whatsNewPage.clickHoodiesSweatshirtsLink();
 
 		await expect(page).toHaveURL(HOODIES_SWEATSHIRTS_URL);
 
-		await expect(hoodiesSweatshirtsLink.hoodiesSweatshirtsBreadcrumbs).toBeVisible();
-		await expect(hoodiesSweatshirtsLink.hoodiesSweatshirtsBreadcrumbs).toHaveText(HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT);
+		await expect(womenHoodiesSweatshirtsPage.hoodiesSweatshirtsBreadcrumbs).toBeVisible();
+		await expect(womenHoodiesSweatshirtsPage.hoodiesSweatshirtsBreadcrumbs).toHaveText(HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT);
 
-		await expect(hoodiesSweatshirtsLink.header).toBeVisible();
-		await expect(hoodiesSweatshirtsLink.header).toHaveText(HOODIES_SWEATSHIRTS_HEADER_TEXT);
+		await expect(womenHoodiesSweatshirtsPage.headingHoodiesSweatshirtsPage).toBeVisible();
+		await expect(womenHoodiesSweatshirtsPage.headingHoodiesSweatshirtsPage).toHaveText(HOODIES_SWEATSHIRTS_HEADING_TEXT);
 		
 	});
 
@@ -99,15 +99,15 @@ test.describe('whatsNewPage.spec', () => {
 
 	test('ТС 04.1.10 Verify that the user is redirected to the "Jackets" page after clicking on the "Jackets" link', async ({ page }) => {
 
-		const hoodiesSweatshirtsLink = await whatsNewPage.clickJacketsLink();
+		const womenJacketsPage = await whatsNewPage.clickJacketsLink();
 
 		await expect(page).toHaveURL(JACKETS_URL);
 
-		await expect(hoodiesSweatshirtsLink.jacketsBreadcrumbs).toBeVisible();
-		await expect(hoodiesSweatshirtsLink.jacketsBreadcrumbs).toHaveText(JACKETS_BREADCRUMBS_TEXT);
+		await expect(womenJacketsPage.jacketsBreadcrumbs).toBeVisible();
+		await expect(womenJacketsPage.jacketsBreadcrumbs).toHaveText(JACKETS_BREADCRUMBS_TEXT);
 
-		await expect(hoodiesSweatshirtsLink.header).toBeVisible();
-		await expect(hoodiesSweatshirtsLink.header).toHaveText(JACKETS_HEADER_TEXT);
+		await expect(womenJacketsPage.headingJacketsPage).toBeVisible();
+		await expect(womenJacketsPage.headingJacketsPage).toHaveText(JACKETS_HEADING_TEXT);
 		
 	});
 
@@ -115,6 +115,27 @@ test.describe('whatsNewPage.spec', () => {
 
 		await expect(whatsNewPage.teesLink).toBeVisible();
 		await expect(whatsNewPage.teesLink).toHaveText(TEES_LINK_TEXT);
+		
+	});
+
+	test('ТС 04.1.12 Verify that the "Tees" link has a cursor pointer', async ({ page }) => {
+
+		await expect(whatsNewPage.teesLink).toBeVisible();
+		await expect(whatsNewPage.teesLink).toHaveCSS('cursor', 'pointer');
+		
+	});
+	
+	test('ТС 04.1.13 Verify that the user is redirected to the "Tees" page after clicking on the "Tees" link', async ({ page }) => {
+
+		const womenTeesPage = await whatsNewPage.clickTeesLink();
+
+		await expect(page).toHaveURL(TEES_URL);
+
+		await expect(womenTeesPage.teesBreadcrumbs).toBeVisible();
+		await expect(womenTeesPage.teesBreadcrumbs).toHaveText(TEES_BREADCRUMBS_TEXT);
+
+		await expect(womenTeesPage.headingTessPage).toBeVisible();
+		await expect(womenTeesPage.headingTessPage).toHaveText(TEES_HEADING_TEXT);
 		
 	});
 

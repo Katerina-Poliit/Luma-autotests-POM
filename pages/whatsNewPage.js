@@ -1,6 +1,7 @@
 import { HomePage } from "./homePage";
-import { HoodiesSweatshirtsPage } from "./hoodiesSweatshirtPage";
-import { JacketsPage } from "./jacketsPage";
+import WomenHoodiesSweatshirtsPage from "./womenHoodiesSweatshirtsPage";
+import WomenJacketsPage from "./womenJacketsPage";
+import WomenTeesPage from "./womenTeesPage";
 
 export class WhatsNewPage {
 
@@ -25,12 +26,17 @@ export class WhatsNewPage {
 
 	async clickHoodiesSweatshirtsLink() {
 		await this.hoodiesSweatshirtsLink.click();
-		return new HoodiesSweatshirtsPage(this.page);
+		return new WomenHoodiesSweatshirtsPage(this.page);
 	}
 
 	async clickJacketsLink() {
 		await this.jacketsLink.click();
-		return new JacketsPage(this.page);
+		return new WomenJacketsPage(this.page);
+	}
+
+	async clickTeesLink() {
+		await this.teesLink.click();
+		return new WomenTeesPage(this.page);
 	}
 
 }
