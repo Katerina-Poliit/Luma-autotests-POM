@@ -283,8 +283,8 @@ test.describe('homePage.spec', () => {
 		await homePage.hoverwomenCategoryTops();
 		const womenHoodiesSweatshirtsPage = await homePage.clickwomenTopsHoodiesSweatshirts();
 		await expect(page).toHaveURL(WOMEN_TOPS_SUBCATEGORY_HOODIESSWEATSHIRTS_URL);
-		await expect(womenHoodiesSweatshirtsPage.headingPage).toBeVisible();
-		await expect(womenHoodiesSweatshirtsPage.headingPage).toHaveText(HEADING_HOODIES_TEXT)
+		await expect(womenHoodiesSweatshirtsPage.headingHoodiesSweatshirtsPage).toBeVisible();
+		await expect(womenHoodiesSweatshirtsPage.headingHoodiesSweatshirtsPage).toHaveText(HEADING_HOODIES_TEXT)
 
 	});
 
