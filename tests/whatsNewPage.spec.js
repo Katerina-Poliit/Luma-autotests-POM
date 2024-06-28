@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 import { HomePage } from "../pages/homePage";
 
-import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMANS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT } from "../helpers/testDataWhatsNewPage";
+import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMANS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT, BRAS_TANKS_LINK_TEXT, BRAS_TANKS_URL, BRAS_TANKS_BREADCRUMBS_TEXT, BRAS_TANKS_HEADING_TEXT, PANTS_LINK_TEXT, PANTS_URL, PANTS_BREADCRUMBS_TEXT, PANTS_HEADING_TEXT } from "../helpers/testDataWhatsNewPage";
 
 test.describe('whatsNewPage.spec', () => {
 
@@ -136,6 +136,62 @@ test.describe('whatsNewPage.spec', () => {
 
 		await expect(womenTeesPage.headingTessPage).toBeVisible();
 		await expect(womenTeesPage.headingTessPage).toHaveText(TEES_HEADING_TEXT);
+		
+	});
+
+	test('ТС 04.1.14 Verify that the "NEW IN WOMEN\'S" section contains the "Bras & Tanks" link', async ({ page }) => {
+
+		await expect(whatsNewPage.brasTanksLink).toBeVisible();
+		await expect(whatsNewPage.brasTanksLink).toHaveText(BRAS_TANKS_LINK_TEXT);
+		
+	});
+
+	test('ТС 04.1.15 Verify that the "Bras & Tanks" link has a cursor pointer', async ({ page }) => {
+
+		await expect(whatsNewPage.brasTanksLink).toBeVisible();
+		await expect(whatsNewPage.brasTanksLink).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 04.1.16 Verify that the user is redirected to the "Bras & Tanks" page after clicking on the "Bras & Tanks" link', async ({ page }) => {
+
+		const womenBrassTanksPage = await whatsNewPage.clickBrasTanksLink();
+
+		await expect(page).toHaveURL(BRAS_TANKS_URL);
+
+		await expect(womenBrassTanksPage.brassTanksBreadcrumbs).toBeVisible();
+		await expect(womenBrassTanksPage.brassTanksBreadcrumbs).toHaveText(BRAS_TANKS_BREADCRUMBS_TEXT);
+
+		await expect(womenBrassTanksPage.headingBrassTanksPage).toBeVisible();
+		await expect(womenBrassTanksPage.headingBrassTanksPage).toHaveText(BRAS_TANKS_HEADING_TEXT);
+		
+	});
+
+	test('ТС 04.1.17 Verify that the "NEW IN WOMEN\'S" section contains the "Pants" link', async ({ page }) => {
+
+		await expect(whatsNewPage.pantsLink).toBeVisible();
+		await expect(whatsNewPage.pantsLink).toHaveText(PANTS_LINK_TEXT);
+		
+	});
+
+	test('ТС 04.1.18 Verify that the "Pants" link has a cursor pointer', async ({ page }) => {
+
+		await expect(whatsNewPage.pantsLink).toBeVisible();
+		await expect(whatsNewPage.pantsLink).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 04.1.19 Verify that the user is redirected to the "Pants" page after clicking on the "Pants" link', async ({ page }) => {
+
+		const womenPantsPage = await whatsNewPage.clickPantsLink();
+
+		await expect(page).toHaveURL(PANTS_URL);
+
+		await expect(womenPantsPage.pantsBreadcrumbs).toBeVisible();
+		await expect(womenPantsPage.pantsBreadcrumbs).toHaveText(PANTS_BREADCRUMBS_TEXT);
+
+		await expect(womenPantsPage.headingPanstPage).toBeVisible();
+		await expect(womenPantsPage.headingPanstPage).toHaveText(PANTS_HEADING_TEXT);
 		
 	});
 
