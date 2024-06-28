@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-import { BASE_URL, WHATS_NEW_LINK_TEXT, WOMEN_LINK_TEXT, MEN_LINK_TEXT, GEAR_LINK_TEXT, TRAINING_LINK_TEXT, SALE_LINK_TEXT, WHATS_NEW_URL, WHATS_NEW_PAGE_HEADER_TEXT, WOMEN_URL, WOMEN_PAGE_HEADER_TEXT, MEN_URL, MEN_PAGE_HEADER_TEXT, GEAR_URL, GEAR_PAGE_HEADER_TEXT, TRAINING_URL, TRAINING_PAGE_HEADER_TEXT, SALE_URL, SALE_PAGE_HEADER_TEXT, WOMEN_CATAGORY_TOPS, WOMEN_TOPS_PAGE_URL, WOMEN_TOPS_SUBCATEGORY_JACKETS, WOMEN_TOPS_SUBCATEGORY_HOODIESSWEATSHIRTS, WOMEN_TOPS_JACKETS_URL, WOMEN_TOPS_SUBCATEGORY_HOODIESSWEATSHIRTS_URL, PANTS_URL, PANTS_HEADER_TEXT, OFF_20_SECTION_HEADER_TEXT, OFF_20_SECTION_CTA_TEXT, SHOP_PANTS_LINK_TEXT, HEADING_TOPS_TEXT, HEADING_JACKETS_TEXT, HEADING_HOODIES_TEXT, WOMEN_TOPS_SUBCATEGORY_TEES_TEXT, WOMEN_TOPS_TEES_URL, HEADING_TEES_PAGE_TEXT, WOMEN_TOPS_SUBCATEGORY_BRAS_TANKS, WOMEN_TOPS_BRASSTANKS_URL, HEADING_BRASTANKS_PAGE_TEXT, WOMEN_CATAGORY_BOTTOMS, WOMEN_BOTTOMS_PAGE_URL, HEADING_BOTTOMS_TEXT, WOMEN_BOTTOMS_SUBCATEGORY_PANTS_TEXT, WOMEN_BOTTOMS_PANTS_PAGE_URL, HEADING_WOMEN_PANTS_PAGE_TEXT, WOMEN_BOTTOMS_SUBCATEGORY_SHORTS_TEXT, WOMEN_SHORTS_PAGE_URL, HEADING_WOMEN_SHORTS_PAGE_TEXT, MEN_DROPDOWN_TEXT, MEN_CATAGORY_TOPS_TEXT, MEN_TOPS_PAGE_URL, HEADING_MEN_TOPS_PAGE_TEXT, MEN_TOPS_SUBCATEGORY_JACKETS, MEN_TOPS_JACKETS_URL, MEN_TOPS_HOODIESSWEATSHIRTS_TEXT, MEN_HOODIESSWEATSHIRTS_URL, MEN_TOPS_TEES_TEXT, TEES_URL, TEES_HEADER_TEXT, EVEN_MORE_SECTION_HEADER_TEXT, EVEN_MORE_SECTION_CTA_TEXT, SHOP_TEES_LINK_TEXT, MEN_TOPS_TESS_PAGE_URL, MEN_TOPS_SUBCATEGORY_TANKS_TEXT, MEN_TOPS_TANKS_PAGE_URL, HEADING_MEN_TANKS_PAGE_TEXT, MEN_CATAGORY_BOTTOMS, MEN_BOTTOMS_PAGE_URL, MEN_BOTTOMS_SUBCATEGORY_PANTS_TEXT, MEN_BOTTOMS_PANTS_PAGE_URL, HEADING_MEN_BOTTOMS_PANTS_TEXT, MEN_SHORTS_PAGE_URL, HEADING_MEN_SHORTS_PAGE_TEXT, GEAR_BAGS_PAGE_URL, HEADING_GEAR_BAGS_PAGE_TEXT, GEAR_FITNESS_PAGE_URL, GEAR_WATCHES_PAGE_URL, TRAINING_VIDEO_DOWNLOAD_PAGE_URL} from "../helpers/testDataHomePage";
+import { BASE_URL, WHATS_NEW_LINK_TEXT, WOMEN_LINK_TEXT, MEN_LINK_TEXT, GEAR_LINK_TEXT, TRAINING_LINK_TEXT, SALE_LINK_TEXT, WHATS_NEW_URL, WHATS_NEW_PAGE_HEADER_TEXT, WOMEN_URL, WOMEN_PAGE_HEADER_TEXT, MEN_URL, MEN_PAGE_HEADER_TEXT, GEAR_URL, GEAR_PAGE_HEADER_TEXT, TRAINING_URL, TRAINING_PAGE_HEADER_TEXT, SALE_URL, SALE_PAGE_HEADER_TEXT, WOMEN_CATAGORY_TOPS, WOMEN_TOPS_PAGE_URL, WOMEN_TOPS_SUBCATEGORY_JACKETS, WOMEN_TOPS_SUBCATEGORY_HOODIESSWEATSHIRTS, WOMEN_TOPS_JACKETS_URL, WOMEN_TOPS_SUBCATEGORY_HOODIESSWEATSHIRTS_URL, PANTS_URL, PANTS_HEADER_TEXT, OFF_20_SECTION_HEADER_TEXT, OFF_20_SECTION_CTA_TEXT, SHOP_PANTS_LINK_TEXT, HEADING_TOPS_TEXT, HEADING_JACKETS_TEXT, HEADING_HOODIES_TEXT, WOMEN_TOPS_SUBCATEGORY_TEES_TEXT, WOMEN_TOPS_TEES_URL, HEADING_TEES_PAGE_TEXT, WOMEN_TOPS_SUBCATEGORY_BRAS_TANKS, WOMEN_TOPS_BRASSTANKS_URL, HEADING_BRASTANKS_PAGE_TEXT, WOMEN_CATAGORY_BOTTOMS, WOMEN_BOTTOMS_PAGE_URL, HEADING_BOTTOMS_TEXT, WOMEN_BOTTOMS_SUBCATEGORY_PANTS_TEXT, WOMEN_BOTTOMS_PANTS_PAGE_URL, HEADING_WOMEN_PANTS_PAGE_TEXT, WOMEN_BOTTOMS_SUBCATEGORY_SHORTS_TEXT, WOMEN_SHORTS_PAGE_URL, HEADING_WOMEN_SHORTS_PAGE_TEXT, MEN_DROPDOWN_TEXT, MEN_CATAGORY_TOPS_TEXT, MEN_TOPS_PAGE_URL, HEADING_MEN_TOPS_PAGE_TEXT, MEN_TOPS_SUBCATEGORY_JACKETS, MEN_TOPS_JACKETS_URL, MEN_TOPS_HOODIESSWEATSHIRTS_TEXT, MEN_HOODIESSWEATSHIRTS_URL, MEN_TOPS_TEES_TEXT, TEES_URL, TEES_HEADER_TEXT, EVEN_MORE_SECTION_HEADER_TEXT, EVEN_MORE_SECTION_CTA_TEXT, SHOP_TEES_LINK_TEXT, MEN_TOPS_TESS_PAGE_URL, MEN_TOPS_SUBCATEGORY_TANKS_TEXT, MEN_TOPS_TANKS_PAGE_URL, HEADING_MEN_TANKS_PAGE_TEXT, MEN_CATAGORY_BOTTOMS, MEN_BOTTOMS_PAGE_URL, MEN_BOTTOMS_SUBCATEGORY_PANTS_TEXT, MEN_BOTTOMS_PANTS_PAGE_URL, HEADING_MEN_BOTTOMS_PANTS_TEXT, MEN_SHORTS_PAGE_URL, HEADING_MEN_SHORTS_PAGE_TEXT, GEAR_BAGS_PAGE_URL, HEADING_GEAR_BAGS_PAGE_TEXT, GEAR_FITNESS_PAGE_URL, GEAR_WATCHES_PAGE_URL, TRAINING_VIDEO_DOWNLOAD_PAGE_URL } from "../helpers/testDataHomePage";
 
 import { NEW_LUMA_YOGA_COLLECTION_HEADER_TEXT, NEW_LUMA_YOGA_COLLECTION_URL, NEW_LUMA_YOGA_COLLECTION_IB_HEADER_TEXT, NEW_LUMA_YOGA_COLLECTION_IB_CTA_TEXT, SHOP_NEW_YOGA_BTN_TEXT, ERIN_RECOMMENDS_URL, ERIN_RECOMMENDS_HEADER_TEXT, ERIN_RECOMMENDS_IB_HEADER_TEXT, ERIN_RECOMMENDS_IB_CTA_TEXT, SHOP_ERIN_RECOMMENDS_LINK_TEXT, PERFORMANCE_FABRICS_URL, PERFORMANCE_FABRICS_HEADER_TEXT, SCIENCE_MEETS_PERFORMANCE_IB_HEADER_TEXT, SCIENCE_MEETS_PERFORMANCE_IB_CTA_TEXT, SHOP_PERFORMANCE_LINK_TEXT, HOT_SELLERS_HEADER_TEXT, HOT_SELLERS_INF_TEXT, RADIANT_TEE_URL, RADIANT_TEE_BREADCRUMBS, RADIANT_TEE_NAME_LINK_TEXT, ECO_FRIENDLY_URL, ECO_FRIENDLY_HEADER_TEXT, ECO_FRIENDLY_INF_TEXT, ECO_FRIENDLY_INF_CTA_TEXT, ECO_FRIENDLY_INF_LINK_TEXT, RADIANT_TEE_REVIEWS_URL, SIZES, COLORLABLES } from "../helpers/testDataHomePage"
 
@@ -754,7 +754,7 @@ test.describe('homePage.spec', () => {
 		await homePage.hovermenDropdown();
 		await homePage.hoverMenTops();
 		await homePage.hoverMenTopsTees()
-	    expect(homePage.menTopsTees).toHaveCSS('cursor', 'pointer');
+		expect(homePage.menTopsTees).toHaveCSS('cursor', 'pointer');
 
 	});
 
@@ -785,7 +785,7 @@ test.describe('homePage.spec', () => {
 		await homePage.hovermenDropdown();
 		await homePage.hoverMenTops();
 		await homePage.hoverMenTopsTanks();
-        expect(homePage.menTopsTanks).toHaveCSS('cursor', 'pointer');
+		expect(homePage.menTopsTanks).toHaveCSS('cursor', 'pointer');
 
 	});
 
@@ -795,7 +795,7 @@ test.describe('homePage.spec', () => {
 		await homePage.hoverMenTops();
 		const menTopsTanksPage = await homePage.clickMenTopsTanks();
 		await expect(page).toHaveURL(MEN_TOPS_TANKS_PAGE_URL)
-        expect(menTopsTanksPage.header).toHaveText(HEADING_MEN_TANKS_PAGE_TEXT);
+		expect(menTopsTanksPage.header).toHaveText(HEADING_MEN_TANKS_PAGE_TEXT);
 
 	});
 
@@ -804,7 +804,7 @@ test.describe('homePage.spec', () => {
 		await homePage.hovermenDropdown();
 		await homePage.hoverMenBottoms();
 		expect(homePage.menBottoms).toBeVisible();
-		expect(homePage.menBottoms).toHaveText( MEN_CATAGORY_BOTTOMS);
+		expect(homePage.menBottoms).toHaveText(MEN_CATAGORY_BOTTOMS);
 
 	});
 
@@ -1244,7 +1244,7 @@ test.describe('homePage.spec', () => {
 		await homePage.hovergearLink();
 		const gearWatchesPage = await homePage.clickGearWatches();
 		await expect(page).toHaveURL(GEAR_WATCHES_PAGE_URL);
-        await expect(gearWatchesPage.header).toBeVisible();
+		await expect(gearWatchesPage.header).toBeVisible();
 
 	});
 
@@ -1336,18 +1336,18 @@ test.describe('homePage.spec', () => {
 
 		const firstCard = homePage.hotSellersProductCardsSizeProduct;
 
-    // Перебираем размеры внутри первой карточки
-    for (const size of SIZES) {
-        const sizeLocator = firstCard.locator(`div[role="option"][aria-label="${size}"]`);
+		// Перебираем размеры внутри первой карточки
+		for (const size of SIZES) {
+			const sizeLocator = firstCard.locator(`div[role="option"][aria-label="${size}"]`);
 
-        // Наведение курсора на элемент размера
-        await sizeLocator.hover();
+			// Наведение курсора на элемент размера
+			await sizeLocator.hover();
 
-        // Получение стиля курсора для элемента
-        const cursorStyle = await sizeLocator.evaluate(el => window.getComputedStyle(el).cursor);
+			// Получение стиля курсора для элемента
+			const cursorStyle = await sizeLocator.evaluate(el => window.getComputedStyle(el).cursor);
 
-        // Проверка, что курсор указывает на "pointer"
-        expect(cursorStyle).toBe('pointer');
+			// Проверка, что курсор указывает на "pointer"
+			expect(cursorStyle).toBe('pointer');
 
 		}
 	});
@@ -1366,7 +1366,7 @@ test.describe('homePage.spec', () => {
 
 	test('ТС 03.1.97 Verify that the size button has a blue border while it is clicked and held down', async ({ page }) => {
 
-        await homePage.clicksizeXS();
+		await homePage.clicksizeXS();
 		await expect(homePage.hotSellersProductCardsSizeXS).toHaveCSS('box-shadow', 'rgb(0, 105, 157) 0px 0px 3px 1px');
 
 	});
@@ -1398,11 +1398,24 @@ test.describe('homePage.spec', () => {
 			await colorLocator.click();
 
 			const outline = await colorLocator.evaluate(el => window.getComputedStyle(el).outline);
-        expect(outline).not.toBe('rgb(255 85 1)'); // Проверяем, что outline не 'none'
+			expect(outline).not.toBe('rgb(255 85 1)');
 
 		}
 
+	});
 
+	test('ТС 03.1.102 Verify that the product image changes after clicking on the color buttons', async ({ page }) => {
+
+		for (const color of COLORLABLES) {
+			const colorLocator = homePage.hotSellersProductCardsColorContainer.locator(`div[option-label="${color}"]`);
+			await colorLocator.click();
+
+			const productImage = homePage.hotSellersProductCardsItemImage;
+			const imageSrcAfterClick = await productImage.getAttribute('src');
+
+			// Проверяем, что атрибут src изменился
+			expect(imageSrcAfterClick).not.toBe(null);
+		}
 
 	});
 
