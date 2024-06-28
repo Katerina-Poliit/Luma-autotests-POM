@@ -1,6 +1,8 @@
 import { HomePage } from "./homePage";
 import MenHoddiesSweatshirtsPage from "./menHoddiesSweatshirtsPage";
 import MenJacketsPage from "./menJacketsPage";
+import MenPantsPage from "./menPantsPage";
+import MenShortsPage from "./menShortsPage";
 import MenTanksPage from "./menTanksPage";
 import MenTeesPage from "./menTeesPage";
 import WomenBrassTanksPage from "./womenBrassTanksPage";
@@ -32,6 +34,8 @@ export class WhatsNewPage {
 		  this.menJacketsLink = page.getByRole('link', { name: 'Jackets' }).nth(1);
 		  this.menTeesLink = page.getByRole('link', { name: 'Tees' }).nth(1);
 		  this.menTanksLink = page.getByRole('link', { name: 'Tanks', exact: true });
+		  this.menPantsLink = page.getByRole('link', { name: 'Pants' }).nth(1);
+		  this.menShortsLink = page.getByRole('link', { name: 'Shorts' }).nth(1);
 
    }
 
@@ -88,6 +92,16 @@ export class WhatsNewPage {
 	async clickMenTanksLink() {
 		await this.menTanksLink.click();
 		return new MenTanksPage(this.page);
+	}
+
+	async clickMenPantsLink() {
+		await this.menPantsLink.click();
+		return new MenPantsPage(this.page);
+	}
+
+	async clickMmnShortsLink() {
+		await this.menShortsLink.click();
+		return new MenShortsPage(this.page);
 	}
 
 }

@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 import { HomePage } from "../pages/homePage";
 
-import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMENS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT, BRAS_TANKS_LINK_TEXT, BRAS_TANKS_URL, BRAS_TANKS_BREADCRUMBS_TEXT, BRAS_TANKS_HEADING_TEXT, PANTS_LINK_TEXT, PANTS_URL, PANTS_BREADCRUMBS_TEXT, PANTS_HEADING_TEXT, SHORTS_LINK_TEXT, SHORTS_URL, SHORTS_BREADCRUMBS_TEXT, SHORTS_HEADING_TEXT, NEW_IN_MEN_SECTION_HEADER_TEXT, MEN_HOODIES_SWEATSHIRTS_LINK_TEXT, MEN_HOODIES_SWEATSHIRTS_URL, MEN_HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, MEN_HOODIES_SWEATSHIRTS_HEADING_TEXT, MEN_JACKETS_LINK_TEXT, MEN_JACKETS_URL, MEN_JACKETS_HEADING_TEXT, MEN_JACKETS_BREADCRUMBS_TEXT, MEN_TEES_URL, MEN_TEES_LINK_TEXT, MEN_TEES_BREADCRUMBS_TEXT, MEN_TEES_HEADING_TEXT, MEN_TANKS_URL, MEN_TANKS_LINK_TEXT, MEN_TANKS_BREADCRUMBS_TEXT, MEN_TANKS_HEADING_TEXT} from "../helpers/testDataWhatsNewPage";
+import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMENS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT, BRAS_TANKS_LINK_TEXT, BRAS_TANKS_URL, BRAS_TANKS_BREADCRUMBS_TEXT, BRAS_TANKS_HEADING_TEXT, PANTS_LINK_TEXT, PANTS_URL, PANTS_BREADCRUMBS_TEXT, PANTS_HEADING_TEXT, SHORTS_LINK_TEXT, SHORTS_URL, SHORTS_BREADCRUMBS_TEXT, SHORTS_HEADING_TEXT, NEW_IN_MEN_SECTION_HEADER_TEXT, MEN_HOODIES_SWEATSHIRTS_LINK_TEXT, MEN_HOODIES_SWEATSHIRTS_URL, MEN_HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, MEN_HOODIES_SWEATSHIRTS_HEADING_TEXT, MEN_JACKETS_LINK_TEXT, MEN_JACKETS_URL, MEN_JACKETS_HEADING_TEXT, MEN_JACKETS_BREADCRUMBS_TEXT, MEN_TEES_URL, MEN_TEES_LINK_TEXT, MEN_TEES_BREADCRUMBS_TEXT, MEN_TEES_HEADING_TEXT, MEN_TANKS_URL, MEN_TANKS_LINK_TEXT, MEN_TANKS_BREADCRUMBS_TEXT, MEN_TANKS_HEADING_TEXT, MEN_PANTS_URL, MEN_PANTS_LINK_TEXT, MEN_PANTS_BREADCRUMBS_TEXT, MEN_PANTS_HEADING_TEXT, MEN_SHORTS_URL, MEN_SHORTS_LINK_TEXT, MEN_SHORTS_BREADCRUMBS_TEXT, MEN_SHORTS_HEADING_TEXT } from "../helpers/testDataWhatsNewPage";
 
 test.describe('whatsNewPage.spec', () => {
 
@@ -345,6 +345,62 @@ test.describe('whatsNewPage.spec', () => {
 
 		await expect(menTanksPage.headingTanksPage).toBeVisible();
 		await expect(menTanksPage.headingTanksPage).toHaveText(MEN_TANKS_HEADING_TEXT);
+		
+	});
+
+	test('ТС 04.1.37 Verify that the "NEW IN MEN\'S" section contains the "Pants" link', async ({ page }) => {
+
+		await expect(whatsNewPage.menPantsLink).toBeVisible();
+		await expect(whatsNewPage.menPantsLink).toHaveText(MEN_PANTS_LINK_TEXT);
+		
+	});
+
+	test('ТС 04.1.38 Verify that the "Pants" link has a cursor pointer', async ({ page }) => {
+
+		await expect(whatsNewPage.menPantsLink).toBeVisible();
+		await expect(whatsNewPage.menPantsLink).toHaveCSS('cursor', 'pointer');
+		
+	});
+
+	test('ТС 04.1.39 Verify that the user is redirected to the "Pants" page after clicking on the "Pants" link', async ({ page }) => {
+
+		const menPantsPage = await whatsNewPage.clickMenPantsLink();
+
+		await expect(page).toHaveURL(MEN_PANTS_URL);
+
+		await expect(menPantsPage.pantsBreadcrumbs).toBeVisible();
+		await expect(menPantsPage.pantsBreadcrumbs).toHaveText(MEN_PANTS_BREADCRUMBS_TEXT);
+
+		await expect(menPantsPage.headingPantsPage).toBeVisible();
+		await expect(menPantsPage.headingPantsPage).toHaveText(MEN_PANTS_HEADING_TEXT);
+		
+	});
+
+	test('ТС 04.1.40 Verify that the "NEW IN MEN\'S" section contains the "Shorts" link', async ({ page }) => {
+
+		await expect(whatsNewPage.menShortsLink).toBeVisible();
+		await expect(whatsNewPage.menShortsLink).toHaveText(MEN_SHORTS_LINK_TEXT);
+		
+	});
+
+	test('ТС 04.1.41 Verify that the "Shorts" link has a cursor pointer', async ({ page }) => {
+
+		await expect(whatsNewPage.menShortsLink).toBeVisible();
+		await expect(whatsNewPage.menShortsLink).toHaveCSS('cursor', 'pointer');
+		
+	});
+
+	test('ТС 04.1.42 Verify that the user is redirected to the "Shorts" page after clicking on the "Shorts" link', async ({ page }) => {
+
+		const menShortsPage = await whatsNewPage.clickMmnShortsLink();
+
+		await expect(page).toHaveURL(MEN_SHORTS_URL);
+
+		await expect(menShortsPage.shortsBreadcrumbs).toBeVisible();
+		await expect(menShortsPage.shortsBreadcrumbs).toHaveText(MEN_SHORTS_BREADCRUMBS_TEXT);
+
+		await expect(menShortsPage.headingShortsPage).toBeVisible();
+		await expect(menShortsPage.headingShortsPage).toHaveText(MEN_SHORTS_HEADING_TEXT);
 		
 	});
 
