@@ -1512,6 +1512,27 @@ test.describe('homePage.spec', () => {
 
 	// });
 
+	test('ТС 03.1.114 Verify that the "Add to Compare" button appears after hovering over the product card', async ({ page }) => {
+
+		await homePage.hoverhotSellersProductCards();
+		await expect(homePage.hotSellersProductCardsAddToCompareBtn).toBeVisible();
+	});
+
+
+	test('ТС 03.1.115 Verify that the "Add to Compare" button has cursor pointer', async ({ page }) => {
+
+		await homePage.hoverhotSellersProductCards();
+		await expect(homePage.hotSellersProductCardsAddToCompareBtn).toHaveCSS('cursor', 'pointer');
+	});
+
+	test('ТС 03.1.116 Verify that the "You added product {name of product} to the comparison list." message appears after clicking on the "Add to Compare" button. Additionally, verify that the "Compare Products" link appears in the site header with the count of items being compared.', async ({ page }) => {
+
+		await homePage.hoverhotSellersProductCards();
+		await homePage.clickHotSellersProductCardsAddToCompareBtn()
+		await expect(homePage.messageAddingProduct).toBeVisible();
+		await expect(homePage.compareLink).toBeVisible();
+	});
+
 
 
 

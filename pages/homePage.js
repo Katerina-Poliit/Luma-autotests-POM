@@ -148,6 +148,9 @@ export class HomePage {
 		this.hotSellersProductCardsAddToCartBtn = page.locator('li').filter({ hasText: 'Radiant Tee Rating: 60% 3' }).getByRole('button');
 		this.hotSellersProductCards = page.getByRole('link', { name: 'Radiant Tee' }).first();
 		this.hotSellersProductCardsAddToWishListBtn = page.locator('.towishlist').nth(0);
+		this.hotSellersProductCardsAddToCompareBtn = page.locator('.tocompare').nth(0);
+		this. messageAddingProduct = page.getByText('You added product Radiant Tee');
+		this.compareLink = page.getByRole('link', { name: 'Compare Products (1 item)' });
 
 	}
 
@@ -563,7 +566,11 @@ export class HomePage {
 		await this.hotSellersProductCardsAddToWishListBtn.click();
 
 	}
+		async clickHotSellersProductCardsAddToCompareBtn() {
+			await this.hotSellersProductCardsAddToCompareBtn.click();
+
+		}
+	}
 
 
 
-}
