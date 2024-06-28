@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 import { HomePage } from "../pages/homePage";
 
-import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMENS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT, BRAS_TANKS_LINK_TEXT, BRAS_TANKS_URL, BRAS_TANKS_BREADCRUMBS_TEXT, BRAS_TANKS_HEADING_TEXT, PANTS_LINK_TEXT, PANTS_URL, PANTS_BREADCRUMBS_TEXT, PANTS_HEADING_TEXT, SHORTS_LINK_TEXT, SHORTS_URL, SHORTS_BREADCRUMBS_TEXT, SHORTS_HEADING_TEXT, NEW_IN_MEN_SECTION_HEADER_TEXT } from "../helpers/testDataWhatsNewPage";
+import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMENS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT, BRAS_TANKS_LINK_TEXT, BRAS_TANKS_URL, BRAS_TANKS_BREADCRUMBS_TEXT, BRAS_TANKS_HEADING_TEXT, PANTS_LINK_TEXT, PANTS_URL, PANTS_BREADCRUMBS_TEXT, PANTS_HEADING_TEXT, SHORTS_LINK_TEXT, SHORTS_URL, SHORTS_BREADCRUMBS_TEXT, SHORTS_HEADING_TEXT, NEW_IN_MEN_SECTION_HEADER_TEXT, MEN_HOODIES_SWEATSHIRTS_LINK_TEXT, MEN_HOODIES_SWEATSHIRTS_URL, MEN_HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, MEN_HOODIES_SWEATSHIRTS_HEADING_TEXT, MEN_JACKETS_LINK_TEXT, MEN_JACKETS_URL, MEN_JACKETS_HEADING_TEXT, MEN_JACKETS_BREADCRUMBS_TEXT } from "../helpers/testDataWhatsNewPage";
 
 test.describe('whatsNewPage.spec', () => {
 
@@ -235,5 +235,62 @@ test.describe('whatsNewPage.spec', () => {
 		await expect(whatsNewPage.newInWomensSectionHeading).toHaveText(NEW_IN_MEN_SECTION_HEADER_TEXT);
 		
 	});
+
+	test('ТС 04.1.25 Verify that the "NEW IN MEN\'S" section contains the "Hoodies & Sweatshirts" link', async ({ page }) => {
+
+		await expect(whatsNewPage.menHoodiesSweatshirtsLink).toBeVisible();
+		await expect(whatsNewPage.menHoodiesSweatshirtsLink).toHaveText(MEN_HOODIES_SWEATSHIRTS_LINK_TEXT);
+		
+	});
+
+	test('ТС 04.1.26 Verify that the "Hoodies & Sweatshirts" link has a cursor pointer', async ({ page }) => {
+
+		await expect(whatsNewPage.menHoodiesSweatshirtsLink).toBeVisible();
+		await expect(whatsNewPage.menHoodiesSweatshirtsLink).toHaveCSS('cursor', 'pointer');
+		
+	});
+
+	test('ТС 04.1.27 Verify that the user is redirected to the "Hoodies & Sweatshirts" page after clicking on the "Hoodies & Sweatshirts" link', async ({ page }) => {
+
+		const menHoddiesSweatshirtsPage = await whatsNewPage.clickMenHoodiesSweatshirtsLink();
+
+		await expect(page).toHaveURL(MEN_HOODIES_SWEATSHIRTS_URL);
+
+		await expect(menHoddiesSweatshirtsPage.hoddiesSweatshirtsBreadcrumbs).toBeVisible();
+		await expect(menHoddiesSweatshirtsPage.hoddiesSweatshirtsBreadcrumbs).toHaveText(MEN_HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT);
+
+		await expect(menHoddiesSweatshirtsPage.headingHoddiesSweatshirtsPage).toBeVisible();
+		await expect(menHoddiesSweatshirtsPage.headingHoddiesSweatshirtsPage).toHaveText(MEN_HOODIES_SWEATSHIRTS_HEADING_TEXT);
+		
+	});
+
+	test('ТС 04.1.28 Verify that the "NEW IN MEN\'S" section contains the "Jackets" link', async ({ page }) => {
+
+		await expect(whatsNewPage.menJacketsLink).toBeVisible();
+		await expect(whatsNewPage.menJacketsLink).toHaveText(MEN_JACKETS_LINK_TEXT);
+		
+	});
+
+	test('ТС 04.1.29 Verify that the "Jackets" link has a cursor pointer', async ({ page }) => {
+
+		await expect(whatsNewPage.menJacketsLink).toBeVisible();
+		await expect(whatsNewPage.menJacketsLink).toHaveCSS('cursor', 'pointer');
+		
+	});
+
+	test('ТС 04.1.30 Verify that the user is redirected to the "Jackets" page after clicking on the "Jackets" link', async ({ page }) => {
+
+		const menJacketsPage = await whatsNewPage.clickMenJacketsLink();
+
+		await expect(page).toHaveURL(MEN_JACKETS_URL);
+
+		await expect(menJacketsPage.jacketsBreadcrumbs).toBeVisible();
+		await expect(menJacketsPage.jacketsBreadcrumbs).toHaveText(MEN_JACKETS_BREADCRUMBS_TEXT);
+
+		await expect(menJacketsPage.headingJacketsPage).toBeVisible();
+		await expect(menJacketsPage.headingJacketsPage).toHaveText(MEN_JACKETS_HEADING_TEXT);
+		
+	});
+
 
 });

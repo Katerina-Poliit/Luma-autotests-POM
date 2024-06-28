@@ -8,6 +8,8 @@ export const TEES_URL = 'https://magento.softwaretestingboard.com/women/tops-wom
 export const BRAS_TANKS_URL = 'https://magento.softwaretestingboard.com/women/tops-women/tanks-women.html';
 export const PANTS_URL = 'https://magento.softwaretestingboard.com/women/bottoms-women/pants-women.html';
 export const SHORTS_URL = 'https://magento.softwaretestingboard.com/women/bottoms-women/shorts-women.html';
+export const MEN_HOODIES_SWEATSHIRTS_URL = 'https://magento.softwaretestingboard.com/men/tops-men/hoodies-and-sweatshirts-men.html';
+export const MEN_JACKETS_URL = 'https://magento.softwaretestingboard.com/men/tops-men/jackets-men.html';
 
 //test data
 
@@ -33,3 +35,9 @@ export const SHORTS_LINK_TEXT = 'Shorts';
 export const SHORTS_BREADCRUMBS_TEXT = 'Shorts';
 export const SHORTS_HEADING_TEXT = 'Shorts';
 export const NEW_IN_MEN_SECTION_HEADER_TEXT = "New in men's";
+export const MEN_HOODIES_SWEATSHIRTS_LINK_TEXT = 'Hoodies & Sweatshirts';
+export const MEN_HOODIES_SWEATSHIRTS_HEADING_TEXT = 'Hoodies & Sweatshirts';
+export const MEN_HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT = 'Hoodies & Sweatshirts';
+export const MEN_JACKETS_LINK_TEXT = 'Jackets';
+export const MEN_JACKETS_BREADCRUMBS_TEXT = 'Jackets';
+export const MEN_JACKETS_HEADING_TEXT = 'Jackets';
