@@ -61,3 +61,4 @@ export const MEN_SHORTS_HEADING_TEXT = 'Shorts';
 export const COMPARE_PRODUCT_SECTION_HEADING_TEXT = 'Compare Products';
 export const COMPARE_PRODUCT_SECTION_TEXT = 'You have no items to compare.';
 export const REMOVE_THIS_ITEM__LINK_TEXT = 'Remove This Item';
+export const REMOVE_MODAL_WINDOW_HEADING_TEXT = 'Are you sure you want to remove this item from your Compare Products list?';
