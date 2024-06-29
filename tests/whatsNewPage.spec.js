@@ -481,5 +481,69 @@ test.describe('whatsNewPage.spec', () => {
 		await expect(whatsNewPage.removeModalWindow).not.toBeVisible();
 
 	});
+
+	test('ТС 04.1.53 Verify that the "Are you sure you want to remove this item from your Compare Products list?" popup contains the "Cancel" button', async ({ page, productAddedToCompare }) => {
+		
+		const removeModalWindow = await whatsNewPage.clickRemoveThisItemLink();
+
+		await expect(removeModalWindow.canselBtn).toBeVisible();
+
+	});
+
+	test('ТС 04.1.54 Verify that  the "Cancel" button has a cursor pointer', async ({ page, productAddedToCompare }) => {
+		
+		const removeModalWindow = await whatsNewPage.clickRemoveThisItemLink();
+
+		await expect(removeModalWindow.canselBtn).toBeVisible();
+		await expect(removeModalWindow.canselBtn).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 04.1.55 Verify that  the "Cancel" button is colored white', async ({ page, productAddedToCompare }) => {
+		
+		const removeModalWindow = await whatsNewPage.clickRemoveThisItemLink();
+
+		await expect(removeModalWindow.canselBtn).toBeVisible();
+		await expect(removeModalWindow.canselBtn).toHaveCSS('background-color', 'rgb(238, 238, 238)');
+
+	});
+
+	test('ТС 04.1.56 Verify that the "Are you sure you want to remove this item from your Compare Products list?" popup closes after clicking on the "Cancel" button', async ({ page, productAddedToCompare }) => {
+		
+		const removeModalWindow = await whatsNewPage.clickRemoveThisItemLink();
+
+		await expect(whatsNewPage.removeModalWindow).toBeVisible();
+
+		await removeModalWindow.clickCanselBtn();
+
+		await expect(whatsNewPage.removeModalWindow).not.toBeVisible();
+
+	});
+
+	test('ТС 04.1.57 Verify that the "Are you sure you want to remove this item from your Compare Products list?" popup contains the "OK" button', async ({ page, productAddedToCompare }) => {
+		
+		const removeModalWindow = await whatsNewPage.clickRemoveThisItemLink();
+
+		await expect(removeModalWindow.okBtn).toBeVisible();
+
+	});
+
+	test('ТС 04.1.58 Verify that the "OK" button has a cursor pointer', async ({ page, productAddedToCompare }) => {
+		
+		const removeModalWindow = await whatsNewPage.clickRemoveThisItemLink();
+
+		await expect(removeModalWindow.okBtn).toBeVisible();
+		await expect(removeModalWindow.okBtn).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 04.1.59 Verify that the "OK" button is colored blue', async ({ page, productAddedToCompare }) => {
+		
+		const removeModalWindow = await whatsNewPage.clickRemoveThisItemLink();
+
+		await expect(removeModalWindow.okBtn).toBeVisible();
+		await expect(removeModalWindow.okBtn).toHaveCSS('background-color', 'rgb(0, 107, 180)');
+
+	});
 	
 });
