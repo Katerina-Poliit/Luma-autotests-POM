@@ -1506,13 +1506,13 @@ test.describe('homePage.spec', () => {
 	});
 
 
-	// test('ТС 03.1.113 Verify that the user is redirected to the "My Wish List" page and the selected product item appears in the "My Wish List" page after clicking on the "Add to Wish List" button (only registered user)', async ({ page }) => {
+	test('ТС 03.1.113 Verify that the user is redirected to the "My Wish List" page and the selected product item appears in the "My Wish List" page after clicking on the "Add to Wish List" button (only registered user)', async ({ page, createNewCustomerAccount }) => {
 
-	// 	await homePage.hoverhotSellersProductCards();
-	// 	await homePage.clickHotSellersProductCardsAddToWishListBtn();
+		await homePage.hoverhotSellersProductCards();
+		await homePage.clickHotSellersProductCardsAddToWishListBtn();
 
 
-	// });
+	});
 
 	test('ТС 03.1.114 Verify that the "Add to Compare" button appears after hovering over the product card', async ({ page }) => {
 
@@ -1539,7 +1539,7 @@ test.describe('homePage.spec', () => {
 
 		const createAccountPage = new CreateNewCustomerAccountPage(page);
 
-		await expect(page).toHaveURL(CUSTOMER_ACCOUNT_URL);
+		await expect(page).toHaveURL(BASE_URL);
 	});
 
 

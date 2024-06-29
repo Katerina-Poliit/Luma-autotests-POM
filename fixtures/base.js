@@ -33,6 +33,8 @@ export const test = base.extend({
             await createAccountPage.submitForm();
             await page.waitForTimeout(5000);
 
+            await homePage.open();
+
             await use("");
         },
         { scope: "test" },
