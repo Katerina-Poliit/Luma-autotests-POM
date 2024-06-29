@@ -35,6 +35,7 @@ export const PERFORMANCE_FABRICS_URL = 'https://magento.softwaretestingboard.com
 export const RADIANT_TEE_URL = 'https://magento.softwaretestingboard.com/radiant-tee.html';
 export const ECO_FRIENDLY_URL = 'https://magento.softwaretestingboard.com/collections/eco-friendly.html';
 export const RADIANT_TEE_REVIEWS_URL = 'https://magento.softwaretestingboard.com/radiant-tee.html#reviews';
+export const CUSTOMER_ACCOUNT_URL = 'https://magento.softwaretestingboard.com/customer/account/';
 
 
 
@@ -114,3 +115,16 @@ export const ECO_FRIENDLY_INF_CTA_TEXT = 'Find conscientious, comfy clothing in 
 export const ECO_FRIENDLY_INF_LINK_TEXT = 'Shop Eco-Friendly';
 export const SIZES = ['XS', 'S', 'M', 'L', 'XL'];
 export const COLORLABLES = ['Blue', 'Orange', 'Purple'];
+
+export const generateRandomEmail = () => {
+    const mailbox = Math.random().toString(36).substring(2, 10);
+    const domain = "gmail.com";
+    return `${mailbox}@${domain}`;
+  };
+
+  export const USER_DATA = {
+    firstName: "Katerina",
+    lastName: "O'Neel",
+    email: generateRandomEmail(),
+    password: "Password24!"
+  };
