@@ -44,6 +44,7 @@ export class WhatsNewPage {
 		  this.addToCompareIcon = page.getByRole('link', { name: 'Add to Compare' }).nth(1);
 		  this.removeThisItemLink = page.getByRole('link', { name: 'Remove This Item' });
 		  this.removeModalWindow = page.locator('.modal-inner-wrap').last();
+		  this.removedProductMessage = page.getByRole('alert').locator('div').first()
 
    }
 

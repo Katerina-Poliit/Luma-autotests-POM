@@ -22,4 +22,9 @@ export default class RemoveModalWindow {
 		return new WhatsNewPage(this.page);
 	}
 
+	async clickOkBtn() {
+		await this.okBtn.click();
+		return new WhatsNewPage(this.page);
+	}
+
 }
