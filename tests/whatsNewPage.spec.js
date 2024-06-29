@@ -2,7 +2,7 @@ const { expect } = require('@playwright/test');
 import { test, productAddedToCompare } from "../fixtures/base";
 import { HomePage } from "../pages/homePage";
 
-import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMENS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT, BRAS_TANKS_LINK_TEXT, BRAS_TANKS_URL, BRAS_TANKS_BREADCRUMBS_TEXT, BRAS_TANKS_HEADING_TEXT, PANTS_LINK_TEXT, PANTS_URL, PANTS_BREADCRUMBS_TEXT, PANTS_HEADING_TEXT, SHORTS_LINK_TEXT, SHORTS_URL, SHORTS_BREADCRUMBS_TEXT, SHORTS_HEADING_TEXT, NEW_IN_MEN_SECTION_HEADER_TEXT, MEN_HOODIES_SWEATSHIRTS_LINK_TEXT, MEN_HOODIES_SWEATSHIRTS_URL, MEN_HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, MEN_HOODIES_SWEATSHIRTS_HEADING_TEXT, MEN_JACKETS_LINK_TEXT, MEN_JACKETS_URL, MEN_JACKETS_HEADING_TEXT, MEN_JACKETS_BREADCRUMBS_TEXT, MEN_TEES_URL, MEN_TEES_LINK_TEXT, MEN_TEES_BREADCRUMBS_TEXT, MEN_TEES_HEADING_TEXT, MEN_TANKS_URL, MEN_TANKS_LINK_TEXT, MEN_TANKS_BREADCRUMBS_TEXT, MEN_TANKS_HEADING_TEXT, MEN_PANTS_URL, MEN_PANTS_LINK_TEXT, MEN_PANTS_BREADCRUMBS_TEXT, MEN_PANTS_HEADING_TEXT, MEN_SHORTS_URL, MEN_SHORTS_LINK_TEXT, MEN_SHORTS_BREADCRUMBS_TEXT, MEN_SHORTS_HEADING_TEXT, COMPARE_PRODUCT_SECTION_HEADING_TEXT, COMPARE_PRODUCT_SECTION_TEXT, REMOVE_THIS_ITEM__LINK_TEXT } from "../helpers/testDataWhatsNewPage";
+import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMENS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT, BRAS_TANKS_LINK_TEXT, BRAS_TANKS_URL, BRAS_TANKS_BREADCRUMBS_TEXT, BRAS_TANKS_HEADING_TEXT, PANTS_LINK_TEXT, PANTS_URL, PANTS_BREADCRUMBS_TEXT, PANTS_HEADING_TEXT, SHORTS_LINK_TEXT, SHORTS_URL, SHORTS_BREADCRUMBS_TEXT, SHORTS_HEADING_TEXT, NEW_IN_MEN_SECTION_HEADER_TEXT, MEN_HOODIES_SWEATSHIRTS_LINK_TEXT, MEN_HOODIES_SWEATSHIRTS_URL, MEN_HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, MEN_HOODIES_SWEATSHIRTS_HEADING_TEXT, MEN_JACKETS_LINK_TEXT, MEN_JACKETS_URL, MEN_JACKETS_HEADING_TEXT, MEN_JACKETS_BREADCRUMBS_TEXT, MEN_TEES_URL, MEN_TEES_LINK_TEXT, MEN_TEES_BREADCRUMBS_TEXT, MEN_TEES_HEADING_TEXT, MEN_TANKS_URL, MEN_TANKS_LINK_TEXT, MEN_TANKS_BREADCRUMBS_TEXT, MEN_TANKS_HEADING_TEXT, MEN_PANTS_URL, MEN_PANTS_LINK_TEXT, MEN_PANTS_BREADCRUMBS_TEXT, MEN_PANTS_HEADING_TEXT, MEN_SHORTS_URL, MEN_SHORTS_LINK_TEXT, MEN_SHORTS_BREADCRUMBS_TEXT, MEN_SHORTS_HEADING_TEXT, COMPARE_PRODUCT_SECTION_HEADING_TEXT, COMPARE_PRODUCT_SECTION_TEXT, REMOVE_THIS_ITEM__LINK_TEXT, REMOVE_MODAL_WINDOW_HEADING_TEXT } from "../helpers/testDataWhatsNewPage";
 
 test.describe('whatsNewPage.spec', () => {
 
@@ -425,8 +425,60 @@ test.describe('whatsNewPage.spec', () => {
 
 	test('ТС 04.1.46 Verify that the "Compare Products" section contains the "Remove This Item" link with the name of the added item to compare when the item is added for comparison', async ({ page, productAddedToCompare }) => {
 		
-		await expect(whatsNewPage.nameAddedItemToCompare).toBeVisible();
-		await expect(whatsNewPage.nameAddedItemToCompare).toHaveText(REMOVE_THIS_ITEM__LINK_TEXT);
+		await expect(whatsNewPage.removeThisItemLink).toBeVisible();
+		await expect(whatsNewPage.removeThisItemLink).toHaveText(REMOVE_THIS_ITEM__LINK_TEXT);
+
+	});
+
+	test('ТС 04.1.47 Verify that the "Remove This Item" link has a cursor pointer', async ({ page, productAddedToCompare }) => {
+		
+		await expect(whatsNewPage.removeThisItemLink).toBeVisible();
+		await expect(whatsNewPage.removeThisItemLink).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 04.1.48 Verify that the "Are you sure you want to remove this item from your Compare Products list?" popup appears after clicking on the "Remove This Item" link', async ({ page, productAddedToCompare }) => {
+		
+		await whatsNewPage.clickRemoveThisItemLink();
+		await expect(whatsNewPage.removeModalWindow).toBeVisible();
+
+	});
+
+	test('ТС 04.1.49 Verify that the "Are you sure you want to remove this item from your Compare Products list?" popup contains the "Are you sure you want to remove this item from your Compare Products list?" text', async ({ page, productAddedToCompare }) => {
+		
+		const removeModalWindow = await whatsNewPage.clickRemoveThisItemLink();
+
+		await expect(removeModalWindow.heading).toBeVisible();
+		await expect(removeModalWindow.heading).toHaveText(REMOVE_MODAL_WINDOW_HEADING_TEXT);
+
+	});
+
+	test('ТС 04.1.50 Verify that the "Are you sure you want to remove this item from your Compare Products list?" popup contains the close (cross) button', async ({ page, productAddedToCompare }) => {
+		
+		const removeModalWindow = await whatsNewPage.clickRemoveThisItemLink();
+
+		await expect(removeModalWindow.closeBtn).toBeVisible();
+
+	});
+
+	test('ТС 04.1.51 Verify that the close (cross) button has a cursor pointer', async ({ page, productAddedToCompare }) => {
+		
+		const removeModalWindow = await whatsNewPage.clickRemoveThisItemLink();
+
+		await expect(removeModalWindow.closeBtn).toBeVisible();
+		await expect(removeModalWindow.closeBtn).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 04.1.52 Verify that the "Are you sure you want to remove this item from your Compare Products list?" popup closes after clicking on the close (cross) button', async ({ page, productAddedToCompare }) => {
+		
+		const removeModalWindow = await whatsNewPage.clickRemoveThisItemLink();
+
+		await expect(whatsNewPage.removeModalWindow).toBeVisible();
+
+		await removeModalWindow.clickCloseBtn();
+
+		await expect(whatsNewPage.removeModalWindow).not.toBeVisible();
 
 	});
 	

@@ -1,3 +1,4 @@
+import RemoveModalWindow from "../modalWindows/removeModalWindow";
 import { HomePage } from "./homePage";
 import MenHoddiesSweatshirtsPage from "./menHoddiesSweatshirtsPage";
 import MenJacketsPage from "./menJacketsPage";
@@ -41,7 +42,8 @@ export class WhatsNewPage {
 		  this.compareProductsSectionText = page.getByText('You have no items to compare.');
 		  this.productCard = page.locator('li').filter({ hasText: 'Overnight Duffle Rating: 60%' });
 		  this.addToCompareIcon = page.getByRole('link', { name: 'Add to Compare' }).nth(1);
-		  this.nameAddedItemToCompare = page.getByRole('link', { name: 'Remove This Item' })
+		  this.removeThisItemLink = page.getByRole('link', { name: 'Remove This Item' });
+		  this.removeModalWindow = page.locator('.modal-inner-wrap').last();
 
    }
 
@@ -117,6 +119,11 @@ export class WhatsNewPage {
 	async clickAddToCompareIcon() {
 		await this.addToCompareIcon.click();
 		return this;
+	}
+
+	async clickRemoveThisItemLink() {
+		await this.removeThisItemLink.click();
+		return new RemoveModalWindow(this.page);
 	}
 
 }
