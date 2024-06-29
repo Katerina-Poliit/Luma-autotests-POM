@@ -1,3 +1,6 @@
+import WomenTopsPage from "./womenTopsPage";
+
+
 export class WomenPage {
 
    constructor(page) {
@@ -8,8 +11,13 @@ export class WomenPage {
         this.filterBlock = page.locator('.filter');
         this.categoryTopsLink = page.getByRole('link', { name: 'Tops' });
         this.categoryTopsCount = page.getByText('50', { exact: true });
-
-
+        this.categoryBottomsLink = page.getByRole('link', { name: 'Bottoms' });
+        this.categoryBottomsCount = page.getByText('25');
    }
+
+   async clickcategoryTopsLink() {
+		await this.categoryTopsLink.click();
+		return new WomenTopsPage(this.page);
+	}
 
 }
