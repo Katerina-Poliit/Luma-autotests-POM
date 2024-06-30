@@ -32,3 +32,5 @@ export const BOTTOMS_ITEM_LINKS = [
 ];
 export const PROMO_BLOCK_INFO_TEXT = 'New Luma Yoga Collection';
 export const PROMO_BLOCK_INFO_TITLE_TEXT = 'Yoga is ancientClothing shouldn’t be';
+export const BLOCK_CONTENT_TEES_INFO_TEXT = 'You can’t have too many tees';
+export const BLOCK_CONTENT_TEES_ACTION_TEXT = '4 tees for the price of 3. Right now';

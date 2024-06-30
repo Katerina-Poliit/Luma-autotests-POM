@@ -1,5 +1,6 @@
 import WomenTopsPage from "./womenTopsPage";
 import WomenBottomsPage from "./womenBottomsPage";
+import WomenTeesPage from "./womenTeesPage";
 
 
 
@@ -28,6 +29,10 @@ export class WomenPage {
         this.promoBlockInfo = page.locator('.info').nth(0);
         this.promoBlockInfoTitle = page.locator('.title').nth(0);
         this.shopNewYogaBtn = page.locator('.more.button');
+        this.blockContentTees = page.getByRole('link', { name: 'You can’t have too many tees' });
+        this.blockContentTeesInfo = page.locator('.title').nth(1);
+        this.blockContentTeesAction = page.locator('.info').nth(1);
+        this.womenTeesLink = page.locator('.more.icon').nth(0);
    }
 
    async clickcategoryTopsLink() {
@@ -48,5 +53,10 @@ export class WomenPage {
           await this.page.goto(url);
 
       }
+
+      async clickblockContentTees() {
+		await this.blockContentTees.click();
+		return new WomenTeesPage(this.page);
+	}
 
      }
