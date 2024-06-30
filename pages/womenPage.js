@@ -23,6 +23,10 @@ export class WomenPage {
         this.menuBottoms = page.locator('strong').filter({ hasText: 'Bottoms' }).locator('span');
         this.itemPantsLink = page.getByRole('link', { name: 'Pants', exact: true });
         this.itemShortsLink = page.getByRole('link', { name: 'Shorts', exact: true });
+        this.promoBlock = page.getByRole('link', { name: 'New Luma Yoga Collection Yoga' });
+        this.newLumaYogaCollectionContent = page.locator('.content').nth(2);
+        this.promoBlockInfo = page.locator('.info').nth(0);
+        this.promoBlockInfoTitle = page.locator('.title').nth(0);
    }
 
    async clickcategoryTopsLink() {
@@ -41,7 +45,7 @@ export class WomenPage {
           // Вернуться на страницу Women
           await this.page.goto('https://magento.softwaretestingboard.com/women.html');
           await this.page.goto(url);
-         
+
       }
 
      }
