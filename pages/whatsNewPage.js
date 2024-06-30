@@ -44,7 +44,10 @@ export class WhatsNewPage {
 		  this.addToCompareIcon = page.getByRole('link', { name: 'Add to Compare' }).nth(1);
 		  this.removeThisItemLink = page.getByRole('link', { name: 'Remove This Item' });
 		  this.removeModalWindow = page.locator('.modal-inner-wrap').last();
-		  this.removedProductMessage = page.getByRole('alert').locator('div').first()
+		  this.removedProductMessage = page.getByRole('alert').locator('div').first();
+		  this.countAddedItems = page.locator('#maincontent').getByText('1 item');
+		  this.clearAllLink = page.getByRole('link', { name: 'Clear All' });
+		  this.compareBtn = page.getByRole('link', { name: 'Compare', exact: true });
 
    }
 
@@ -124,6 +127,11 @@ export class WhatsNewPage {
 
 	async clickRemoveThisItemLink() {
 		await this.removeThisItemLink.click();
+		return new RemoveModalWindow(this.page);
+	}
+
+	async clickClearAllLink() {
+		await this.clearAllLink.click();
 		return new RemoveModalWindow(this.page);
 	}
 
