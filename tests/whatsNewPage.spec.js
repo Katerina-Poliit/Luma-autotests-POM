@@ -2,7 +2,7 @@ const { expect } = require('@playwright/test');
 import { test, productAddedToCompare, productAddedToWishList } from "../fixtures/base";
 import { HomePage } from "../pages/homePage";
 
-import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMENS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT, BRAS_TANKS_LINK_TEXT, BRAS_TANKS_URL, BRAS_TANKS_BREADCRUMBS_TEXT, BRAS_TANKS_HEADING_TEXT, PANTS_LINK_TEXT, PANTS_URL, PANTS_BREADCRUMBS_TEXT, PANTS_HEADING_TEXT, SHORTS_LINK_TEXT, SHORTS_URL, SHORTS_BREADCRUMBS_TEXT, SHORTS_HEADING_TEXT, NEW_IN_MEN_SECTION_HEADER_TEXT, MEN_HOODIES_SWEATSHIRTS_LINK_TEXT, MEN_HOODIES_SWEATSHIRTS_URL, MEN_HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, MEN_HOODIES_SWEATSHIRTS_HEADING_TEXT, MEN_JACKETS_LINK_TEXT, MEN_JACKETS_URL, MEN_JACKETS_HEADING_TEXT, MEN_JACKETS_BREADCRUMBS_TEXT, MEN_TEES_URL, MEN_TEES_LINK_TEXT, MEN_TEES_BREADCRUMBS_TEXT, MEN_TEES_HEADING_TEXT, MEN_TANKS_URL, MEN_TANKS_LINK_TEXT, MEN_TANKS_BREADCRUMBS_TEXT, MEN_TANKS_HEADING_TEXT, MEN_PANTS_URL, MEN_PANTS_LINK_TEXT, MEN_PANTS_BREADCRUMBS_TEXT, MEN_PANTS_HEADING_TEXT, MEN_SHORTS_URL, MEN_SHORTS_LINK_TEXT, MEN_SHORTS_BREADCRUMBS_TEXT, MEN_SHORTS_HEADING_TEXT, COMPARE_PRODUCT_SECTION_HEADING_TEXT, COMPARE_PRODUCT_SECTION_TEXT, REMOVE_THIS_ITEM__LINK_TEXT, REMOVE_MODAL_WINDOW_HEADING_TEXT, COMPARE_BTN_TEXT, COMPARE_URL_REGEX, COMPARE_PRODUCTS_PAGE_HEADING_TEXT, MY_WISH_LIST_SECTION_HEADING_TEXT, MY_WISH_LIST_SECTION_TEXT, OVERNIGHT_DUFFLE_URL, OVERNIGHT_DUFFLE_BREADCRUMBS_TEXT, OVERNIGHT_DUFFLE_HEADING_TEXT, OVERNIGHT_DUFFLE_LINK_TEXT } from "../helpers/testDataWhatsNewPage";
+import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMENS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT, BRAS_TANKS_LINK_TEXT, BRAS_TANKS_URL, BRAS_TANKS_BREADCRUMBS_TEXT, BRAS_TANKS_HEADING_TEXT, PANTS_LINK_TEXT, PANTS_URL, PANTS_BREADCRUMBS_TEXT, PANTS_HEADING_TEXT, SHORTS_LINK_TEXT, SHORTS_URL, SHORTS_BREADCRUMBS_TEXT, SHORTS_HEADING_TEXT, NEW_IN_MEN_SECTION_HEADER_TEXT, MEN_HOODIES_SWEATSHIRTS_LINK_TEXT, MEN_HOODIES_SWEATSHIRTS_URL, MEN_HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, MEN_HOODIES_SWEATSHIRTS_HEADING_TEXT, MEN_JACKETS_LINK_TEXT, MEN_JACKETS_URL, MEN_JACKETS_HEADING_TEXT, MEN_JACKETS_BREADCRUMBS_TEXT, MEN_TEES_URL, MEN_TEES_LINK_TEXT, MEN_TEES_BREADCRUMBS_TEXT, MEN_TEES_HEADING_TEXT, MEN_TANKS_URL, MEN_TANKS_LINK_TEXT, MEN_TANKS_BREADCRUMBS_TEXT, MEN_TANKS_HEADING_TEXT, MEN_PANTS_URL, MEN_PANTS_LINK_TEXT, MEN_PANTS_BREADCRUMBS_TEXT, MEN_PANTS_HEADING_TEXT, MEN_SHORTS_URL, MEN_SHORTS_LINK_TEXT, MEN_SHORTS_BREADCRUMBS_TEXT, MEN_SHORTS_HEADING_TEXT, COMPARE_PRODUCT_SECTION_HEADING_TEXT, COMPARE_PRODUCT_SECTION_TEXT, REMOVE_THIS_ITEM__LINK_TEXT, REMOVE_MODAL_WINDOW_HEADING_TEXT, COMPARE_BTN_TEXT, COMPARE_URL_REGEX, COMPARE_PRODUCTS_PAGE_HEADING_TEXT, MY_WISH_LIST_SECTION_HEADING_TEXT, MY_WISH_LIST_SECTION_TEXT, OVERNIGHT_DUFFLE_URL, OVERNIGHT_DUFFLE_BREADCRUMBS_TEXT, OVERNIGHT_DUFFLE_HEADING_TEXT, OVERNIGHT_DUFFLE_LINK_TEXT, OVERNIGHT_DUFFLE_PRICE_TEXT } from "../helpers/testDataWhatsNewPage";
 
 test.describe('whatsNewPage.spec', () => {
 
@@ -719,6 +719,63 @@ test.describe('whatsNewPage.spec', () => {
 		await expect(overnightDuffle.overnightDuffleBreadcrumbs).toHaveText(OVERNIGHT_DUFFLE_BREADCRUMBS_TEXT);
 		await expect(overnightDuffle.headingOvernightDufflePage).toBeVisible();
 		await expect(overnightDuffle.headingOvernightDufflePage).toHaveText(OVERNIGHT_DUFFLE_HEADING_TEXT);
+		
+	});
+
+	test('ТС 04.1.80 Verify that the block contains the close (cross) button when the product that was added to the My Wish List', async ({ page, productAddedToWishList }) => {
+
+		await expect(whatsNewPage.addToWishListCloseBtn).toBeVisible();
+		
+	});
+
+	test('ТС 04.1.81 Verify that the close (cross) button has a cursor pointer', async ({ page, productAddedToWishList }) => {
+
+		await expect(whatsNewPage.addToWishListCloseBtn).toBeVisible();
+		await expect(whatsNewPage.addToWishListCloseBtn).toHaveCSS('cursor', 'pointer');
+		
+	});
+
+	test('ТС 04.1.82 Verify that the block disappears after clicking on the close (cross) button. The "{name of product} has been removed from your Wish List." message appears. The text "You have no items in your wish list." appears', async ({ page, productAddedToWishList }) => {
+
+		const productToCompareName = 'Overnight Duffle';
+
+		await expect(whatsNewPage.addToWishListProductBlock).toBeVisible();
+		await expect(whatsNewPage.myWishListSectionText).not.toBeVisible();
+
+		await whatsNewPage.clickAddToWishListCloseBtn();
+
+		await expect(whatsNewPage.addToWishListProductBlock).not.toBeVisible();
+		await expect(whatsNewPage.myWishListSectionText).toBeVisible();
+
+		await expect(whatsNewPage.removedProductMessage).toBeVisible();
+		await expect(whatsNewPage.removedProductMessage).toHaveText(`${productToCompareName} has been removed from your Wish List.`);
+		
+	});
+
+	test('ТС 04.1.83 Verify that the block contains the price of the product that was added to the My Wish List', async ({ page, productAddedToWishList }) => {
+
+		await expect(whatsNewPage.addToWishListPrice).toBeVisible();
+		await expect(whatsNewPage.addToWishListPrice).toHaveText(OVERNIGHT_DUFFLE_PRICE_TEXT);
+		
+	});
+
+	test('ТС 04.1.84 Verify that the block contains the "Add to Cart" button', async ({ page, productAddedToWishList }) => {
+
+		await expect(whatsNewPage.addToCartBtn).toBeVisible();
+		
+	});
+
+	test('ТС 04.1.85 Verify that "Add to Cart" button has a cursor pointer', async ({ page, productAddedToWishList }) => {
+
+		await expect(whatsNewPage.addToCartBtn).toBeVisible();
+		await expect(whatsNewPage.addToCartBtn).toHaveCSS('cursor', 'pointer');
+		
+	});
+
+	test('ТС 04.1.86 Verify that "Add to Cart" button is colored blue', async ({ page, productAddedToWishList }) => {
+
+		await expect(whatsNewPage.addToCartBtn).toBeVisible();
+		await expect(whatsNewPage.addToCartBtn).toHaveCSS('background-color', 'rgb(25, 121, 195)');
 		
 	});
 	

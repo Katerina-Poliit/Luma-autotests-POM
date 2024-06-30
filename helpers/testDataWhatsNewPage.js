@@ -72,4 +72,5 @@ export const MY_WISH_LIST_SECTION_TEXT = 'You have no items in your wish list.';
 export const OVERNIGHT_DUFFLE_BREADCRUMBS_TEXT = 'Overnight Duffle';
 export const OVERNIGHT_DUFFLE_HEADING_TEXT = 'Overnight Duffle';
 export const OVERNIGHT_DUFFLE_LINK_TEXT = 'Overnight Duffle';
+export const OVERNIGHT_DUFFLE_PRICE_TEXT = '$45.00';
 
