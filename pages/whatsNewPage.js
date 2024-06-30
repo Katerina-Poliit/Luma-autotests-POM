@@ -60,7 +60,9 @@ export class WhatsNewPage {
 		  this.addToWishListProductBlock = page.getByText('Overnight Duffle $45.00 Add');
 		  this.addToWishListProductImage = page.locator('#wishlist-sidebar').getByTitle('Overnight Duffle');
 		  this.addToWishListLinkWithProductName = page.locator('#wishlist-sidebar').getByRole('strong').getByRole('link', { name: 'Overnight Duffle' });
-
+		  this.addToWishListCloseBtn = page.getByRole('link', { name: 'Remove This Item' });
+		  this.addToWishListPrice = page.locator('#wishlist-sidebar').getByText('$');
+		  this.addToCartBtn = page.locator('#wishlist-sidebar').getByRole('button', { name: 'Add to Cart' });
    }
 
 	async clickHomeBreadcrumbs() {
@@ -170,6 +172,11 @@ export class WhatsNewPage {
 	async clickAddToWishListLinkWithProductName() {
 		await this.addToWishListLinkWithProductName.click();
 		return new OvernightDufflePage(this.page)
+	}
+
+	async clickAddToWishListCloseBtn() {
+		await this.addToWishListCloseBtn.click();
+		return this;
 	}
 
 }
