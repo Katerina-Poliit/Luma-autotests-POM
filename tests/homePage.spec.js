@@ -5,7 +5,7 @@ import { BASE_URL, WHATS_NEW_LINK_TEXT, WOMEN_LINK_TEXT, MEN_LINK_TEXT, GEAR_LIN
 import { NEW_LUMA_YOGA_COLLECTION_HEADER_TEXT, NEW_LUMA_YOGA_COLLECTION_URL, NEW_LUMA_YOGA_COLLECTION_IB_HEADER_TEXT, NEW_LUMA_YOGA_COLLECTION_IB_CTA_TEXT, SHOP_NEW_YOGA_BTN_TEXT, ERIN_RECOMMENDS_URL, ERIN_RECOMMENDS_HEADER_TEXT, ERIN_RECOMMENDS_IB_HEADER_TEXT, ERIN_RECOMMENDS_IB_CTA_TEXT, SHOP_ERIN_RECOMMENDS_LINK_TEXT, PERFORMANCE_FABRICS_URL, PERFORMANCE_FABRICS_HEADER_TEXT, SCIENCE_MEETS_PERFORMANCE_IB_HEADER_TEXT, SCIENCE_MEETS_PERFORMANCE_IB_CTA_TEXT, SHOP_PERFORMANCE_LINK_TEXT, HOT_SELLERS_HEADER_TEXT, HOT_SELLERS_INF_TEXT, RADIANT_TEE_URL, RADIANT_TEE_BREADCRUMBS, RADIANT_TEE_NAME_LINK_TEXT, ECO_FRIENDLY_URL, ECO_FRIENDLY_HEADER_TEXT, ECO_FRIENDLY_INF_TEXT, ECO_FRIENDLY_INF_CTA_TEXT, ECO_FRIENDLY_INF_LINK_TEXT, RADIANT_TEE_REVIEWS_URL, SIZES, COLORLABLES, CUSTOMER_ACCOUNT_URL } from "../helpers/testDataHomePage"
 
 import { HomePage } from "../pages/homePage";
-import {test ,createNewCustomerAccount} from "../fixtures/base";
+import { test, createNewCustomerAccount } from "../fixtures/base";
 import { CreateNewCustomerAccountPage } from "../pages/createNewCustomerAccountPage";
 
 test.describe('homePage.spec', () => {
@@ -655,7 +655,8 @@ test.describe('homePage.spec', () => {
 	test('ТС 03.1.140 Verify that the dropdown contains a cursor pointer', async ({ page }) => {
 
 		await homePage.hovermenDropdown();
-		expect(homePage.menDropdown).toHaveCSS('cursor', 'pointer');
+		const cursorStyle = await homePage.menDropdown.evaluate(el => window.getComputedStyle(el).cursor);
+		expect(cursorStyle).toBe('pointer');
 
 	});
 
@@ -1535,7 +1536,7 @@ test.describe('homePage.spec', () => {
 		await expect(homePage.compareLink).toBeVisible();
 	});
 
-	test('TC 03.1.178 Verify that the a random new account is being created', async ({ page , createNewCustomerAccount}) => {
+	test('TC 03.1.178 Verify that the a random new account is being created', async ({ page, createNewCustomerAccount }) => {
 
 		const createAccountPage = new CreateNewCustomerAccountPage(page);
 
