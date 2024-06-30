@@ -14,6 +14,7 @@ export const MEN_TEES_URL = 'https://magento.softwaretestingboard.com/men/tops-m
 export const MEN_TANKS_URL = 'https://magento.softwaretestingboard.com/men/tops-men/tanks-men.html';
 export const MEN_PANTS_URL = 'https://magento.softwaretestingboard.com/men/bottoms-men/pants-men.html';
 export const MEN_SHORTS_URL = 'https://magento.softwaretestingboard.com/men/bottoms-men/shorts-men.html';
+export const COMPARE_URL_REGEX = new RegExp("https://magento.softwaretestingboard.com/catalog/product_compare/index/uenc/.+");
 
 //test data
 
@@ -63,3 +64,7 @@ export const COMPARE_PRODUCT_SECTION_TEXT = 'You have no items to compare.';
 export const REMOVE_THIS_ITEM__LINK_TEXT = 'Remove This Item';
 export const REMOVE_MODAL_WINDOW_HEADING_TEXT = 'Are you sure you want to remove this item from your Compare Products list?';
 export const COMPARE_BTN_TEXT = 'Compare';
+export const COMPARE_PRODUCTS_PAGE_HEADING_TEXT = 'Compare Products';
+
+export const MY_WISH_LIST_SECTION_HEADING_TEXT = 'My Wish List';
+export const MY_WISH_LIST_SECTION_TEXT = 'You have no items in your wish list.';

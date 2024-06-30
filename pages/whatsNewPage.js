@@ -1,4 +1,5 @@
 import RemoveModalWindow from "../modalWindows/removeModalWindow";
+import CompareProductsPage from "./compareProductsPage";
 import { HomePage } from "./homePage";
 import MenHoddiesSweatshirtsPage from "./menHoddiesSweatshirtsPage";
 import MenJacketsPage from "./menJacketsPage";
@@ -48,6 +49,9 @@ export class WhatsNewPage {
 		  this.countAddedItems = page.locator('#maincontent').getByText('1 item');
 		  this.clearAllLink = page.getByRole('link', { name: 'Clear All' });
 		  this.compareBtn = page.getByRole('link', { name: 'Compare', exact: true });
+		  this.myWishListSection = page.getByText('My Wish List Last Added Items');
+		  this.myWishListSectionHeading = page.getByRole('heading', { name: 'My Wish List' });
+		  this.myWishListSectionText = page.getByText('You have no items in your wish list.');
 
    }
 
@@ -133,6 +137,11 @@ export class WhatsNewPage {
 	async clickClearAllLink() {
 		await this.clearAllLink.click();
 		return new RemoveModalWindow(this.page);
+	}
+
+	async clickCompareBtn() {
+		await this.compareBtn.click();
+		return new CompareProductsPage(this.page);
 	}
 
 }
