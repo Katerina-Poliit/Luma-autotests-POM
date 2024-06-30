@@ -21,3 +21,12 @@ export const TOPS_ITEM_LINKS = [
     'https://magento.softwaretestingboard.com/women/tops-women/tees-women.html',
     'https://magento.softwaretestingboard.com/women/tops-women/tanks-women.html'
 ];
+
+export const MENU_BOTTOMS_TEXT = 'Bottoms';
+export const ITEM_PANTS_LINK_TEXT = 'Pants';
+export const ITEM_SHORTS_LINK_TEXT = 'Shorts';
+
+export const BOTTOMS_ITEM_LINKS = [
+    'https://magento.softwaretestingboard.com/women/bottoms-women/pants-women.html',
+    'https://magento.softwaretestingboard.com/women/bottoms-women/shorts-women.html'
+]
