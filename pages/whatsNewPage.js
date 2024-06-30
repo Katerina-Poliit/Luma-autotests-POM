@@ -1,5 +1,6 @@
 import RemoveModalWindow from "../modalWindows/removeModalWindow";
 import CompareProductsPage from "./compareProductsPage";
+import { CreateNewCustomerAccountPage } from "./createNewCustomerAccountPage";
 import { HomePage } from "./homePage";
 import MenHoddiesSweatshirtsPage from "./menHoddiesSweatshirtsPage";
 import MenJacketsPage from "./menJacketsPage";
@@ -7,6 +8,7 @@ import MenPantsPage from "./menPantsPage";
 import MenShortsPage from "./menShortsPage";
 import MenTanksPage from "./menTanksPage";
 import MenTeesPage from "./menTeesPage";
+import MyWishListPage from "./myWishListPage";
 import WomenBrassTanksPage from "./womenBrassTanksPage";
 import WomenHoodiesSweatshirtsPage from "./womenHoodiesSweatshirtsPage";
 import WomenJacketsPage from "./womenJacketsPage";
@@ -52,6 +54,9 @@ export class WhatsNewPage {
 		  this.myWishListSection = page.getByText('My Wish List Last Added Items');
 		  this.myWishListSectionHeading = page.getByRole('heading', { name: 'My Wish List' });
 		  this.myWishListSectionText = page.getByText('You have no items in your wish list.');
+		  this.createAnAccountLink = page.getByRole('link', { name: 'Create an Account' });
+		  this.addToWishList = page.getByRole('link', { name: 'Add to Wish List' }).nth(1);
+		  this.addToWishListProductBlock = page.getByText('Overnight Duffle $45.00 Add');
 
    }
 
@@ -142,6 +147,16 @@ export class WhatsNewPage {
 	async clickCompareBtn() {
 		await this.compareBtn.click();
 		return new CompareProductsPage(this.page);
+	}
+
+	async clickCreateAnAccountLink() {
+		await this.createAnAccountLink.click();
+		return new CreateNewCustomerAccountPage(this.page)
+	}
+
+	async clickAddToWishList() {
+		await this.addToWishList.click();
+		return new MyWishListPage(this.page)
 	}
 
 }

@@ -137,7 +137,7 @@ export class HomePage {
 		this.gearBags = page.locator('#ui-id-25');
 		this.gearFitnessEquipment = page.locator('#ui-id-26');
 		this.gearWatches = page.locator('#ui-id-27');
-        this.trainingVideoDownloading = page.locator('#ui-id-28');
+      this.trainingVideoDownloading = page.locator('#ui-id-28');
 		this.hotSellersProductCardsStarsRating = page.getByTitle('60%');
 		this.hotSellersProductCardsRewiesLink = page.getByRole('link', { name: 'Reviews' }).first();
 		this.hotSellersProductCardsPriceProduct = page.locator('#old-price-1556-widget-product-grid').getByText('$');
@@ -149,7 +149,7 @@ export class HomePage {
 		this.hotSellersProductCards = page.getByRole('link', { name: 'Radiant Tee' }).first();
 		this.hotSellersProductCardsAddToWishListBtn = page.locator('.towishlist').nth(0);
 		this.hotSellersProductCardsAddToCompareBtn = page.locator('.tocompare').nth(0);
-		this. messageAddingProduct = page.getByText('You added product Radiant Tee');
+		this.messageAddingProduct = page.getByText('You added product Radiant Tee');
 		this.compareLink = page.getByRole('link', { name: 'Compare Products (1 item)' });
 
 	}

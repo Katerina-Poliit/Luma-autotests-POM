@@ -1,4 +1,4 @@
-
+import {WHATS_NEW_URL} from "../helpers/testDataHomePage"
 export class CreateNewCustomerAccountPage {
 
    constructor(page) {
@@ -20,9 +20,14 @@ export class CreateNewCustomerAccountPage {
       await this.emailInput.fill(email);
       await this.passwordInput.fill(password);
       await this.confirmPasswordInput.fill(password);
-    }
+   }
 
-    async submitForm() {
+   async submitForm() {
       await this.createAccountBtn.click();
-    }
+   }
+
+	async openWhatsNewPage() {
+		await this.page.goto(WHATS_NEW_URL);
+	}
+
 }

@@ -68,3 +68,4 @@ export const COMPARE_PRODUCTS_PAGE_HEADING_TEXT = 'Compare Products';
 
 export const MY_WISH_LIST_SECTION_HEADING_TEXT = 'My Wish List';
 export const MY_WISH_LIST_SECTION_TEXT = 'You have no items in your wish list.';
+
