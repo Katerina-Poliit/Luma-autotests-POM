@@ -227,6 +227,24 @@ test('ТС 05.1.9 Verify that the count of products is displayed next to the "Bo
         await expect(womenPage.promoBlockInfoTitle).toHaveText(PROMO_BLOCK_INFO_TITLE_TEXT)
 
       });
+
+      test('ТС 05.1.44 Verify that the information block contains the "Shop New Yoga" button', async ({ page }) => {
+
+        await expect(womenPage.shopNewYogaBtn).toBeVisible();
+
+      });
+
+      test('ТС 05.1.45 Verify that the "Shop New Yoga" button has a cursor pointer', async ({ page }) => {
+
+        await expect(womenPage.shopNewYogaBtn).toHaveCSS('cursor', 'pointer');
+
+      });
+
+      test('ТС 05.1.46 Verify that the "Shop New Yoga" button is colored blue', async ({ page }) => {
+
+        await expect(womenPage.shopNewYogaBtn).toHaveCSS('background-color', 'rgb(25, 121, 195)');
+
+      });
   });
 
 
