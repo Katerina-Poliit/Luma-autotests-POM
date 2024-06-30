@@ -15,6 +15,7 @@ export const MEN_TANKS_URL = 'https://magento.softwaretestingboard.com/men/tops-
 export const MEN_PANTS_URL = 'https://magento.softwaretestingboard.com/men/bottoms-men/pants-men.html';
 export const MEN_SHORTS_URL = 'https://magento.softwaretestingboard.com/men/bottoms-men/shorts-men.html';
 export const COMPARE_URL_REGEX = new RegExp("https://magento.softwaretestingboard.com/catalog/product_compare/index/uenc/.+");
+export const OVERNIGHT_DUFFLE_URL = 'https://magento.softwaretestingboard.com/overnight-duffle.html?qty=1';
 
 //test data
 
@@ -68,4 +69,7 @@ export const COMPARE_PRODUCTS_PAGE_HEADING_TEXT = 'Compare Products';
 
 export const MY_WISH_LIST_SECTION_HEADING_TEXT = 'My Wish List';
 export const MY_WISH_LIST_SECTION_TEXT = 'You have no items in your wish list.';
+export const OVERNIGHT_DUFFLE_BREADCRUMBS_TEXT = 'Overnight Duffle';
+export const OVERNIGHT_DUFFLE_HEADING_TEXT = 'Overnight Duffle';
+export const OVERNIGHT_DUFFLE_LINK_TEXT = 'Overnight Duffle';
 
