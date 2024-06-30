@@ -1,8 +1,9 @@
 const { expect } = require('@playwright/test');
 import { test } from "../fixtures/base";
 import { HomePage } from "../pages/homePage";
-import {WOMEN_URL, WOMEN_HEADER_TEXT, WOMEN_TOPS_PAGE_URL,WOMEN_BOTTOMS_PAGE_URL,MENU_TOPS_TEXT, ITEM_HOODIES_SWEATSHIRTS_LINK_TEXT, ITEM_JACKETS_LINK_TEXT, ITEM_TEES_LINK_TEXT, ITEM_BRASTANKS_LINK_TEXT, TOPS_ITEM_LINKS, MENU_BOTTOMS_TEXT, ITEM_PANTS_LINK_TEXT, ITEM_SHORTS_LINK_TEXT,  BOTTOMS_ITEM_LINKS, PROMO_BLOCK_INFO_TEXT, PROMO_BLOCK_INFO_TITLE_TEXT  } from "../helpers/testDataWomenPage";
+import {WOMEN_URL, WOMEN_HEADER_TEXT, WOMEN_TOPS_PAGE_URL,WOMEN_BOTTOMS_PAGE_URL,MENU_TOPS_TEXT, ITEM_HOODIES_SWEATSHIRTS_LINK_TEXT, ITEM_JACKETS_LINK_TEXT, ITEM_TEES_LINK_TEXT, ITEM_BRASTANKS_LINK_TEXT, TOPS_ITEM_LINKS, MENU_BOTTOMS_TEXT, ITEM_PANTS_LINK_TEXT, ITEM_SHORTS_LINK_TEXT,  BOTTOMS_ITEM_LINKS, PROMO_BLOCK_INFO_TEXT, PROMO_BLOCK_INFO_TITLE_TEXT, BLOCK_CONTENT_TEES_INFO_TEXT, BLOCK_CONTENT_TEES_ACTION_TEXT  } from "../helpers/testDataWomenPage";
 import { WomenPage } from "../pages/womenPage";
+import { WOMEN_TOPS_TEES_URL} from "../helpers/testDataHomePage"
 
 test.describe('womenPage.spec', () => {
 
@@ -245,7 +246,54 @@ test('ТС 05.1.9 Verify that the count of products is displayed next to the "Bo
         await expect(womenPage.shopNewYogaBtn).toHaveCSS('background-color', 'rgb(25, 121, 195)');
 
       });
+
+      test('ТС 05.1.47 Verify that the promo block contains "You can’t have too many tees" promo section', async ({ page }) => {
+
+        await expect(womenPage.blockContentTees).toBeVisible();
+
+      });
+
+      test('ТС 05.1.59 Verify that the "You can’t have too many tees" promo section has a cursor pointer', async ({ page }) => {
+
+        await expect(womenPage.blockContentTees).toHaveCSS('cursor', 'pointer');
+
+      });
+
+      test('ТС 05.1.60 Verify that the user is redirected to the "Tees" page after clicking on the "You can’t have too many tees" promo section', async ({ page }) => {
+
+        await womenPage.clickblockContentTees();
+        await expect(page).toHaveURL( WOMEN_TOPS_TEES_URL);
+
+      });
+
+      test('ТС 05.1.61 Verify that the "You can’t have too many tees" promo sections have the information block', async ({ page }) => {
+
+        await expect(womenPage.blockContentTeesInfo).toBeVisible();
+        await expect(womenPage.blockContentTeesInfo).toHaveText(BLOCK_CONTENT_TEES_INFO_TEXT);
+
+      });
+
+      test('ТС 05.1.63 Verify that the information block has the call to action text', async ({ page }) => {
+
+        await expect(womenPage.blockContentTeesAction).toBeVisible();
+        await expect(womenPage.blockContentTeesAction).toHaveText(BLOCK_CONTENT_TEES_ACTION_TEXT);
+
+      });
+
+
+      test('ТС 05.1.64 Verify that the information block contains the "Women’s Tees" link', async ({ page }) => {
+
+        await expect(womenPage.womenTeesLink).toBeVisible();
+
+      });
+
+      test('ТС 05.1.65 Verify that the "Women’s Tees" link has a cursor pointer', async ({ page }) => {
+
+        await expect(womenPage.womenTeesLink).toHaveCSS('cursor', 'pointer');
+
+      });
   });
+
 
 
 
