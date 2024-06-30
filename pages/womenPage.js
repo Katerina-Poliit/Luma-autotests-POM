@@ -20,6 +20,9 @@ export class WomenPage {
         this.itemJacketsLink = page.getByRole('link', { name: 'Jackets' });
         this.itemTeesLink = page.getByRole('link', { name: 'Tees', exact: true });
         this.itemBrasTanksLink = page.getByRole('link', { name: 'Bras & Tanks' });
+        this.menuBottoms = page.locator('strong').filter({ hasText: 'Bottoms' }).locator('span');
+        this.itemPantsLink = page.getByRole('link', { name: 'Pants', exact: true });
+        this.itemShortsLink = page.getByRole('link', { name: 'Shorts', exact: true });
    }
 
    async clickcategoryTopsLink() {
@@ -33,12 +36,12 @@ export class WomenPage {
 	}
 
      async navigateToLinkAndReturn(url) {
-          await this.page.goto(url);
+
           await this.page.waitForLoadState('networkidle');
           // Вернуться на страницу Women
           await this.page.goto('https://magento.softwaretestingboard.com/women.html');
           await this.page.goto(url);
-          await this.page.waitForLoadState('networkidle');
+         
       }
 
      }

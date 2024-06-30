@@ -1,7 +1,7 @@
 const { expect } = require('@playwright/test');
 import { test } from "../fixtures/base";
 import { HomePage } from "../pages/homePage";
-import {WOMEN_URL, WOMEN_HEADER_TEXT, WOMEN_TOPS_PAGE_URL,WOMEN_BOTTOMS_PAGE_URL,MENU_TOPS_TEXT, ITEM_HOODIES_SWEATSHIRTS_LINK_TEXT, ITEM_JACKETS_LINK_TEXT, ITEM_TEES_LINK_TEXT, ITEM_BRASTANKS_LINK_TEXT, TOPS_ITEM_LINKS } from "../helpers/testDataWomenPage";
+import {WOMEN_URL, WOMEN_HEADER_TEXT, WOMEN_TOPS_PAGE_URL,WOMEN_BOTTOMS_PAGE_URL,MENU_TOPS_TEXT, ITEM_HOODIES_SWEATSHIRTS_LINK_TEXT, ITEM_JACKETS_LINK_TEXT, ITEM_TEES_LINK_TEXT, ITEM_BRASTANKS_LINK_TEXT, TOPS_ITEM_LINKS, MENU_BOTTOMS_TEXT, ITEM_PANTS_LINK_TEXT, ITEM_SHORTS_LINK_TEXT,  BOTTOMS_ITEM_LINKS  } from "../helpers/testDataWomenPage";
 import { WomenPage } from "../pages/womenPage";
 
 test.describe('womenPage.spec', () => {
@@ -153,6 +153,48 @@ test('ТС 05.1.9 Verify that the count of products is displayed next to the "Bo
         await expect(page).toHaveURL(link);
     }
 
+});
+
+    test('ТС 05.1.22 Verify that the  categories menu "Bottoms" is displayed on the "Women" page', async ({ page }) => {
+
+        await expect(womenPage.menuBottoms).toBeVisible();
+        await expect(womenPage.menuBottoms).toHaveText(MENU_BOTTOMS_TEXT);
+
+      });
+
+      test('ТС 05.1.23 Verify that the  "Bottoms" category menu contains the item link "Pants"', async ({ page }) => {
+
+        await expect(womenPage.itemPantsLink).toBeVisible();
+        await expect(womenPage.itemPantsLink).toHaveText(ITEM_PANTS_LINK_TEXT);
+
+      });
+
+      test('ТС 05.1.24 Verify that the link to the item "Pants" contains the pointer cursor', async ({ page }) => {
+
+        await expect(womenPage.itemPantsLink).toHaveCSS('cursor', 'pointer');
+
+      });
+
+      test('ТС 05.1.26 Verify that the  "Bottoms" category menu contains the item link "Shorts"', async ({ page }) => {
+
+        await expect(womenPage.itemShortsLink).toBeVisible();
+        await expect(womenPage.itemShortsLink).toHaveText(ITEM_SHORTS_LINK_TEXT);
+      });
+
+      test('ТС 05.1.27 Verify that the link to the item "Shorts" contains the pointer cursor', async ({ page }) => {
+
+        await expect(womenPage.itemShortsLink).toHaveCSS('cursor', 'pointer');
+
+      });
+
+      test('ТС 05.1.28 Verify that the  link to the item is redirected to the appropriate pages', async ({ page }) => {
+
+        for (const link of BOTTOMS_ITEM_LINKS) {
+            await womenPage.navigateToLinkAndReturn(link);
+            await expect(page).toHaveURL(link);
+        }
+
+      });
   });
 
 
@@ -164,4 +206,3 @@ test('ТС 05.1.9 Verify that the count of products is displayed next to the "Bo
 
 
 
-});
