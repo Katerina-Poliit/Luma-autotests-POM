@@ -9,6 +9,7 @@ import MenShortsPage from "./menShortsPage";
 import MenTanksPage from "./menTanksPage";
 import MenTeesPage from "./menTeesPage";
 import MyWishListPage from "./myWishListPage";
+import OvernightDufflePage from "./overnightDufflePage";
 import WomenBrassTanksPage from "./womenBrassTanksPage";
 import WomenHoodiesSweatshirtsPage from "./womenHoodiesSweatshirtsPage";
 import WomenJacketsPage from "./womenJacketsPage";
@@ -57,6 +58,8 @@ export class WhatsNewPage {
 		  this.createAnAccountLink = page.getByRole('link', { name: 'Create an Account' });
 		  this.addToWishList = page.getByRole('link', { name: 'Add to Wish List' }).nth(1);
 		  this.addToWishListProductBlock = page.getByText('Overnight Duffle $45.00 Add');
+		  this.addToWishListProductImage = page.locator('#wishlist-sidebar').getByTitle('Overnight Duffle');
+		  this.addToWishListLinkWithProductName = page.locator('#wishlist-sidebar').getByRole('strong').getByRole('link', { name: 'Overnight Duffle' });
 
    }
 
@@ -157,6 +160,16 @@ export class WhatsNewPage {
 	async clickAddToWishList() {
 		await this.addToWishList.click();
 		return new MyWishListPage(this.page)
+	}
+
+	async clickAddToWishListProductImage() {
+		await this.addToWishListProductImage.click();
+		return new OvernightDufflePage(this.page)
+	}
+
+	async clickAddToWishListLinkWithProductName() {
+		await this.addToWishListLinkWithProductName.click();
+		return new OvernightDufflePage(this.page)
 	}
 
 }

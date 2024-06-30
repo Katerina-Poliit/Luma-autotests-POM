@@ -2,7 +2,7 @@ const { expect } = require('@playwright/test');
 import { test, productAddedToCompare, productAddedToWishList } from "../fixtures/base";
 import { HomePage } from "../pages/homePage";
 
-import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMENS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT, BRAS_TANKS_LINK_TEXT, BRAS_TANKS_URL, BRAS_TANKS_BREADCRUMBS_TEXT, BRAS_TANKS_HEADING_TEXT, PANTS_LINK_TEXT, PANTS_URL, PANTS_BREADCRUMBS_TEXT, PANTS_HEADING_TEXT, SHORTS_LINK_TEXT, SHORTS_URL, SHORTS_BREADCRUMBS_TEXT, SHORTS_HEADING_TEXT, NEW_IN_MEN_SECTION_HEADER_TEXT, MEN_HOODIES_SWEATSHIRTS_LINK_TEXT, MEN_HOODIES_SWEATSHIRTS_URL, MEN_HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, MEN_HOODIES_SWEATSHIRTS_HEADING_TEXT, MEN_JACKETS_LINK_TEXT, MEN_JACKETS_URL, MEN_JACKETS_HEADING_TEXT, MEN_JACKETS_BREADCRUMBS_TEXT, MEN_TEES_URL, MEN_TEES_LINK_TEXT, MEN_TEES_BREADCRUMBS_TEXT, MEN_TEES_HEADING_TEXT, MEN_TANKS_URL, MEN_TANKS_LINK_TEXT, MEN_TANKS_BREADCRUMBS_TEXT, MEN_TANKS_HEADING_TEXT, MEN_PANTS_URL, MEN_PANTS_LINK_TEXT, MEN_PANTS_BREADCRUMBS_TEXT, MEN_PANTS_HEADING_TEXT, MEN_SHORTS_URL, MEN_SHORTS_LINK_TEXT, MEN_SHORTS_BREADCRUMBS_TEXT, MEN_SHORTS_HEADING_TEXT, COMPARE_PRODUCT_SECTION_HEADING_TEXT, COMPARE_PRODUCT_SECTION_TEXT, REMOVE_THIS_ITEM__LINK_TEXT, REMOVE_MODAL_WINDOW_HEADING_TEXT, COMPARE_BTN_TEXT, COMPARE_URL_REGEX, COMPARE_PRODUCTS_PAGE_HEADING_TEXT, MY_WISH_LIST_SECTION_HEADING_TEXT, MY_WISH_LIST_SECTION_TEXT } from "../helpers/testDataWhatsNewPage";
+import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMENS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT, BRAS_TANKS_LINK_TEXT, BRAS_TANKS_URL, BRAS_TANKS_BREADCRUMBS_TEXT, BRAS_TANKS_HEADING_TEXT, PANTS_LINK_TEXT, PANTS_URL, PANTS_BREADCRUMBS_TEXT, PANTS_HEADING_TEXT, SHORTS_LINK_TEXT, SHORTS_URL, SHORTS_BREADCRUMBS_TEXT, SHORTS_HEADING_TEXT, NEW_IN_MEN_SECTION_HEADER_TEXT, MEN_HOODIES_SWEATSHIRTS_LINK_TEXT, MEN_HOODIES_SWEATSHIRTS_URL, MEN_HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, MEN_HOODIES_SWEATSHIRTS_HEADING_TEXT, MEN_JACKETS_LINK_TEXT, MEN_JACKETS_URL, MEN_JACKETS_HEADING_TEXT, MEN_JACKETS_BREADCRUMBS_TEXT, MEN_TEES_URL, MEN_TEES_LINK_TEXT, MEN_TEES_BREADCRUMBS_TEXT, MEN_TEES_HEADING_TEXT, MEN_TANKS_URL, MEN_TANKS_LINK_TEXT, MEN_TANKS_BREADCRUMBS_TEXT, MEN_TANKS_HEADING_TEXT, MEN_PANTS_URL, MEN_PANTS_LINK_TEXT, MEN_PANTS_BREADCRUMBS_TEXT, MEN_PANTS_HEADING_TEXT, MEN_SHORTS_URL, MEN_SHORTS_LINK_TEXT, MEN_SHORTS_BREADCRUMBS_TEXT, MEN_SHORTS_HEADING_TEXT, COMPARE_PRODUCT_SECTION_HEADING_TEXT, COMPARE_PRODUCT_SECTION_TEXT, REMOVE_THIS_ITEM__LINK_TEXT, REMOVE_MODAL_WINDOW_HEADING_TEXT, COMPARE_BTN_TEXT, COMPARE_URL_REGEX, COMPARE_PRODUCTS_PAGE_HEADING_TEXT, MY_WISH_LIST_SECTION_HEADING_TEXT, MY_WISH_LIST_SECTION_TEXT, OVERNIGHT_DUFFLE_URL, OVERNIGHT_DUFFLE_BREADCRUMBS_TEXT, OVERNIGHT_DUFFLE_HEADING_TEXT, OVERNIGHT_DUFFLE_LINK_TEXT } from "../helpers/testDataWhatsNewPage";
 
 test.describe('whatsNewPage.spec', () => {
 
@@ -665,6 +665,60 @@ test.describe('whatsNewPage.spec', () => {
 	test('ТС 04.1.73 Verify that the "My Wish List" section contains the block of items added to the wish list (Only for registered users)', async ({ page, productAddedToWishList }) => {
 
 		await expect(whatsNewPage.addToWishListProductBlock).toBeVisible();
+		
+	});
+
+	test('ТС 04.1.74 Verify that the block contains the image of the product that was added to the My Wish List', async ({ page, productAddedToWishList }) => {
+
+		await expect(whatsNewPage.addToWishListProductImage).toBeVisible();
+		
+	});
+
+	test('ТС 04.1.75 Verify that the image of the product that was added to the My Wish List has a cursor pointer', async ({ page, productAddedToWishList }) => {
+
+		await expect(whatsNewPage.addToWishListProductImage).toBeVisible();
+		await expect(whatsNewPage.addToWishListProductImage).toHaveCSS('cursor', 'pointer');
+		
+	});
+
+	test('ТС 04.1.76 Verify that the user is redirected to the page of the product that was added to the My Wish List after clicking on the image of the product', async ({ page, productAddedToWishList }) => {
+
+		const overnightDuffle = await whatsNewPage.clickAddToWishListProductImage();
+
+		await expect(page).toHaveURL(OVERNIGHT_DUFFLE_URL);
+		
+		await expect(overnightDuffle.overnightDuffleBreadcrumbs).toBeVisible();
+		await expect(overnightDuffle.overnightDuffleBreadcrumbs).toHaveText(OVERNIGHT_DUFFLE_BREADCRUMBS_TEXT);
+		await expect(overnightDuffle.headingOvernightDufflePage).toBeVisible();
+		await expect(overnightDuffle.headingOvernightDufflePage).toHaveText(OVERNIGHT_DUFFLE_HEADING_TEXT);
+		
+	});
+
+	test('ТС 04.1.77 Verify that the block contains the link with the name of the added item to the My Wish List when the item is added to the My Wish List', async ({ page, productAddedToWishList }) => {
+
+		await expect(whatsNewPage.addToWishListLinkWithProductName).toBeVisible();
+		await expect(whatsNewPage.addToWishListLinkWithProductName).toHaveText(OVERNIGHT_DUFFLE_LINK_TEXT);
+		
+	});
+
+	test('ТС 04.1.78 Verify that the link has a cursor pointer', async ({ page, productAddedToWishList }) => {
+
+		await expect(whatsNewPage.addToWishListLinkWithProductName).toBeVisible();
+		await expect(whatsNewPage.addToWishListLinkWithProductName).toHaveCSS('cursor', 'pointer');
+		
+		
+	});
+
+	test('ТС 04.1.79 Verify that the user is redirected to the page of the product that was added to the My Wish List after clicking on the link with name of the product', async ({ page, productAddedToWishList }) => {
+
+		const overnightDuffle = await whatsNewPage.clickAddToWishListLinkWithProductName();
+
+		await expect(page).toHaveURL(OVERNIGHT_DUFFLE_URL);
+		
+		await expect(overnightDuffle.overnightDuffleBreadcrumbs).toBeVisible();
+		await expect(overnightDuffle.overnightDuffleBreadcrumbs).toHaveText(OVERNIGHT_DUFFLE_BREADCRUMBS_TEXT);
+		await expect(overnightDuffle.headingOvernightDufflePage).toBeVisible();
+		await expect(overnightDuffle.headingOvernightDufflePage).toHaveText(OVERNIGHT_DUFFLE_HEADING_TEXT);
 		
 	});
 	
