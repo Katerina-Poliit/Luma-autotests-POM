@@ -1,4 +1,5 @@
 import WomenTopsPage from "./womenTopsPage";
+import WomenBottomsPage from "./womenBottomsPage";
 
 
 export class WomenPage {
@@ -13,6 +14,9 @@ export class WomenPage {
         this.categoryTopsCount = page.getByText('50', { exact: true });
         this.categoryBottomsLink = page.getByRole('link', { name: 'Bottoms' });
         this.categoryBottomsCount = page.getByText('25');
+        this.menuTops = page.locator('strong').filter({ hasText: 'Tops' });
+        this.itemHoodiesSweatshirtsLink = page.getByRole('link', { name: 'Hoodies & Sweatshirts' });
+        this.itemJacketsLink = page.getByRole('link', { name: 'Jackets' });
    }
 
    async clickcategoryTopsLink() {
@@ -20,4 +24,8 @@ export class WomenPage {
 		return new WomenTopsPage(this.page);
 	}
 
+     async clickCategoryBottomsLink() {
+		await this.categoryBottomsLink.click();
+		return new WomenBottomsPage(this.page);
+	}
 }
