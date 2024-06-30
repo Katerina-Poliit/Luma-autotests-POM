@@ -2,6 +2,7 @@ import WomenTopsPage from "./womenTopsPage";
 import WomenBottomsPage from "./womenBottomsPage";
 
 
+
 export class WomenPage {
 
    constructor(page) {
@@ -17,6 +18,8 @@ export class WomenPage {
         this.menuTops = page.locator('strong').filter({ hasText: 'Tops' });
         this.itemHoodiesSweatshirtsLink = page.getByRole('link', { name: 'Hoodies & Sweatshirts' });
         this.itemJacketsLink = page.getByRole('link', { name: 'Jackets' });
+        this.itemTeesLink = page.getByRole('link', { name: 'Tees', exact: true });
+        this.itemBrasTanksLink = page.getByRole('link', { name: 'Bras & Tanks' });
    }
 
    async clickcategoryTopsLink() {
@@ -28,4 +31,14 @@ export class WomenPage {
 		await this.categoryBottomsLink.click();
 		return new WomenBottomsPage(this.page);
 	}
-}
+
+     async navigateToLinkAndReturn(url) {
+          await this.page.goto(url);
+          await this.page.waitForLoadState('networkidle');
+          // Вернуться на страницу Women
+          await this.page.goto('https://magento.softwaretestingboard.com/women.html');
+          await this.page.goto(url);
+          await this.page.waitForLoadState('networkidle');
+      }
+
+     }

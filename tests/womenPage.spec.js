@@ -1,7 +1,7 @@
 const { expect } = require('@playwright/test');
 import { test } from "../fixtures/base";
 import { HomePage } from "../pages/homePage";
-import {WOMEN_URL, WOMEN_HEADER_TEXT, WOMEN_TOPS_PAGE_URL,WOMEN_BOTTOMS_PAGE_URL,MENU_TOPS_TEXT, ITEM_HOODIES_SWEATSHIRTS_LINK_TEXT, ITEM_JACKETS_LINK_TEXT} from "../helpers/testDataWomenPage";
+import {WOMEN_URL, WOMEN_HEADER_TEXT, WOMEN_TOPS_PAGE_URL,WOMEN_BOTTOMS_PAGE_URL,MENU_TOPS_TEXT, ITEM_HOODIES_SWEATSHIRTS_LINK_TEXT, ITEM_JACKETS_LINK_TEXT, ITEM_TEES_LINK_TEXT, ITEM_BRASTANKS_LINK_TEXT, TOPS_ITEM_LINKS } from "../helpers/testDataWomenPage";
 import { WomenPage } from "../pages/womenPage";
 
 test.describe('womenPage.spec', () => {
@@ -113,6 +113,50 @@ test('ТС 05.1.9 Verify that the count of products is displayed next to the "Bo
     await expect(womenPage.itemJacketsLink).toHaveText(ITEM_JACKETS_LINK_TEXT)
 
   });
+
+  test('ТС 05.1.16 link to the item "Jackets" contains the pointer cursor', async ({ page }) => {
+
+    await expect(womenPage.itemJacketsLink).toHaveCSS('cursor', 'pointer');
+
+  });
+
+  test('ТС 05.1.17 Verify that the "Tops" category menu contains the item link "Tees"', async ({ page }) => {
+
+    await expect(womenPage.itemTeesLink).toBeVisible();
+    await expect(womenPage.itemTeesLink).toHaveText(ITEM_TEES_LINK_TEXT );
+
+  });
+
+  test('ТС 05.1.18 Verify that the link to the item "Tees" contains the pointer cursor', async ({ page }) => {
+
+    await expect(womenPage.itemTeesLink).toHaveCSS('cursor', 'pointer');
+
+  });
+
+  test('ТС 05.1.19 Verify that the "Tops" category menu contains the item link "Bras & Tanks"', async ({ page }) => {
+
+    await expect(womenPage.itemBrasTanksLink).toBeVisible();
+    await expect(womenPage.itemBrasTanksLink).toHaveText(ITEM_BRASTANKS_LINK_TEXT);
+
+  });
+
+  test('ТС 05.1.20 Verify that the  link to the item "Bras & Tanks" contains the pointer cursor', async ({ page }) => {
+
+    await expect(womenPage.itemBrasTanksLink).toHaveCSS('cursor', 'pointer');
+
+  });
+
+  test('ТС 05.1.21 Verify that the  link to the item is redirected to the appropriate pages', async ({ page }) => {
+
+    for (const link of TOPS_ITEM_LINKS) {
+        await womenPage.navigateToLinkAndReturn(link);
+        await expect(page).toHaveURL(link);
+    }
+
+  });
+
+
+
 
 
 
