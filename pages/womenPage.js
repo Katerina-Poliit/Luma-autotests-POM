@@ -27,6 +27,7 @@ export class WomenPage {
         this.newLumaYogaCollectionContent = page.locator('.content').nth(2);
         this.promoBlockInfo = page.locator('.info').nth(0);
         this.promoBlockInfoTitle = page.locator('.title').nth(0);
+        this.shopNewYogaBtn = page.locator('.more.button');
    }
 
    async clickcategoryTopsLink() {
