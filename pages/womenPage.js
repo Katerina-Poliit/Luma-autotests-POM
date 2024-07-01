@@ -2,6 +2,7 @@ import WomenTopsPage from "./womenTopsPage";
 import WomenBottomsPage from "./womenBottomsPage";
 import WomenTeesPage from "./womenTeesPage";
 import WomenPanstPage from "./womenPantsPage";
+import { ErinRecommendsPage } from "./erinRecommendsPage";
 
 
 
@@ -41,6 +42,11 @@ export class WomenPage {
         this.promoBlock20OFFShopPantsLink = page.locator('.more.icon').nth(1);
         this.compareProductsSection = page.getByRole('heading', { name: 'Compare Products' });
         this.myWishListSection = page.getByRole('heading', { name: 'My Wish List' });
+        this.erinRecommendsContent = page.getByRole('link', { name: 'What would Erin wear? It’s no' });
+        this.erinRecommendsContentHeader = page.locator('.title').nth(3);
+        this.erinRecommendsContentAction = page.locator('.info').nth(3);
+        this.erinRecommendsContentLink = page.locator('.more.icon').nth(2);
+
 
 
    }
@@ -72,6 +78,11 @@ export class WomenPage {
      async clickPromoBlock20OFF() {
 		await this.promoBlock20OFF.click();
 		return new WomenPanstPage(this.page);
+	}
+
+     async clickErinRecommendsContentLink() {
+		await this.erinRecommendsContentLink.click();
+		return new ErinRecommendsPage(this.page);
 	}
 
 
