@@ -38,3 +38,5 @@ export const BLOCK_20_OFF_HEADER_TEXT = 'Hot pantsHot deals';
 export const BLOCK_20_OFF_ACTION_TEXT = '20% OFFLuma pants when you shop today*';
 export const COMPARE_PRODUCTS_HEADING = 'Compare Products';
 export const WISH_LIST_HEADING = 'My Wish List';
+export const ERIN_RECOMMENDS_HEADING = 'What would Erin wear?';
+export const ERIN_RECOMMENDS_ACTION_TEXT = 'It’s no secret: see Luma founder Erin Renny’s wardrobe go-to’s';

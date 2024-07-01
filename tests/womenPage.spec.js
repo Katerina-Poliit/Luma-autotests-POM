@@ -1,9 +1,9 @@
 const { expect } = require('@playwright/test');
 import { test } from "../fixtures/base";
 import { HomePage } from "../pages/homePage";
-import {WOMEN_URL, WOMEN_HEADER_TEXT, WOMEN_TOPS_PAGE_URL,WOMEN_BOTTOMS_PAGE_URL,MENU_TOPS_TEXT, ITEM_HOODIES_SWEATSHIRTS_LINK_TEXT, ITEM_JACKETS_LINK_TEXT, ITEM_TEES_LINK_TEXT, ITEM_BRASTANKS_LINK_TEXT, TOPS_ITEM_LINKS, MENU_BOTTOMS_TEXT, ITEM_PANTS_LINK_TEXT, ITEM_SHORTS_LINK_TEXT,  BOTTOMS_ITEM_LINKS, PROMO_BLOCK_INFO_TEXT, PROMO_BLOCK_INFO_TITLE_TEXT, BLOCK_CONTENT_TEES_INFO_TEXT, BLOCK_CONTENT_TEES_ACTION_TEXT, BLOCK_20_OFF_HEADER_TEXT, BLOCK_20_OFF_ACTION_TEXT, COMPARE_PRODUCTS_HEADING, WISH_LIST_HEADING } from "../helpers/testDataWomenPage";
+import {WOMEN_URL, WOMEN_HEADER_TEXT, WOMEN_TOPS_PAGE_URL,WOMEN_BOTTOMS_PAGE_URL,MENU_TOPS_TEXT, ITEM_HOODIES_SWEATSHIRTS_LINK_TEXT, ITEM_JACKETS_LINK_TEXT, ITEM_TEES_LINK_TEXT, ITEM_BRASTANKS_LINK_TEXT, TOPS_ITEM_LINKS, MENU_BOTTOMS_TEXT, ITEM_PANTS_LINK_TEXT, ITEM_SHORTS_LINK_TEXT,  BOTTOMS_ITEM_LINKS, PROMO_BLOCK_INFO_TEXT, PROMO_BLOCK_INFO_TITLE_TEXT, BLOCK_CONTENT_TEES_INFO_TEXT, BLOCK_CONTENT_TEES_ACTION_TEXT, BLOCK_20_OFF_HEADER_TEXT, BLOCK_20_OFF_ACTION_TEXT, COMPARE_PRODUCTS_HEADING, WISH_LIST_HEADING, ERIN_RECOMMENDS_HEADING , ERIN_RECOMMENDS_ACTION_TEXT } from "../helpers/testDataWomenPage";
 import { WomenPage } from "../pages/womenPage";
-import { WOMEN_TOPS_TEES_URL,  WOMEN_BOTTOMS_PANTS_PAGE_URL} from "../helpers/testDataHomePage"
+import { WOMEN_TOPS_TEES_URL,  WOMEN_BOTTOMS_PANTS_PAGE_URL, ERIN_RECOMMENDS_URL } from "../helpers/testDataHomePage"
 
 test.describe('womenPage.spec', () => {
 
@@ -367,6 +367,54 @@ test('ТС 05.1.9 Verify that the count of products is displayed next to the "Bo
         await expect(womenPage.myWishListSection ).toHaveText(WISH_LIST_HEADING);
 
       });
+
+
+      test('ТС 05.1.74 Verify that the  promo block contains "Shop Erin Recommends" content', async ({ page }) => {
+
+        await expect(womenPage.erinRecommendsContent).toBeVisible();
+
+      });
+
+      test('ТС 05.1.75 Verify that the content "Shop Erin Recommends" contains the pointer cursor', async ({ page }) => {
+
+        await expect(womenPage.erinRecommendsContent).toHaveCSS('cursor', 'pointer');
+
+      });
+
+      test('ТС 05.1.76 Verify that the  content of "Shop Erin Recommends" contains a header', async ({ page }) => {
+
+        await expect(womenPage.erinRecommendsContentHeader).toBeVisible();
+        await expect(womenPage.erinRecommendsContentHeader).toHaveText(ERIN_RECOMMENDS_HEADING)
+
+      });
+
+      test('ТС 05.1.77 Verify that the  content of "Shop Erin Recommends" contains a header', async ({ page }) => {
+
+        await expect(womenPage.erinRecommendsContentAction).toBeVisible();
+        await expect(womenPage.erinRecommendsContentAction).toHaveText(ERIN_RECOMMENDS_ACTION_TEXT )
+
+      });
+
+      test('ТС 05.1.78 Verify that the content of "Shop Erin Recommends" contains a link', async ({ page }) => {
+
+        await expect(womenPage.erinRecommendsContentLink).toBeVisible();
+
+      });
+
+      test('ТС 05.1.79 Verify that the content of "Shop Erin Recommends" link has a cursor pointer', async ({ page }) => {
+
+        await expect(womenPage.erinRecommendsContentLink).toHaveCSS('cursor', 'pointer');
+
+      });
+
+      test('ТС 05.1.80 Verify that the clicking on the links "Shop Erin Recommends" redirects to the appropriate page', async ({ page }) => {
+
+        await womenPage.clickErinRecommendsContentLink();
+        await expect(page).toHaveURL(ERIN_RECOMMENDS_URL );
+
+      });
+
+
 
   });
 
