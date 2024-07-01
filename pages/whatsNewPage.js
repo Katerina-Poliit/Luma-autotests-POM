@@ -63,6 +63,10 @@ export class WhatsNewPage {
 		  this.addToWishListCloseBtn = page.getByRole('link', { name: 'Remove This Item' });
 		  this.addToWishListPrice = page.locator('#wishlist-sidebar').getByText('$');
 		  this.addToCartBtn = page.locator('#wishlist-sidebar').getByRole('button', { name: 'Add to Cart' });
+		  this.shopingCartCounterItems = page.locator('.counter-number');
+		  this.addedProductToShopingCartMessage = page.getByRole('alert').locator('div').first();
+		  this.goToWishListLink = page.getByRole('link', { name: 'Go to Wish List' });
+		  this.promoBlock = page.locator('.block-static-block').first();
    }
 
 	async clickHomeBreadcrumbs() {
@@ -177,6 +181,16 @@ export class WhatsNewPage {
 	async clickAddToWishListCloseBtn() {
 		await this.addToWishListCloseBtn.click();
 		return this;
+	}
+
+	async clickAddToCartBtn() {
+		await this.addToCartBtn.click();
+		return this;
+	}
+
+	async clickGoToWishListLink() {
+		await this.goToWishListLink.click();
+		return new MyWishListPage(this.page)
 	}
 
 }

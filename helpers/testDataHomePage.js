@@ -123,8 +123,8 @@ export const generateRandomEmail = () => {
   };
 
   export const USER_DATA = {
-    firstName: "Modest",
-    lastName: "O'Neel",
+    firstName: "Yevheniy",
+    lastName: "Hordiyenko",
     email: generateRandomEmail(),
     password: "Password24!"
   };

@@ -4,7 +4,7 @@ export default class MyWishListPage {
 	constructor (page) {
 
 		 this.page = page;
-		//  this.headingPantsPage = page.getByLabel('Items').getByText('Pants');
+		 this.headingMyWishListPage = page.locator('span').filter({ hasText: 'My Wish List' });
 
 	}
 
