@@ -37,6 +37,12 @@ export class WomenPage {
         this.promoBlock20OFF = page.getByRole('link', { name: 'Hot pants Hot deals 20% OFF' });
         this.promoBlock20OFFInfoBlock = page.locator('.content').nth(3);
         this.promoBlock20OFFHeader = page.locator('.title').nth(2);
+        this.promoBlock20OFFAction = page.locator('.info').nth(2);
+        this.promoBlock20OFFShopPantsLink = page.locator('.more.icon').nth(1);
+        this.compareProductsSection = page.getByRole('heading', { name: 'Compare Products' });
+        this.myWishListSection = page.getByRole('heading', { name: 'My Wish List' });
+
+
    }
 
    async clickcategoryTopsLink() {
