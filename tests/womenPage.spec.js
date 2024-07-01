@@ -1,9 +1,9 @@
 const { expect } = require('@playwright/test');
 import { test } from "../fixtures/base";
 import { HomePage } from "../pages/homePage";
-import {WOMEN_URL, WOMEN_HEADER_TEXT, WOMEN_TOPS_PAGE_URL,WOMEN_BOTTOMS_PAGE_URL,MENU_TOPS_TEXT, ITEM_HOODIES_SWEATSHIRTS_LINK_TEXT, ITEM_JACKETS_LINK_TEXT, ITEM_TEES_LINK_TEXT, ITEM_BRASTANKS_LINK_TEXT, TOPS_ITEM_LINKS, MENU_BOTTOMS_TEXT, ITEM_PANTS_LINK_TEXT, ITEM_SHORTS_LINK_TEXT,  BOTTOMS_ITEM_LINKS, PROMO_BLOCK_INFO_TEXT, PROMO_BLOCK_INFO_TITLE_TEXT, BLOCK_CONTENT_TEES_INFO_TEXT, BLOCK_CONTENT_TEES_ACTION_TEXT  } from "../helpers/testDataWomenPage";
+import {WOMEN_URL, WOMEN_HEADER_TEXT, WOMEN_TOPS_PAGE_URL,WOMEN_BOTTOMS_PAGE_URL,MENU_TOPS_TEXT, ITEM_HOODIES_SWEATSHIRTS_LINK_TEXT, ITEM_JACKETS_LINK_TEXT, ITEM_TEES_LINK_TEXT, ITEM_BRASTANKS_LINK_TEXT, TOPS_ITEM_LINKS, MENU_BOTTOMS_TEXT, ITEM_PANTS_LINK_TEXT, ITEM_SHORTS_LINK_TEXT,  BOTTOMS_ITEM_LINKS, PROMO_BLOCK_INFO_TEXT, PROMO_BLOCK_INFO_TITLE_TEXT, BLOCK_CONTENT_TEES_INFO_TEXT, BLOCK_CONTENT_TEES_ACTION_TEXT, BLOCK_20_OFF_HEADER_TEXT  } from "../helpers/testDataWomenPage";
 import { WomenPage } from "../pages/womenPage";
-import { WOMEN_TOPS_TEES_URL} from "../helpers/testDataHomePage"
+import { WOMEN_TOPS_TEES_URL,  WOMEN_BOTTOMS_PANTS_PAGE_URL} from "../helpers/testDataHomePage"
 
 test.describe('womenPage.spec', () => {
 
@@ -292,6 +292,39 @@ test('ТС 05.1.9 Verify that the count of products is displayed next to the "Bo
         await expect(womenPage.womenTeesLink).toHaveCSS('cursor', 'pointer');
 
       });
+
+      test('ТС 05.1.66 Verify that the promo block contains "20% OFF" promo section', async ({ page }) => {
+
+        await expect(womenPage.promoBlock20OFF).toBeVisible();
+
+      });
+
+      test('ТС 05.1.67 Verify that the "20% OFF" promo section has a cursor pointer', async ({ page }) => {
+
+        await expect(womenPage.promoBlock20OFF).toHaveCSS('cursor', 'pointer');
+
+      });
+
+      test('ТС 05.1.68 Verify that the user is redirected to the "Pants" page after clicking on the "20% OFF" promo section', async ({ page }) => {
+
+        await womenPage.clickPromoBlock20OFF();
+        await expect(page).toHaveURL( WOMEN_BOTTOMS_PANTS_PAGE_URL);
+
+      });
+
+      test('ТС 05.1.69 Verify that the "20% OFF" promo sections has the information block', async ({ page }) => {
+
+        await expect(womenPage.promoBlock20OFFInfoBlock).toBeVisible();
+
+      });
+
+      test('ТС 05.1.70 Verify that the information block has the header', async ({ page }) => {
+
+        await expect(womenPage.promoBlock20OFFHeader).toBeVisible();
+        await expect(womenPage.promoBlock20OFFHeader).toHaveText(BLOCK_20_OFF_HEADER_TEXT);
+
+      });
+
   });
 
 

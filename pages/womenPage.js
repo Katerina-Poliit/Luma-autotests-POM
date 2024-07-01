@@ -1,6 +1,7 @@
 import WomenTopsPage from "./womenTopsPage";
 import WomenBottomsPage from "./womenBottomsPage";
 import WomenTeesPage from "./womenTeesPage";
+import WomenPanstPage from "./womenPantsPage";
 
 
 
@@ -33,6 +34,9 @@ export class WomenPage {
         this.blockContentTeesInfo = page.locator('.title').nth(1);
         this.blockContentTeesAction = page.locator('.info').nth(1);
         this.womenTeesLink = page.locator('.more.icon').nth(0);
+        this.promoBlock20OFF = page.getByRole('link', { name: 'Hot pants Hot deals 20% OFF' });
+        this.promoBlock20OFFInfoBlock = page.locator('.content').nth(3);
+        this.promoBlock20OFFHeader = page.locator('.title').nth(2);
    }
 
    async clickcategoryTopsLink() {
@@ -58,5 +62,11 @@ export class WomenPage {
 		await this.blockContentTees.click();
 		return new WomenTeesPage(this.page);
 	}
+
+     async clickPromoBlock20OFF() {
+		await this.promoBlock20OFF.click();
+		return new WomenPanstPage(this.page);
+	}
+
 
      }
