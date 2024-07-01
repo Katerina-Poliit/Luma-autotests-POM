@@ -9,6 +9,7 @@ import MenShortsPage from "./menShortsPage";
 import MenTanksPage from "./menTanksPage";
 import MenTeesPage from "./menTeesPage";
 import MyWishListPage from "./myWishListPage";
+import { NewLumaYogaCollectionSectionPage } from "./newLumaYogaCollectionSectionPage";
 import OvernightDufflePage from "./overnightDufflePage";
 import WomenBrassTanksPage from "./womenBrassTanksPage";
 import WomenHoodiesSweatshirtsPage from "./womenHoodiesSweatshirtsPage";
@@ -67,6 +68,11 @@ export class WhatsNewPage {
 		  this.addedProductToShopingCartMessage = page.getByRole('alert').locator('div').first();
 		  this.goToWishListLink = page.getByRole('link', { name: 'Go to Wish List' });
 		  this.promoBlock = page.locator('.block-static-block').first();
+		  this.lumaYogaCollectionSection = page.getByRole('link', { name: 'New Luma Yoga Collection The' });
+		  this.lumaYogaCollectionSectionInfBlock = page.locator('.content').nth(2);
+		  this.lumaYogaCollectionSectionInfBlockHeading = page.locator('.info').filter({ hasText: 'New Luma Yoga Collection' });
+		  this.lumaYogaCollectionSectionInfBlockCTA = page.locator('.title').filter({ hasText: 'The very latest yoga styles plus twists on timeless classics' });
+		  this.shopNewYogaBtn = page.locator('.more.button');
    }
 
 	async clickHomeBreadcrumbs() {
@@ -191,6 +197,16 @@ export class WhatsNewPage {
 	async clickGoToWishListLink() {
 		await this.goToWishListLink.click();
 		return new MyWishListPage(this.page)
+	}
+
+	async clickNewLumaYogaCollectionSection() {
+		await this.lumaYogaCollectionSection.click();
+		return new NewLumaYogaCollectionSectionPage(this.page);
+	}
+
+	async clickShopNewYogaBtn() {
+		await this.shopNewYogaBtn.click();
+		return new NewLumaYogaCollectionSectionPage(this.page);
 	}
 
 }

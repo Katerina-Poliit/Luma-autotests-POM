@@ -17,6 +17,7 @@ export const MEN_SHORTS_URL = 'https://magento.softwaretestingboard.com/men/bott
 export const COMPARE_URL_REGEX = new RegExp("https://magento.softwaretestingboard.com/catalog/product_compare/index/uenc/.+");
 export const OVERNIGHT_DUFFLE_URL = 'https://magento.softwaretestingboard.com/overnight-duffle.html?qty=1';
 export const MY_WISH_LIST_URL = 'https://magento.softwaretestingboard.com/wishlist/';
+export const NEW_LUMA_YOGA_COLLECTION_URL = 'https://magento.softwaretestingboard.com/collections/yoga-new.html';
 
 //test data
 
@@ -76,3 +77,7 @@ export const OVERNIGHT_DUFFLE_LINK_TEXT = 'Overnight Duffle';
 export const OVERNIGHT_DUFFLE_PRICE_TEXT = '$45.00';
 export const MY_WISH_LIST_HEADING_TEXT = 'My Wish List';
 
+export const NEW_LUMA_YOGA_COLLECTION_HEADER_TEXT = 'New Luma Yoga Collection';
+export const NEW_LUMA_YOGA_COLLECTION_IB_HEADING_TEXT = 'New Luma Yoga Collection';
+export const NEW_LUMA_YOGA_COLLECTION_IB_CTA_TEXT = 'The very latest yoga styles plus twists on timeless classics';
+export const SHOP_NEW_YOGA_BTN_TEXT = 'Shop New Yoga';
