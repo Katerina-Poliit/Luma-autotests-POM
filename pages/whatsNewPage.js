@@ -11,6 +11,7 @@ import MenTeesPage from "./menTeesPage";
 import MyWishListPage from "./myWishListPage";
 import { NewLumaYogaCollectionSectionPage } from "./newLumaYogaCollectionSectionPage";
 import OvernightDufflePage from "./overnightDufflePage";
+import PerformanceSportswearNewPage from "./performanceSportswearNew";
 import WomenBrassTanksPage from "./womenBrassTanksPage";
 import WomenHoodiesSweatshirtsPage from "./womenHoodiesSweatshirtsPage";
 import WomenJacketsPage from "./womenJacketsPage";
@@ -73,6 +74,11 @@ export class WhatsNewPage {
 		  this.lumaYogaCollectionSectionInfBlockHeading = page.locator('.info').filter({ hasText: 'New Luma Yoga Collection' });
 		  this.lumaYogaCollectionSectionInfBlockCTA = page.locator('.title').filter({ hasText: 'The very latest yoga styles plus twists on timeless classics' });
 		  this.shopNewYogaBtn = page.locator('.more.button');
+		  this.whateverDayBringsSection = page.getByRole('link', { name: 'Whatever day brings Luma' });
+		  this.whateverDayBringsSectionInfBlock = page.locator('.content').nth(3);
+		  this.whateverDayBringsSectionInfBlockHeading = page.locator('.title').filter({ hasText: 'Whatever day brings' });
+		  this.whateverDayBringsSectionInfBlockCTA = page.locator('.info').filter({ hasText: 'Luma Cocona™ for breathability, CoolTech™ for wicking, or a blend of both.' });
+		  this.performanceFabricsLink = page.locator('.icon').first();
    }
 
 	async clickHomeBreadcrumbs() {
@@ -207,6 +213,16 @@ export class WhatsNewPage {
 	async clickShopNewYogaBtn() {
 		await this.shopNewYogaBtn.click();
 		return new NewLumaYogaCollectionSectionPage(this.page);
+	}
+
+	async clickWhateverDayBringsSection() {
+		await this.whateverDayBringsSection.click();
+		return new PerformanceSportswearNewPage(this.page);
+	}
+
+	async clickPerformanceFabricsLink() {
+		await this.performanceFabricsLink.click();
+		return new PerformanceSportswearNewPage(this.page);
 	}
 
 }

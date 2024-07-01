@@ -18,6 +18,7 @@ export const COMPARE_URL_REGEX = new RegExp("https://magento.softwaretestingboar
 export const OVERNIGHT_DUFFLE_URL = 'https://magento.softwaretestingboard.com/overnight-duffle.html?qty=1';
 export const MY_WISH_LIST_URL = 'https://magento.softwaretestingboard.com/wishlist/';
 export const NEW_LUMA_YOGA_COLLECTION_URL = 'https://magento.softwaretestingboard.com/collections/yoga-new.html';
+export const PERFORMANCE_SPORTSWEAR_NEW_URL = 'https://magento.softwaretestingboard.com/collections/performance-new.html';
 
 //test data
 
@@ -81,3 +82,9 @@ export const NEW_LUMA_YOGA_COLLECTION_HEADER_TEXT = 'New Luma Yoga Collection';
 export const NEW_LUMA_YOGA_COLLECTION_IB_HEADING_TEXT = 'New Luma Yoga Collection';
 export const NEW_LUMA_YOGA_COLLECTION_IB_CTA_TEXT = 'The very latest yoga styles plus twists on timeless classics';
 export const SHOP_NEW_YOGA_BTN_TEXT = 'Shop New Yoga';
+
+export const PERFORMANCE_SPORTSWEAR_NEW_BREADCRUMBS_TEXT = 'Performance Sportswear New';
+export const PERFORMANCE_SPORTSWEAR_NEW_HEADING_TEXT = 'Performance Sportswear New';
+export const PERFORMANCE_SPORTSWEAR_IB_HEADING_TEXT = 'Whatever day brings';
+export const PERFORMANCE_SPORTSWEAR_IB_CTA_TEXT = 'Luma Cocona™ for breathability, CoolTech™ for wicking, or a blend of both.';
+export const PERFORMANCE_FABRICS_LINK_TEXT = 'Performance Fabrics';
