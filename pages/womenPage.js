@@ -6,6 +6,7 @@ import { ErinRecommendsPage } from "./erinRecommendsPage";
 
 
 
+
 export class WomenPage {
 
    constructor(page) {
@@ -46,6 +47,10 @@ export class WomenPage {
         this.erinRecommendsContentHeader = page.locator('.title').nth(3);
         this.erinRecommendsContentAction = page.locator('.info').nth(3);
         this.erinRecommendsContentLink = page.locator('.more.icon').nth(2);
+        this.promoBlockPants = page.getByRole('link', { name: 'Luma pants Pants for yoga,' });
+        this.promoBlockPantsHeader = page.locator('.title').nth(4);
+        this.promoBlockPantsAction = page.locator('.info').nth(4);
+        this.promoBlockPantsLink = page.locator('.more.icon').nth(3);
 
 
 
@@ -84,6 +89,12 @@ export class WomenPage {
 		await this.erinRecommendsContentLink.click();
 		return new ErinRecommendsPage(this.page);
 	}
+
+     async clickPromoBlockPantsLink() {
+		await this.promoBlockPantsLink.click();
+		return new WomenPanstPage (this.page);
+	}
+
 
 
      }
