@@ -20,6 +20,7 @@ export const MY_WISH_LIST_URL = 'https://magento.softwaretestingboard.com/wishli
 export const NEW_LUMA_YOGA_COLLECTION_URL = 'https://magento.softwaretestingboard.com/collections/yoga-new.html';
 export const PERFORMANCE_SPORTSWEAR_NEW_URL = 'https://magento.softwaretestingboard.com/collections/performance-new.html';
 export const ECO_COLLECTION_NEW_URL = 'https://magento.softwaretestingboard.com/collections/eco-new.html';
+export const LUMA_LATEST_OVERNIGHT_DUFFLE_URL = 'https://magento.softwaretestingboard.com/overnight-duffle.html';
 
 //test data
 
@@ -97,3 +98,4 @@ export const ECO_COLLECTION_NEW_IB_CTA_TEXT = 'Enjoy comfort of body and mind wi
 
 export const LUMA_LATEST_HEADING_TEXT = "Luma's Latest";
 export const LUMA_LATEST_INF_TEXT = 'Just in time for the new season!';
+export const OVERNIGHT_DUFFLE_NAME = 'Overnight Duffle';
