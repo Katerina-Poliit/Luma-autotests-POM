@@ -94,3 +94,6 @@ export const ECO_COLLECTION_NEW_BREADCRUMBS_TEXT = 'Eco Collection New';
 export const ECO_COLLECTION_NEW_HEADING_TEXT = 'Eco Collection New';
 export const ECO_COLLECTION_NEW_IB_HEADING_TEXT = 'A sense of renewal';
 export const ECO_COLLECTION_NEW_IB_CTA_TEXT = 'Enjoy comfort of body and mind with Luma eco-friendly choices';
+
+export const LUMA_LATEST_HEADING_TEXT = "Luma's Latest";
+export const LUMA_LATEST_INF_TEXT = 'Just in time for the new season!';

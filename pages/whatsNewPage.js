@@ -85,6 +85,12 @@ export class WhatsNewPage {
 		  this.senceOfRenewalSectionInfBlockHeading = page.locator('.title').filter({ hasText: 'A sense of renewal' });
 		  this.senceOfRenewalSectionInfBlockCTA = page.locator('.info').filter({ hasText: 'Enjoy comfort of body and mind with Luma eco-friendly choices' });
 		  this.shopEcoFriendlyLink = page.locator('.icon').last();
+		  this.lumasLatestSection = page.locator('.grid').last();
+		  this.lumasLatestSectionHeading = page.getByRole('heading', { name: 'Luma\'s Latest' });
+		  this.lumasLatestSectionInfText = page.getByText('Just in time for the new');
+		  this.lumasLatestSectionProductCardsItems = page.locator('.product-item-info');
+		  this.lumasLatestSectionProductCardsItem = page.locator('.product-item-info').nth(1);
+		  this.productCardsItemImage = page.locator('.product-image-photo').nth(1);
    }
 
 	async clickHomeBreadcrumbs() {
