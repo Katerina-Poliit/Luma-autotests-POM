@@ -91,6 +91,10 @@ export class WhatsNewPage {
 		  this.lumasLatestSectionProductCardsItems = page.locator('.product-item-info');
 		  this.lumasLatestSectionProductCardsItem = page.locator('.product-item-info').nth(1);
 		  this.productCardsItemImage = page.locator('.product-image-photo').nth(1);
+		  this.productCardsItemNameLink = page.getByText('Overnight Duffle');
+		  this.productCardsStarRating = page.getByTitle('60%');
+		  this.productCardsStarRatingFilledStars = page.getByTitle('60%').locator('span').first();
+		  this.productCardsReviewLink = page.getByRole('link', { name: 'Reviews' }).nth(1);
    }
 
 	async clickHomeBreadcrumbs() {
@@ -245,6 +249,16 @@ export class WhatsNewPage {
 	async clickShopEcoFriendlyLink() {
 		await this.shopEcoFriendlyLink.click();
 		return new EcoCollectionNewPage(this.page);
+	}
+
+	async clickLumasLatestSectionProductCardsItem() {
+		await this.lumasLatestSectionProductCardsItem.click();
+		return new OvernightDufflePage(this.page)
+	}
+
+	async clickProductCardsItemNameLink() {
+		await this.productCardsItemNameLink.click();
+		return new OvernightDufflePage(this.page)
 	}
 
 }
