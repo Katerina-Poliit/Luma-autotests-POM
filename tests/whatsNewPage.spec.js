@@ -2,7 +2,7 @@ const { expect } = require('@playwright/test');
 import { test, productAddedToCompare, productAddedToWishList } from "../fixtures/base";
 import { HomePage } from "../pages/homePage";
 
-import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMENS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT, BRAS_TANKS_LINK_TEXT, BRAS_TANKS_URL, BRAS_TANKS_BREADCRUMBS_TEXT, BRAS_TANKS_HEADING_TEXT, PANTS_LINK_TEXT, PANTS_URL, PANTS_BREADCRUMBS_TEXT, PANTS_HEADING_TEXT, SHORTS_LINK_TEXT, SHORTS_URL, SHORTS_BREADCRUMBS_TEXT, SHORTS_HEADING_TEXT, NEW_IN_MEN_SECTION_HEADER_TEXT, MEN_HOODIES_SWEATSHIRTS_LINK_TEXT, MEN_HOODIES_SWEATSHIRTS_URL, MEN_HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, MEN_HOODIES_SWEATSHIRTS_HEADING_TEXT, MEN_JACKETS_LINK_TEXT, MEN_JACKETS_URL, MEN_JACKETS_HEADING_TEXT, MEN_JACKETS_BREADCRUMBS_TEXT, MEN_TEES_URL, MEN_TEES_LINK_TEXT, MEN_TEES_BREADCRUMBS_TEXT, MEN_TEES_HEADING_TEXT, MEN_TANKS_URL, MEN_TANKS_LINK_TEXT, MEN_TANKS_BREADCRUMBS_TEXT, MEN_TANKS_HEADING_TEXT, MEN_PANTS_URL, MEN_PANTS_LINK_TEXT, MEN_PANTS_BREADCRUMBS_TEXT, MEN_PANTS_HEADING_TEXT, MEN_SHORTS_URL, MEN_SHORTS_LINK_TEXT, MEN_SHORTS_BREADCRUMBS_TEXT, MEN_SHORTS_HEADING_TEXT, COMPARE_PRODUCT_SECTION_HEADING_TEXT, COMPARE_PRODUCT_SECTION_TEXT, REMOVE_THIS_ITEM__LINK_TEXT, REMOVE_MODAL_WINDOW_HEADING_TEXT, COMPARE_BTN_TEXT, COMPARE_URL_REGEX, COMPARE_PRODUCTS_PAGE_HEADING_TEXT, MY_WISH_LIST_SECTION_HEADING_TEXT, MY_WISH_LIST_SECTION_TEXT, OVERNIGHT_DUFFLE_URL, OVERNIGHT_DUFFLE_BREADCRUMBS_TEXT, OVERNIGHT_DUFFLE_HEADING_TEXT, OVERNIGHT_DUFFLE_LINK_TEXT, OVERNIGHT_DUFFLE_PRICE_TEXT, MY_WISH_LIST_URL,MY_WISH_LIST_HEADING_TEXT, NEW_LUMA_YOGA_COLLECTION_URL, NEW_LUMA_YOGA_COLLECTION_HEADER_TEXT, NEW_LUMA_YOGA_COLLECTION_IB_HEADING_TEXT, NEW_LUMA_YOGA_COLLECTION_IB_CTA_TEXT, SHOP_NEW_YOGA_BTN_TEXT, PERFORMANCE_SPORTSWEAR_NEW_URL, PERFORMANCE_SPORTSWEAR_NEW_BREADCRUMBS_TEXT, PERFORMANCE_SPORTSWEAR_NEW_HEADING_TEXT, PERFORMANCE_SPORTSWEAR_IB_HEADING_TEXT, PERFORMANCE_SPORTSWEAR_IB_CTA_TEXT } from "../helpers/testDataWhatsNewPage";
+import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMENS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT, BRAS_TANKS_LINK_TEXT, BRAS_TANKS_URL, BRAS_TANKS_BREADCRUMBS_TEXT, BRAS_TANKS_HEADING_TEXT, PANTS_LINK_TEXT, PANTS_URL, PANTS_BREADCRUMBS_TEXT, PANTS_HEADING_TEXT, SHORTS_LINK_TEXT, SHORTS_URL, SHORTS_BREADCRUMBS_TEXT, SHORTS_HEADING_TEXT, NEW_IN_MEN_SECTION_HEADER_TEXT, MEN_HOODIES_SWEATSHIRTS_LINK_TEXT, MEN_HOODIES_SWEATSHIRTS_URL, MEN_HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, MEN_HOODIES_SWEATSHIRTS_HEADING_TEXT, MEN_JACKETS_LINK_TEXT, MEN_JACKETS_URL, MEN_JACKETS_HEADING_TEXT, MEN_JACKETS_BREADCRUMBS_TEXT, MEN_TEES_URL, MEN_TEES_LINK_TEXT, MEN_TEES_BREADCRUMBS_TEXT, MEN_TEES_HEADING_TEXT, MEN_TANKS_URL, MEN_TANKS_LINK_TEXT, MEN_TANKS_BREADCRUMBS_TEXT, MEN_TANKS_HEADING_TEXT, MEN_PANTS_URL, MEN_PANTS_LINK_TEXT, MEN_PANTS_BREADCRUMBS_TEXT, MEN_PANTS_HEADING_TEXT, MEN_SHORTS_URL, MEN_SHORTS_LINK_TEXT, MEN_SHORTS_BREADCRUMBS_TEXT, MEN_SHORTS_HEADING_TEXT, COMPARE_PRODUCT_SECTION_HEADING_TEXT, COMPARE_PRODUCT_SECTION_TEXT, REMOVE_THIS_ITEM__LINK_TEXT, REMOVE_MODAL_WINDOW_HEADING_TEXT, COMPARE_BTN_TEXT, COMPARE_URL_REGEX, COMPARE_PRODUCTS_PAGE_HEADING_TEXT, MY_WISH_LIST_SECTION_HEADING_TEXT, MY_WISH_LIST_SECTION_TEXT, OVERNIGHT_DUFFLE_URL, OVERNIGHT_DUFFLE_BREADCRUMBS_TEXT, OVERNIGHT_DUFFLE_HEADING_TEXT, OVERNIGHT_DUFFLE_LINK_TEXT, OVERNIGHT_DUFFLE_PRICE_TEXT, MY_WISH_LIST_URL,MY_WISH_LIST_HEADING_TEXT, NEW_LUMA_YOGA_COLLECTION_URL, NEW_LUMA_YOGA_COLLECTION_HEADER_TEXT, NEW_LUMA_YOGA_COLLECTION_IB_HEADING_TEXT, NEW_LUMA_YOGA_COLLECTION_IB_CTA_TEXT, SHOP_NEW_YOGA_BTN_TEXT, PERFORMANCE_SPORTSWEAR_NEW_URL, PERFORMANCE_SPORTSWEAR_NEW_BREADCRUMBS_TEXT, PERFORMANCE_SPORTSWEAR_NEW_HEADING_TEXT, PERFORMANCE_SPORTSWEAR_IB_HEADING_TEXT, PERFORMANCE_SPORTSWEAR_IB_CTA_TEXT, ECO_COLLECTION_NEW_URL, ECO_COLLECTION_NEW_BREADCRUMBS_TEXT, ECO_COLLECTION_NEW_HEADING_TEXT, ECO_COLLECTION_NEW_IB_HEADING_TEXT, ECO_COLLECTION_NEW_IB_CTA_TEXT } from "../helpers/testDataWhatsNewPage";
 
 test.describe('whatsNewPage.spec', () => {
 
@@ -924,7 +924,7 @@ test.describe('whatsNewPage.spec', () => {
 
 	});
 
-	test('ТС 04.1.105 Verify that the promo block contains "Whatever day brings" promo section', async ({ page }) => {
+	test('ТС 04.1.105 Verify that the "Whatever day brings" promo section has a cursor pointer', async ({ page }) => {
 
 		await expect(whatsNewPage.whateverDayBringsSection).toBeVisible();
 		await expect(whatsNewPage.whateverDayBringsSection).toHaveCSS('cursor', 'pointer');
@@ -989,6 +989,77 @@ test.describe('whatsNewPage.spec', () => {
 		await expect(performanceSportswearNewPage.headingPerformanceSportswearNewPage).toHaveText(PERFORMANCE_SPORTSWEAR_NEW_HEADING_TEXT);
 
 	});
-	
+
+	test('ТС 04.1.113 Verify that the promo block contains "A sense of renewal" promo section', async ({ page }) => {
+
+		await expect(whatsNewPage.senceOfRenewalSection).toBeVisible();
+
+	});
+
+	test('ТС 04.1.114 Verify that the "A sense of renewal" promo section has a cursor pointer', async ({ page }) => {
+
+		await expect(whatsNewPage.senceOfRenewalSection).toBeVisible();
+		await expect(whatsNewPage.senceOfRenewalSection).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 04.1.115 Verify that the user is redirected to the "Eco Collection New" page after clicking on the "A sense of renewal" promo section', async ({ page }) => {
+
+		const ecoCollectionNewPage = await whatsNewPage.clickSenceOfRenewalSection();
+
+		await expect(page).toHaveURL(ECO_COLLECTION_NEW_URL);
+
+		await expect(ecoCollectionNewPage.ecoCollectionPageBreadcrumbs).toBeVisible();
+		await expect(ecoCollectionNewPage.ecoCollectionPageBreadcrumbs).toHaveText(ECO_COLLECTION_NEW_BREADCRUMBS_TEXT);
+		await expect(ecoCollectionNewPage.headingEcoCollectionPage).toBeVisible();
+		await expect(ecoCollectionNewPage.headingEcoCollectionPage).toHaveText(ECO_COLLECTION_NEW_HEADING_TEXT);
+
+	});
+
+	test('ТС 04.1.116 Verify that the "A sense of renewal" promo sections has the information block', async ({ page }) => {
+
+		await expect(whatsNewPage.senceOfRenewalSectionInfBlock).toBeVisible();
+
+	});
+
+	test('ТС 04.1.117 Verify that the information block has the heading', async ({ page }) => {
+
+		await expect(whatsNewPage.senceOfRenewalSectionInfBlockHeading).toBeVisible();
+		await expect(whatsNewPage.senceOfRenewalSectionInfBlockHeading).toHaveText(ECO_COLLECTION_NEW_IB_HEADING_TEXT);
+
+	});
+
+	test('ТС 04.1.118 Verify that the information block has the call to action text', async ({ page }) => {
+
+		await expect(whatsNewPage.senceOfRenewalSectionInfBlockCTA).toBeVisible();
+		await expect(whatsNewPage.senceOfRenewalSectionInfBlockCTA).toHaveText(ECO_COLLECTION_NEW_IB_CTA_TEXT);
+
+	});
+
+	test('ТС 04.1.119 Verify that the information block contains the "Shop Eco Friendly" link', async ({ page }) => {
+
+		await expect(whatsNewPage.shopEcoFriendlyLink).toBeVisible();
+
+	});
+
+	test('ТС 04.1.120 Verify that the "Shop Eco Friendly" link has a cursor pointer', async ({ page }) => {
+
+		await expect(whatsNewPage.shopEcoFriendlyLink).toBeVisible();
+		await expect(whatsNewPage.shopEcoFriendlyLink).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 04.1.121 Verify that the user is redirected to the "Eco Collection New"" page after clicking on the "Shop Eco Friendly" link', async ({ page }) => {
+
+		const ecoCollectionNewPage = await whatsNewPage.clickShopEcoFriendlyLink();
+
+		await expect(page).toHaveURL(ECO_COLLECTION_NEW_URL);
+
+		await expect(ecoCollectionNewPage.ecoCollectionPageBreadcrumbs).toBeVisible();
+		await expect(ecoCollectionNewPage.ecoCollectionPageBreadcrumbs).toHaveText(ECO_COLLECTION_NEW_BREADCRUMBS_TEXT);
+		await expect(ecoCollectionNewPage.headingEcoCollectionPage).toBeVisible();
+		await expect(ecoCollectionNewPage.headingEcoCollectionPage).toHaveText(ECO_COLLECTION_NEW_HEADING_TEXT);
+
+	});
 	
 });

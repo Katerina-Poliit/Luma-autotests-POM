@@ -1,6 +1,7 @@
 import RemoveModalWindow from "../modalWindows/removeModalWindow";
 import CompareProductsPage from "./compareProductsPage";
 import { CreateNewCustomerAccountPage } from "./createNewCustomerAccountPage";
+import EcoCollectionNewPage from "./ecoCollectionNewPage";
 import { HomePage } from "./homePage";
 import MenHoddiesSweatshirtsPage from "./menHoddiesSweatshirtsPage";
 import MenJacketsPage from "./menJacketsPage";
@@ -79,6 +80,11 @@ export class WhatsNewPage {
 		  this.whateverDayBringsSectionInfBlockHeading = page.locator('.title').filter({ hasText: 'Whatever day brings' });
 		  this.whateverDayBringsSectionInfBlockCTA = page.locator('.info').filter({ hasText: 'Luma Cocona™ for breathability, CoolTech™ for wicking, or a blend of both.' });
 		  this.performanceFabricsLink = page.locator('.icon').first();
+		  this.senceOfRenewalSection = page.getByRole('link', { name: 'A sense of renewal Enjoy' });
+		  this.senceOfRenewalSectionInfBlock = page.locator('.content').nth(4);
+		  this.senceOfRenewalSectionInfBlockHeading = page.locator('.title').filter({ hasText: 'A sense of renewal' });
+		  this.senceOfRenewalSectionInfBlockCTA = page.locator('.info').filter({ hasText: 'Enjoy comfort of body and mind with Luma eco-friendly choices' });
+		  this.shopEcoFriendlyLink = page.locator('.icon').last();
    }
 
 	async clickHomeBreadcrumbs() {
@@ -223,6 +229,16 @@ export class WhatsNewPage {
 	async clickPerformanceFabricsLink() {
 		await this.performanceFabricsLink.click();
 		return new PerformanceSportswearNewPage(this.page);
+	}
+
+	async clickSenceOfRenewalSection() {
+		await this.senceOfRenewalSection.click();
+		return new EcoCollectionNewPage(this.page);
+	}
+
+	async clickShopEcoFriendlyLink() {
+		await this.shopEcoFriendlyLink.click();
+		return new EcoCollectionNewPage(this.page);
 	}
 
 }
