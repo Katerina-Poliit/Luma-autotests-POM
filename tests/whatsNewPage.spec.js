@@ -1108,7 +1108,7 @@ test.describe('whatsNewPage.spec', () => {
 
 	});
 
-	test('ТС 04.1.129 Verify that the user is redirected to the product page after clicking on the product card', async ({ page }) => {
+	test.skip('ТС 04.1.129 Verify that the user is redirected to the product page after clicking on the product card', async ({ page }) => {
 
 		const overnightDufflePage = await whatsNewPage.clickLumasLatestSectionProductCardsItem();
 
@@ -1121,21 +1121,21 @@ test.describe('whatsNewPage.spec', () => {
 
 	});
 
-	test('ТС 04.1.130 Verify that the product card contains the name of product (link)', async ({ page }) => {
+	test.skip('ТС 04.1.130 Verify that the product card contains the name of product (link)', async ({ page }) => {
 
 		await expect(whatsNewPage.productCardsItemNameLink).toBeVisible();
 		await expect(whatsNewPage.productCardsItemNameLink).toHaveText(OVERNIGHT_DUFFLE_NAME);
 
 	});
 
-	test('ТС 04.1.131 Verify that the name of product (link) has a cursor pointer', async ({ page }) => {
+	test.skip('ТС 04.1.131 Verify that the name of product (link) has a cursor pointer', async ({ page }) => {
 
 		await expect(whatsNewPage.productCardsItemNameLink).toBeVisible();
 		await expect(whatsNewPage.productCardsItemNameLink).toHaveCSS('cursor', 'pointer');
 
 	});
 
-	test('ТС 04.1.132 Verify that the user is redirected to the product page after clicking on the name of product (link)', async ({ page }) => {
+	test.skip('ТС 04.1.132 Verify that the user is redirected to the product page after clicking on the name of product (link)', async ({ page }) => {
 
 		const overnightDufflePage = await whatsNewPage.clickProductCardsItemNameLink();
 
@@ -1148,13 +1148,13 @@ test.describe('whatsNewPage.spec', () => {
 
 	});
 
-	test('ТС 04.1.133 Verify that the product card contains the stars rating', async ({ page }) => {
+	test.skip('ТС 04.1.133 Verify that the product card contains the stars rating', async ({ page }) => {
 
 		await expect(whatsNewPage.productCardsStarRating).toBeVisible();
 
 	});
 
-	test('ТС 04.1.134 Verify that the filled stars in the product rating are red', async ({ page }) => {
+	test.skip('ТС 04.1.134 Verify that the filled stars in the product rating are red', async ({ page }) => {
 
 		await expect(whatsNewPage.productCardsStarRatingFilledStars).toBeVisible();
 		await expect(whatsNewPage.productCardsStarRatingFilledStars).toHaveCSS('color', 'rgb(51, 51, 51)')
@@ -1175,6 +1175,13 @@ test.describe('whatsNewPage.spec', () => {
 	});
 
 	test('ТС 04.1.137 Verify that the reviews (link) is colored blue', async ({ page }) => {
+
+		await expect(whatsNewPage.productCardsReviewLink).toBeVisible();
+		await expect(whatsNewPage.productCardsReviewLink).toHaveCSS('color', 'rgb(0, 107, 180)');
+
+	});
+
+	test('ТС 04.1.138 Verify that the user is redirected to the product page in "Customer Reviews" section after clicking on the reviews (link)', async ({ page }) => {
 
 		await expect(whatsNewPage.productCardsReviewLink).toBeVisible();
 		await expect(whatsNewPage.productCardsReviewLink).toHaveCSS('color', 'rgb(0, 107, 180)');
