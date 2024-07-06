@@ -3,6 +3,7 @@ import WomenBottomsPage from "./womenBottomsPage";
 import WomenTeesPage from "./womenTeesPage";
 import WomenPanstPage from "./womenPantsPage";
 import { ErinRecommendsPage } from "./erinRecommendsPage";
+import WomenBrassTanksPage from "./womenBrassTanksPage";
 
 
 
@@ -51,6 +52,10 @@ export class WomenPage {
         this.promoBlockPantsHeader = page.locator('.title').nth(4);
         this.promoBlockPantsAction = page.locator('.info').nth(4);
         this.promoBlockPantsLink = page.locator('.more.icon').nth(3);
+        this.promoBlockShopNow = page.getByRole('link', { name: 'Luma Bras Tanks Stock up for' });
+        this.promoBlockShopNowHeader = page.locator('.title').nth(6);
+        this.promoBlockShopNowAction = page.locator('.info').nth(6);
+        this.promoBlockShopNowLink = page.locator('.more.icon').nth(5);
 
 
 
@@ -93,6 +98,11 @@ export class WomenPage {
      async clickPromoBlockPantsLink() {
 		await this.promoBlockPantsLink.click();
 		return new WomenPanstPage (this.page);
+	}
+
+     async clickpromoBlockShopNowLink() {
+		await this.promoBlockShopNowLink.click();
+		return new WomenBrassTanksPage(this.page);
 	}
 
 
