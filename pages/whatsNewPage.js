@@ -2,6 +2,7 @@ import OvernightDuffleReviewPage from "../components/overnightDuffleReviewPage";
 import RemoveModalWindow from "../modalWindows/removeModalWindow";
 import CompareProductsPage from "./compareProductsPage";
 import { CreateNewCustomerAccountPage } from "./createNewCustomerAccountPage";
+import { CustomerLoginPage } from "./customerLoginPage";
 import EcoCollectionNewPage from "./ecoCollectionNewPage";
 import { HomePage } from "./homePage";
 import MenHoddiesSweatshirtsPage from "./menHoddiesSweatshirtsPage";
@@ -99,7 +100,10 @@ export class WhatsNewPage {
 		  this.productCardsPrice = page.locator('#old-price-13-widget-product-grid').getByText('$');
 		  this.productCardsSizeBtns = page.locator('#old-price-13-widget-product-grid').getByText('$');
 		  this.productCardsAddToCardBtn = page.locator('[title="Add to Cart"]').nth(1);
-		  this.productCardsAddToCardMessage = page.getByRole('alert').locator('div').first()
+		  this.productCardsAddToCardMessage = page.getByRole('alert').locator('div').first();
+		  this.productCardsAddToWishListBtn = page.getByRole('link', { name: ' Add to Wish List' }).nth(1);
+		  this.productCardsAddToCompareBtn = page.getByRole('link', { name: ' Add to Compare' }).nth(1);
+		  this.addToCompareLinkInHeader = page.getByRole('link', { name: 'Compare Products (1 item)' })
    }
 
 	async clickHomeBreadcrumbs() {
@@ -279,6 +283,16 @@ export class WhatsNewPage {
 	async clickProductCardsAddToCardBtn() {
 		await this.productCardsAddToCardBtn.click();
 		return this;
+	}
+
+	async clickProductCardsAddToWishListBtn() {
+		await this.productCardsAddToWishListBtn.click();
+		return new CustomerLoginPage(this.page)
+	}
+
+	async clickProductCardsAddToCompareBtn() {
+		await this.productCardsAddToCompareBtn.click();
+		return this.page;
 	}
 
 }

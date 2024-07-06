@@ -4,7 +4,7 @@ import { HomePage } from "../pages/homePage";
 
 import { BASE_URL, WHATS_NEW_URL, HOME_PAGE_BREADCRUMBS, WHATS_NEW_HEADER_TEXT, NEW_IN_WOMENS_SECTION_HEADER_TEXT, HOODIES_SWEATSHIRTS_LINK_TEXT,  HOODIES_SWEATSHIRTS_HEADING_TEXT, HOODIES_SWEATSHIRTS_URL, HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, JACKETS_URL, JACKETS_LINK_TEXT, JACKETS_BREADCRUMBS_TEXT, JACKETS_HEADING_TEXT, TEES_LINK_TEXT, TEES_URL, TEES_BREADCRUMBS_TEXT, TEES_HEADING_TEXT, BRAS_TANKS_LINK_TEXT, BRAS_TANKS_URL, BRAS_TANKS_BREADCRUMBS_TEXT, BRAS_TANKS_HEADING_TEXT, PANTS_LINK_TEXT, PANTS_URL, PANTS_BREADCRUMBS_TEXT, PANTS_HEADING_TEXT, SHORTS_LINK_TEXT, SHORTS_URL, SHORTS_BREADCRUMBS_TEXT, SHORTS_HEADING_TEXT, NEW_IN_MEN_SECTION_HEADER_TEXT, MEN_HOODIES_SWEATSHIRTS_LINK_TEXT, MEN_HOODIES_SWEATSHIRTS_URL, MEN_HOODIES_SWEATSHIRTS_BREADCRUMBS_TEXT, MEN_HOODIES_SWEATSHIRTS_HEADING_TEXT, MEN_JACKETS_LINK_TEXT, MEN_JACKETS_URL, MEN_JACKETS_HEADING_TEXT, MEN_JACKETS_BREADCRUMBS_TEXT, MEN_TEES_URL, MEN_TEES_LINK_TEXT, MEN_TEES_BREADCRUMBS_TEXT, MEN_TEES_HEADING_TEXT, MEN_TANKS_URL, MEN_TANKS_LINK_TEXT, MEN_TANKS_BREADCRUMBS_TEXT, MEN_TANKS_HEADING_TEXT, MEN_PANTS_URL, MEN_PANTS_LINK_TEXT, MEN_PANTS_BREADCRUMBS_TEXT, MEN_PANTS_HEADING_TEXT, MEN_SHORTS_URL, MEN_SHORTS_LINK_TEXT, MEN_SHORTS_BREADCRUMBS_TEXT, MEN_SHORTS_HEADING_TEXT, COMPARE_PRODUCT_SECTION_HEADING_TEXT, COMPARE_PRODUCT_SECTION_TEXT, REMOVE_THIS_ITEM__LINK_TEXT, REMOVE_MODAL_WINDOW_HEADING_TEXT, COMPARE_BTN_TEXT, COMPARE_URL_REGEX, COMPARE_PRODUCTS_PAGE_HEADING_TEXT, MY_WISH_LIST_SECTION_HEADING_TEXT, MY_WISH_LIST_SECTION_TEXT, OVERNIGHT_DUFFLE_URL, OVERNIGHT_DUFFLE_BREADCRUMBS_TEXT, OVERNIGHT_DUFFLE_HEADING_TEXT, OVERNIGHT_DUFFLE_LINK_TEXT, OVERNIGHT_DUFFLE_PRICE_TEXT, MY_WISH_LIST_URL,MY_WISH_LIST_HEADING_TEXT, NEW_LUMA_YOGA_COLLECTION_URL, NEW_LUMA_YOGA_COLLECTION_HEADER_TEXT, NEW_LUMA_YOGA_COLLECTION_IB_HEADING_TEXT, NEW_LUMA_YOGA_COLLECTION_IB_CTA_TEXT, SHOP_NEW_YOGA_BTN_TEXT, PERFORMANCE_SPORTSWEAR_NEW_URL, PERFORMANCE_SPORTSWEAR_NEW_BREADCRUMBS_TEXT, PERFORMANCE_SPORTSWEAR_NEW_HEADING_TEXT, PERFORMANCE_SPORTSWEAR_IB_HEADING_TEXT, PERFORMANCE_SPORTSWEAR_IB_CTA_TEXT, ECO_COLLECTION_NEW_URL, ECO_COLLECTION_NEW_BREADCRUMBS_TEXT, ECO_COLLECTION_NEW_HEADING_TEXT, ECO_COLLECTION_NEW_IB_HEADING_TEXT, ECO_COLLECTION_NEW_IB_CTA_TEXT, LUMA_LATEST_HEADING_TEXT, LUMA_LATEST_INF_TEXT, LUMA_LATEST_OVERNIGHT_DUFFLE_URL, OVERNIGHT_DUFFLE_NAME, OVERNIGHT_DUFFLE_REVIEW_URL, OVERNIGHT_DUFFLE_REVIEW_TUB, OVERNIGHT_DUFFLE_REVIEW_HEADING, OVERNIGHT_DUFFLE_PRICE } from "../helpers/testDataWhatsNewPage";
 
-import { ADD_TO_CARD_BTN_TEXT }  from "../helpers/testDataWhatsNewPage";
+import { ADD_TO_CARD_BTN_TEXT, COMPARE_LINK_IN_HEADER_TEXT }  from "../helpers/testDataWhatsNewPage";
 
 test.describe('whatsNewPage.spec', () => {
 
@@ -1252,6 +1252,75 @@ test.describe('whatsNewPage.spec', () => {
 
 	});
 
+	test('ТС 04.1.145 Verify that the "Add to Wish List" button appears after hovering over the product card', async ({ page }) => {
 
+		await whatsNewPage.hoverLumasLatestSectionProductCardsItem();
+
+		await expect(whatsNewPage.productCardsAddToWishListBtn).toBeVisible();
+
+	});
+
+	test('ТС 04.1.146 Verify that the "Add to Wish List" button has a cursor pointer', async ({ page }) => {
+
+		await whatsNewPage.hoverLumasLatestSectionProductCardsItem();
+
+		await expect(whatsNewPage.productCardsAddToWishListBtn).toBeVisible();
+		await expect(whatsNewPage.productCardsAddToWishListBtn).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 04.1.147 Verify that the user is redirected to the "My Wish List" page and the selected product item appears in the "My Wish List" page after clicking on the "Add to Wish List" button (only registered user)', async ({ page }) => {
+
+		const productToWishList = 'Overnight Duffle';
+
+		await whatsNewPage.hoverLumasLatestSectionProductCardsItem();
+
+		const customerLoginPage = await whatsNewPage.clickProductCardsAddToWishListBtn();
+
+		await customerLoginPage.fillEmailField();
+		await customerLoginPage.fillPasswordField();
+
+		const myWishListPage = await customerLoginPage.clickSignInBtn();
+
+		await page.reload();
+
+		await expect(myWishListPage.headingMyWishListPage).toBeVisible();
+		await expect(myWishListPage.headingMyWishListPage).toHaveText(MY_WISH_LIST_HEADING_TEXT);
+		await expect(myWishListPage.productNameLink).toBeVisible();
+		await expect(myWishListPage.productNameLink).toHaveText(OVERNIGHT_DUFFLE_LINK_TEXT);
+		await expect(myWishListPage.addedProductMessage).toBeVisible();
+		await expect(myWishListPage.addedProductMessage).toHaveText(`${productToWishList} has been added to your Wish List. Click here to continue shopping.`);
+
+	});
+
+	test('ТС 04.1.148 Verify that the "Add to Compare" button appears after hovering over the product card', async ({ page }) => {
+
+		await whatsNewPage.hoverLumasLatestSectionProductCardsItem();
+
+		await expect(whatsNewPage.productCardsAddToCompareBtn).toBeVisible();
+
+	});
+
+	test('ТС 04.1.149 Verify that the "Add to Compare" button has cursor pointer', async ({ page }) => {
+
+		await whatsNewPage.hoverLumasLatestSectionProductCardsItem();
+
+		await expect(whatsNewPage.productCardsAddToCompareBtn).toBeVisible();
+		await expect(whatsNewPage.productCardsAddToCompareBtn).toHaveCSS('cursor', 'pointer');
+
+	});
+
+	test('ТС 04.1.150 Verify that the "You added product {name of product} to the comparison list." message appears after clicking on the "Add to Compare" button', async ({ page }) => {
+
+		const productToCompareName = 'Overnight Duffle';
+
+		await whatsNewPage.hoverLumasLatestSectionProductCardsItem();
+
+		await whatsNewPage.clickProductCardsAddToCompareBtn();
+
+		await expect(whatsNewPage.productCardsAddToCardMessage).toBeVisible();
+		await expect(whatsNewPage.productCardsAddToCardMessage).toHaveText(`You added product ${productToCompareName} to the comparison list.`);
+
+	});
 	
 });

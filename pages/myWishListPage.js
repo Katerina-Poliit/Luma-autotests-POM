@@ -5,7 +5,8 @@ export default class MyWishListPage {
 
 		 this.page = page;
 		 this.headingMyWishListPage = page.locator('span').filter({ hasText: 'My Wish List' });
-
+		 this.productNameLink = page.locator('#item_6565').getByText('Overnight Duffle');
+		 this.addedProductMessage = page.getByRole('alert').locator('div').first();
 	}
 
 	async openWhatsNewPage() {
