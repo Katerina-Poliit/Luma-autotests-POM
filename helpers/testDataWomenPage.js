@@ -42,3 +42,5 @@ export const ERIN_RECOMMENDS_HEADING = 'What would Erin wear?';
 export const ERIN_RECOMMENDS_ACTION_TEXT = 'It’s no secret: see Luma founder Erin Renny’s wardrobe go-to’s';
 export const BLOCK_PANTS_HEADING = 'Luma pants';
 export const BLOCK_PANTS_ACTION = 'Pants for yoga, gym and outdoors';
+export const BLOCK_SHOP_NOW_HEADING = 'Luma BrasTanks';
+export const BLOCK_SHOP_NOW_Action = 'Stock up for summer!';
