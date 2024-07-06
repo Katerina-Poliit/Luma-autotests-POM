@@ -104,3 +104,5 @@ export const OVERNIGHT_DUFFLE_REVIEW_TUB = 'Reviews 3 ';
 export const OVERNIGHT_DUFFLE_REVIEW_HEADING = 'Customer Reviews';
 export const OVERNIGHT_DUFFLE_PRICE = '$45.00';
 export const ADD_TO_CARD_BTN_TEXT = 'Add to Cart';
+
+export const COMPARE_LINK_IN_HEADER_TEXT = 'Compare Products 1 item';
