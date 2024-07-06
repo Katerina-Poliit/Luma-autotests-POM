@@ -1,3 +1,4 @@
+import OvernightDuffleReviewPage from "../components/overnightDuffleReviewPage";
 import RemoveModalWindow from "../modalWindows/removeModalWindow";
 import CompareProductsPage from "./compareProductsPage";
 import { CreateNewCustomerAccountPage } from "./createNewCustomerAccountPage";
@@ -95,6 +96,10 @@ export class WhatsNewPage {
 		  this.productCardsStarRating = page.getByTitle('60%');
 		  this.productCardsStarRatingFilledStars = page.getByTitle('60%').locator('span').first();
 		  this.productCardsReviewLink = page.getByRole('link', { name: 'Reviews' }).nth(1);
+		  this.productCardsPrice = page.locator('#old-price-13-widget-product-grid').getByText('$');
+		  this.productCardsSizeBtns = page.locator('#old-price-13-widget-product-grid').getByText('$');
+		  this.productCardsAddToCardBtn = page.locator('[title="Add to Cart"]').nth(1);
+		  this.productCardsAddToCardMessage = page.getByRole('alert').locator('div').first()
    }
 
 	async clickHomeBreadcrumbs() {
@@ -259,6 +264,21 @@ export class WhatsNewPage {
 	async clickProductCardsItemNameLink() {
 		await this.productCardsItemNameLink.click();
 		return new OvernightDufflePage(this.page)
+	}
+
+	async clickProductCardsReviewLink() {
+		await this.productCardsReviewLink.click();
+		return new OvernightDuffleReviewPage(this.page)
+	}
+
+	async hoverLumasLatestSectionProductCardsItem() {
+		await this.lumasLatestSectionProductCardsItem.hover();
+		return this;
+	}
+
+	async clickProductCardsAddToCardBtn() {
+		await this.productCardsAddToCardBtn.click();
+		return this;
 	}
 
 }
